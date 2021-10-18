@@ -2,7 +2,6 @@
   "name": "chrome-designcember-2021",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,14 +20,5 @@
   "dependencies": {
     "@argyleink/open-props": "^0.1.1",
     "cqfill": "^0.6.0"
-  },
-  "postcss": {
-    "plugins": {
-      "postcss-import": {},
-      "postcss-media-minmax": {},
-      "postcss-custom-media": {},
-      "postcss-nesting": {},
-      "cqfill/postcss": {}
-    }
   }
 }
