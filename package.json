@@ -15,10 +15,12 @@
   "dependencies": {
     "@argyleink/open-props": "^0.1.1",
     "@snowpack/plugin-postcss": "^1.4.3",
-    "cqfill": "^0.6.0"
+    "cqfill": "^0.6.0",
+    "postcss-nesting": "^8.0.1"
   },
   "postcss": {
     "plugins": {
+      "postcss-nesting": {},
       "cqfill/postcss": {}
     }
   }
