@@ -1,0 +1,18 @@
+---
+import Day1 from '../Days/Day1.astro';
+import Day2 from '../Days/Day2.astro';
+---
+
+<style>
+  main {
+    contain: style layout inline-size;
+    display: grid;
+    gap: 1ch;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+</style>
+
+<main>
+  <Day1 />
+  <Day2 />
+</main>

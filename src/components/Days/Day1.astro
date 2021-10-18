@@ -1,0 +1,21 @@
+---
+---
+
+<style>
+  .day {
+    contain: style layout inline-size;
+    display: grid;
+    place-items: center;
+    aspect-ratio: var(--aspect-landscape);
+  }
+
+  @container (max-width: 850px) {
+    .day {
+      background: var(--grape-5);
+    }
+  }
+</style>
+
+<div class="day">
+  Day 1
+</div>
