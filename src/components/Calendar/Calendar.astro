@@ -19,6 +19,7 @@ import Day5 from '../Days/Day5.astro';
     --_card-size: calc(50% - 80px); 
     --_windows: 2;
     
+    contain: style layout inline-size;
     inline-size: min(80vw, 1200px);
     border: 5px solid black;
     position: relative;
@@ -31,12 +32,12 @@ import Day5 from '../Days/Day5.astro';
     padding: 40px;
     align-items: start;
     
-    @media (min-width: 480px) {
+    @media (width >= 480px) {
       --_card-size: calc(33% - 80px);
       --_windows: 3;
     }
     
-    @media (min-width: 720px) {
+    @media (width >= 720px) {
       --_card-size: calc(25% - 80px);
       --_windows: 4;
     }
@@ -75,8 +76,8 @@ import Day5 from '../Days/Day5.astro';
     min-block-size: 100%;
     position: relative;
 
-    @container (max-width: 850px) {
-      background: var(--grape-5);
+    @container (width <= 850px) {
+      background-color: var(--grape-5);
     }
     
     &::before {
