@@ -2,18 +2,18 @@
 ---
 
 <style>
-  .day {
-    contain: style layout inline-size;
-    display: grid;
-    place-items: center;
-    aspect-ratio: var(--aspect-box);
+  .two {
+    aspect-ratio: 1;
+    min-block-size: auto;
+    align-self: center;
+    background-image: url(https://doodleipsum.com/700x700/outline?2);
 
-    @container (min-width: 850px) {
-      background: var(--grape-5);
+    &::before {
+      content: "2";
     }
   }
 </style>
 
-<div class="day">
-  Day 2
+<div class="day two">
+  
 </div>

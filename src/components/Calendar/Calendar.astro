@@ -1,18 +1,99 @@
 ---
 import Day1 from '../Days/Day1.astro';
 import Day2 from '../Days/Day2.astro';
+import Day3 from '../Days/Day3.astro';
+import Day4 from '../Days/Day4.astro';
+import Day5 from '../Days/Day5.astro';
 ---
 
-<style>
-  main {
-    contain: style layout inline-size;
-    display: grid;
-    gap: 1ch;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-</style>
-
-<main>
+<main class="calendar">
   <Day1 />
   <Day2 />
+  <Day3 />
+  <Day4 />
+  <Day5 />
 </main>
+
+<style global>
+  .calendar {
+    --_card-size: calc(50% - 80px); 
+    --_windows: 2;
+    
+    inline-size: min(80vw, 1200px);
+    border: 5px solid black;
+    position: relative;
+    background: var(--gray-1);
+
+    display: grid;
+    grid-template-columns: repeat(var(--_windows), minmax(var(--_card-size), 1fr));
+    grid-auto-flow: dense;
+    gap: 40px;
+    padding: 40px;
+    align-items: start;
+    
+    @media (min-width: 480px) {
+      --_card-size: calc(33% - 80px);
+      --_windows: 3;
+    }
+    
+    @media (min-width: 720px) {
+      --_card-size: calc(25% - 80px);
+      --_windows: 4;
+    }
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: -5%;
+      block-size: 20px;
+      width: 110%;
+      border: 5px solid black;
+      background: var(--gray-5);
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: -10%;
+      block-size: 25px;
+      width: 120%;
+      border: 5px solid black;
+      background: var(--gray-5);
+    }
+  }
+
+  .day {
+    contain: style layout inline-size;
+
+    padding: 20px;
+    box-shadow: 0 0 0 5px black;
+    background: white;
+    background-size: cover;
+    background-position: center;
+    min-block-size: 100%;
+    position: relative;
+
+    @container (max-width: 850px) {
+      background: var(--grape-5);
+    }
+    
+    &::before {
+      position: absolute;
+      bottom: -2ch;
+      left: calc(50% - 2ch);
+      
+      background: white;
+      display: grid;
+      place-items: center;
+      inline-size: 4ch;
+      aspect-ratio: var(--aspect-box);
+      font-family: ui-monospace, monospace;
+      border-radius: 1e3px;
+      border: 3px solid black;
+      font-size: .7rem;
+      color: var(--gray-8);
+    }
+  }
+</style>
