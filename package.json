@@ -2,6 +2,7 @@
   "name": "chrome-designcember-2021",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
