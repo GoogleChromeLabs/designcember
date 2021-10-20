@@ -1,9 +1,37 @@
 ---
+import {day} from '../Days/day.css';
+
 import Day1 from '../Days/Day1.astro';
 import Day2 from '../Days/Day2.astro';
 import Day3 from '../Days/Day3.astro';
 import Day4 from '../Days/Day4.astro';
 import Day5 from '../Days/Day5.astro';
+import Day6 from '../Days/Day6.astro';
+import Day7 from '../Days/Day7.astro';
+import Day8 from '../Days/Day8.astro';
+import Day9 from '../Days/Day9.astro';
+import Day10 from '../Days/Day10.astro';
+import Day11 from '../Days/Day11.astro';
+import Day12 from '../Days/Day12.astro';
+import Day13 from '../Days/Day13.astro';
+import Day14 from '../Days/Day14.astro';
+import Day15 from '../Days/Day15.astro';
+import Day16 from '../Days/Day16.astro';
+import Day17 from '../Days/Day17.astro';
+import Day18 from '../Days/Day18.astro';
+import Day19 from '../Days/Day19.astro';
+import Day20 from '../Days/Day20.astro';
+import Day21 from '../Days/Day21.astro';
+import Day22 from '../Days/Day22.astro';
+import Day23 from '../Days/Day23.astro';
+import Day24 from '../Days/Day24.astro';
+import Day25 from '../Days/Day25.astro';
+import Day26 from '../Days/Day26.astro';
+import Day27 from '../Days/Day27.astro';
+import Day28 from '../Days/Day28.astro';
+import Day29 from '../Days/Day29.astro';
+import Day30 from '../Days/Day30.astro';
+import Day31 from '../Days/Day31.astro';
 ---
 
 <main class="calendar">
@@ -12,34 +40,66 @@ import Day5 from '../Days/Day5.astro';
   <Day3 />
   <Day4 />
   <Day5 />
+  <Day6 />
+  <Day7 />
+  <Day8 />
+  <Day9 />
+  <Day10 />
+  <Day11 />
+  <Day12 />
+  <Day13 />
+  <Day14 />
+  <Day15 />
+  <Day16 />
+  <Day17 />
+  <Day18 />
+  <Day19 />
+  <Day20 />
+  <Day21 />
+  <Day22 />
+  <Day23 />
+  <!-- <Day24 />
+  <Day25 />
+  <Day26 />
+  <Day27 />
+  <Day28 />
+  <Day29 />
+  <Day30 />
+  <Day31 /> -->
 </main>
 
-<style global>
+<style>
   .calendar {
     --_card-size: calc(50% - 80px); 
     --_windows: 2;
+    --_building-color: var(--gray-1);
     
     contain: style layout inline-size;
     inline-size: min(80vw, 1200px);
     border: 5px solid black;
     position: relative;
-    background: var(--gray-1);
+    background: var(--_building-color);
 
     display: grid;
     grid-template-columns: repeat(var(--_windows), minmax(var(--_card-size), 1fr));
     grid-auto-flow: dense;
-    gap: 40px;
     padding: 40px;
     align-items: start;
     
     @media (width >= 480px) {
       --_card-size: calc(33% - 80px);
       --_windows: 3;
+      padding: 20px;
     }
     
-    @media (width >= 720px) {
+    @media (width >= 1024px) {
       --_card-size: calc(25% - 80px);
       --_windows: 4;
+    }
+    
+    @media (width >= 1400px) {
+      --_card-size: calc(20% - 80px);
+      --_windows: 5;
     }
     
     &::before {
@@ -62,39 +122,6 @@ import Day5 from '../Days/Day5.astro';
       width: 120%;
       border: 5px solid black;
       background: var(--gray-5);
-    }
-  }
-
-  .day {
-    contain: style layout inline-size;
-
-    padding: 20px;
-    box-shadow: 0 0 0 5px black;
-    background: white;
-    background-size: cover;
-    background-position: center;
-    min-block-size: 100%;
-    position: relative;
-
-    @container (width <= 850px) {
-      background-color: var(--grape-5);
-    }
-    
-    &::before {
-      position: absolute;
-      bottom: -2ch;
-      left: calc(50% - 2ch);
-      
-      background: white;
-      display: grid;
-      place-items: center;
-      inline-size: 4ch;
-      aspect-ratio: var(--aspect-box);
-      font-family: ui-monospace, monospace;
-      border-radius: 1e3px;
-      border: 3px solid black;
-      font-size: .7rem;
-      color: var(--gray-8);
     }
   }
 </style>

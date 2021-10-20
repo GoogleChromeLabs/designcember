@@ -1,0 +1,36 @@
+.day {
+  --_day-bg: var(--gray-4);
+
+  contain: style layout inline-size;
+  grid-row-start: span 2;
+  background-color: var(--_day-bg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  /* @media (prefers-reduced-motion: no-preference) {
+    transition: aspect-ratio .5s var(--ease-squish-3);
+  } */
+
+  /* @container (width <= 850px) {
+    background-color: var(--grape-5);
+  } */
+  
+  &::before {
+    position: absolute;
+    z-index: var(--layer-1);
+    inset-block-end: -2ch;
+    inset-inline-start: calc(50% - 2ch);
+    
+    background: var(--gray-0);
+    display: grid;
+    place-items: center;
+    inline-size: 4ch;
+    aspect-ratio: var(--aspect-box);
+    font-family: var(--font-mono);
+    border-radius: 1e3px;
+    border: var(--border-size-2) solid var(--_day-bg);
+    font-size: .7rem;
+    color: var(--gray-8);
+  }
+}

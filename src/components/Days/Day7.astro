@@ -1,0 +1,25 @@
+---
+---
+
+<style>
+  .seven {
+    aspect-ratio: 1/1.25;
+    margin: var(--size-10) var(--size-8) var(--size-8) 0;
+    align-self: flex-end;
+    background-image: url(https://doodleipsum.com/350x350/outline?7);
+
+    &::before {
+      content: "7";
+    }
+
+    & > picture > img {
+      mask-image: url(/flower.svg);
+      mask-size: cover;
+      background-color: var(--_day-bg);
+    }
+  }
+</style>
+
+<div class="day seven">
+  
+</div>

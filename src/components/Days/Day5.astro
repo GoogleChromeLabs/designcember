@@ -3,17 +3,37 @@
 
 <style>
   .five {
-    aspect-ratio: 3/4;
-    min-block-size: auto;
-    align-self: center;
-    background-image: url(https://doodleipsum.com/700x700/outline?5);
+    aspect-ratio: 4/3;
+    background-color: transparent;
+
+    @media (480px <= width <= 1024px) {
+      grid-column: 1;
+      grid-row: 3;
+      margin: var(--size-3) var(--size-3) -5% var(--size-3);
+    }
+
+    @media (width >= 1024px) {
+      grid-column: 4;
+      grid-row: 2;
+      margin: -15% var(--size-6) var(--size-5) var(--size-5);
+    }
 
     &::before {
       content: "5";
+    }
+
+    & > picture > img {
+      max-block-size: 100%;
+      max-inline-size: 100%;
+      object-fit: cover;
+      clip-path: polygon(0 0, 0% 100%, 100% 100%);
+      background-color: var(--_day-bg);
     }
   }
 </style>
 
 <div class="day five">
-  
+  <picture>
+    <img height="200" width="350" src="https://doodleipsum.com/350x350/outline?5" alt="">
+  </picture>
 </div>
