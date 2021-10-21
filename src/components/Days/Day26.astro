@@ -3,15 +3,29 @@
 
 <style>
   .twentysix {
-    border-radius: 1e2px 1e2px 0 0;
-    background-image: url(https://doodleipsum.com/700x700/outline?26);
+    aspect-ratio: 4/3;
+    margin: var(--size-5);
+    grid-row: span 1;
+    align-self: flex-end;
+    background-color: transparent;
+    margin-inline: var(--size-5);
 
     &::before {
       content: "26";
+    }
+
+    & > picture > img {
+      max-block-size: 100%;
+      max-inline-size: 100%;
+      object-fit: cover;
+      clip-path: polygon(100% 100%, 100% 0, 0 100%);
+      background-color: var(--_day-bg);
     }
   }
 </style>
 
 <div class="day twentysix">
-
+  <picture>
+    <img height="200" width="350" src="https://doodleipsum.com/350x350/outline?26" alt="">
+  </picture>
 </div>
