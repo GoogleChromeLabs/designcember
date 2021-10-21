@@ -4,15 +4,16 @@
 <style>
   .five {
     aspect-ratio: 4/3;
+    margin: var(--size-3);
     background-color: transparent;
 
-    @media (480px <= width <= 1024px) {
+    @media (--lg) {
       grid-column: 1;
       grid-row: 3;
       margin: var(--size-3) var(--size-3) -5% var(--size-3);
     }
 
-    @media (width >= 1024px) {
+    @media (--xl) {
       grid-column: 4;
       grid-row: 2;
       margin: -15% var(--size-6) var(--size-5) var(--size-5);
