@@ -4,7 +4,15 @@ import Calendar from '../components/Calendar/Calendar.astro';
 
 <style>
 	@import "@argyleink/open-props/normalize.css";
+	
+	body {
+		display: grid;
+	  place-content: center;
+	  padding-block-start: 20vh;
+	}
+</style>
 
+<style global>
 	@custom-media --sm (width >= 720px);
 	@custom-media --md (width >= 1024px);
 	@custom-media --lg (width >= 1680px);
@@ -13,12 +21,6 @@ import Calendar from '../components/Calendar/Calendar.astro';
 	@custom-media --motionOK (prefers-reduced-motion: no-preference);
 	@custom-media --dark (prefers-color-scheme: dark);
 	@custom-media --light (prefers-color-scheme: light);
-	
-	body {
-		display: grid;
-	  place-content: center;
-	  padding-block-start: 20vh;
-	}
 </style>
 
 <html lang="en">
