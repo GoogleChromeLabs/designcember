@@ -4,10 +4,12 @@
 <style>
   .twentyfive {
     aspect-ratio: 3/2;
-    grid-row: span 1;
     border-radius: 0 0 1e2px 0;
     margin: var(--size-3) var(--size-5);
-    background-image: url(https://doodleipsum.com/700x700/outline?25);
+
+    @media (--xl) {
+      grid-row: span 1;
+    }
 
     &::before {
       content: "25";

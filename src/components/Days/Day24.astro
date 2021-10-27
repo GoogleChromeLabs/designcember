@@ -4,28 +4,27 @@
 <style>
   .twentyfour {
     aspect-ratio: 4/3;
-    grid-row: span 1;
     align-self: flex-end;
     background-color: transparent;
     margin-inline: var(--size-5);
+
+    @media (--xl) {
+      grid-row: span 1;
+    }
 
     &::before {
       content: "24";
       inset-block: calc(50% - 2ch) 0;
     }
+  }
 
-    & > picture > img {
-      max-block-size: 100%;
-      max-inline-size: 100%;
-      object-fit: cover;
-      clip-path: polygon(0 0, 100% 0, 100% 100%);
-      background-color: var(--_day-bg);
-    }
+  .frame {
+    block-size: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    background-color: var(--_day-bg);
   }
 </style>
 
 <div class="day twentyfour">
-  <picture>
-    <img height="200" width="350" src="https://doodleipsum.com/350x350/outline?24" alt="">
-  </picture>
+  <div class="frame"></div>
 </div>

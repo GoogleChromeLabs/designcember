@@ -12,19 +12,15 @@
     &::before {
       content: "18";
     }
+  }
 
-    & > picture > img {
-      max-block-size: 100%;
-      max-inline-size: 100%;
-      object-fit: cover;
-      clip-path: polygon(0 0, 0% 100%, 100% 100%);
-      background-color: var(--_day-bg);
-    }
+  .frame {
+    block-size: 100%;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    background-color: var(--_day-bg);
   }
 </style>
 
 <div class="day eighteen">
-  <picture>
-    <img height="200" width="350" src="https://doodleipsum.com/350x350/outline?18" alt="">
-  </picture>
+  <div class="frame"></div>
 </div>

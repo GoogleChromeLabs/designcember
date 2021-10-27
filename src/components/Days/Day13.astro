@@ -3,7 +3,7 @@
 
 <style>
   .thirteen {
-    aspect-ratio: 4/3;
+    aspect-ratio: 5/3;
     margin: var(--size-8) var(--size-6) 0 0;
     background-color: transparent;
 
@@ -11,19 +11,15 @@
       content: "13";
       inset-block: -2ch auto;
     }
+  }
 
-    & picture > img {
-      max-block-size: 100%;
-      max-inline-size: 100%;
-      object-fit: cover;
-      clip-path: polygon(0 0, 100% 0, 50% 80%);
-      background-color: var(--_day-bg);
-    }
+  .frame {
+    block-size: 100%;
+    clip-path: polygon(0 0, 100% 0, 50% 80%);
+    background-color: var(--_day-bg);
   }
 </style>
 
 <div class="day thirteen">
-  <picture>
-    <img height="200" width="350" src="https://doodleipsum.com/350x350/outline?13" alt="">
-  </picture>
+  <div class="frame"></div>
 </div>
