@@ -3,9 +3,6 @@
 
   container: inline-size;
   grid-row-start: span 2;
-  background-color: var(--_day-bg);
-  background-size: cover;
-  background-position: center;
   position: relative;
 
   /* @media (prefers-reduced-motion: no-preference) {

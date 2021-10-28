@@ -38,7 +38,7 @@ import Day31 from '../Days/Day31.astro';
   <Day1 />
   <Day2 />
   <Day3 />
-  <div>
+  <div class="day">
     <Day4 />
     <Day5 />
   </div>
@@ -54,15 +54,19 @@ import Day31 from '../Days/Day31.astro';
   <Day15 />
   <Day16 />
   <Day17 />
-  <Day18 />
-  <Day19 />
+  <div class="day pair-reverse">
+    <Day18 />
+    <Day19 />
+  </div>
   <Day20 />
   <Day21 />
   <Day22 />
   <Day23 />
   <Day24 />
-  <Day25 />
-  <Day26 />
+  <div class="day">
+    <Day25 />
+    <Day26 />
+  </div>
   <Day27 />
   <Day28 />
   <Day29 />
@@ -126,5 +130,10 @@ import Day31 from '../Days/Day31.astro';
       border: 5px solid black;
       background: var(--gray-5);
     }
+  }
+
+  .pair-reverse {
+    display: flex;
+    flex-direction: column-reverse;
   }
 </style>
