@@ -1,7 +1,7 @@
 .day {
   --_day-bg: var(--gray-4);
 
-  contain: style layout inline-size;
+  container: inline-size;
   grid-row-start: span 2;
   background-color: var(--_day-bg);
   background-size: cover;
