@@ -5,6 +5,10 @@
   grid-row-start: span 2;
   position: relative;
   scroll-margin-block-start: 10vh;
+
+  &:target {
+    --_day-bg: var(--blue-5);
+  }
   
   &::before {
     position: absolute;
