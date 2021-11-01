@@ -4,14 +4,7 @@
   container: inline-size;
   grid-row-start: span 2;
   position: relative;
-
-  /* @media (prefers-reduced-motion: no-preference) {
-    transition: aspect-ratio .5s var(--ease-squish-3);
-  } */
-
-  /* @container (width <= 850px) {
-    background-color: var(--grape-5);
-  } */
+  scroll-margin-block-start: 10vh;
   
   &::before {
     position: absolute;
