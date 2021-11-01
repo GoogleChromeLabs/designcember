@@ -74,6 +74,37 @@ import Day31 from '../Days/Day31.astro';
   <Day31 />
 </main>
 
+<script>
+  const validhashes = [
+           '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th',
+    '10th','11th','12th','13th','14th','15th','16th','17th','18th','19th',
+    '20th','21st','22nd','23rd','24th','25th','26th','27th','28th','29th',
+    '30th','31st',
+  ]
+  const hashtarget = window.location.hash
+
+  const onscroll = () => {
+    // repeatedly clear the timer on scroll
+    clearTimeout(window.scrollEndTimer)
+
+    // and set a new one, so when it actually fires we know scroll has rested
+    window.scrollEndTimer = setTimeout(onscrollended, 100)
+  }
+
+  const onscrollended = () => {
+    console.info(`Show modal for the ${hashtarget}`)
+
+    // remove event as we only needed scrollend notice once
+    window.removeEventListener('scroll', onscroll)
+  }
+
+  // if there's a valid hashtarget
+  // watch scroll for scrollend
+  if (validhashes.includes(hashtarget.substring(1, hashtarget.length))) {
+    window.addEventListener('scroll', onscroll)
+  }
+</script>
+
 <style>
   .calendar {
     --_card-size: calc(50% - 80px); 
