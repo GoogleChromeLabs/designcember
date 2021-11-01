@@ -1,5 +1,6 @@
 ---
 import Calendar from '../components/Calendar/Calendar.astro';
+import Logo from '../components/Logo/Logo.astro';
 ---
 
 <style>
@@ -8,7 +9,8 @@ import Calendar from '../components/Calendar/Calendar.astro';
 	body {
 		display: grid;
 	  place-content: center;
-	  padding-block-start: 20vh;
+	  justify-items: center;
+	  gap: var(--size-10);
 	}
 </style>
 
@@ -23,6 +25,7 @@ import Calendar from '../components/Calendar/Calendar.astro';
 	</head>
 
 	<body>
+		<Logo />
 		<Calendar />
 	</body>
 
