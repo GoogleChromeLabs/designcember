@@ -4,8 +4,8 @@ import Imgix from '../Imgix/Imgix.astro';
 
 <style>
   .one {
-    --frame-bottom: 45px;
-    --frame-side: 20px;
+    --frame-bottom: 15%;
+    --frame-side: 6%;
 
     margin: var(--size-4);
 
@@ -18,7 +18,14 @@ import Imgix from '../Imgix/Imgix.astro';
   .pane {
     display: grid;
     border-radius: 1e3px 1e3px 0 0;
+    padding-inline: var(--frame-side);
+    /* padding-block: 0 var(--frame-bottom); */
+    margin-block-end: -10%;
     overflow: hidden;
+  }
+
+  .frame {
+    margin-inline: calc(var(--frame-side) * -1);
   }
 
   .una_body {
@@ -29,10 +36,8 @@ import Imgix from '../Imgix/Imgix.astro';
   }
 
   .una_lower {
-    margin-block-end: -18px;
-    margin-inline-end: -40px;
-    padding-block-end: var(--frame-bottom);
-    max-inline-size: 90%;
+    margin-inline-end: -5%;
+    max-inline-size: 70%;
     align-self: flex-end;
     justify-self: flex-end;
   }
@@ -40,7 +45,7 @@ import Imgix from '../Imgix/Imgix.astro';
   .adam {
     align-items: flex-end;
     justify-items: flex-end;
-    padding-inline-end: var(--frame-side);
+    padding-inline-end: calc(var(--frame-side) / 2);
     padding-block-end: var(--frame-bottom);
   }
 
@@ -52,18 +57,18 @@ import Imgix from '../Imgix/Imgix.astro';
     align-self: center;
     justify-self: center;
     max-inline-size: 18%;
-    margin-block-start: -60px;
-    margin-inline-end: 40px;
+    margin-block-start: -12%;
+    margin-inline-end: 18%;
   }
 
   .lights {
     max-inline-size: 30%;
-    margin-inline-start: 40px;
+    margin-inline-start: 10%;
   }
 
-  .bg {
-    padding-inline: 20px;
-  }
+  /* .bg {
+    padding-inline: var(--frame-side);
+  } */
 </style>
 
 <a href="#1st" id="1st" class="day one stacked" title="Una and Adam sitting in a window">
