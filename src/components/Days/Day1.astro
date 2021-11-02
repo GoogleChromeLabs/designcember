@@ -51,6 +51,7 @@ import Imgix from '../Imgix/Imgix.astro';
 
   .adam_body {
     max-inline-size: 60%;
+    z-index: 2;
   }
 
   .adam_hand {
@@ -59,6 +60,7 @@ import Imgix from '../Imgix/Imgix.astro';
     max-inline-size: 18%;
     margin-block-start: -12%;
     margin-inline-end: 18%;
+    animation: adam-wave .75s steps(2, end) infinite;
   }
 
   .lights {
@@ -66,9 +68,9 @@ import Imgix from '../Imgix/Imgix.astro';
     margin-inline-start: 10%;
   }
 
-  /* .bg {
-    padding-inline: var(--frame-side);
-  } */
+  @keyframes adam-wave {
+    50% { transform: rotateZ(-10deg); }
+  }
 </style>
 
 <a href="#1st" id="1st" class="day one stacked" title="Una and Adam sitting in a window">
