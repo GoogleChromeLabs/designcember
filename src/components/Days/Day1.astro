@@ -1,19 +1,95 @@
 ---
+import Imgix from '../Imgix/Imgix.astro';
 ---
 
 <style>
   .one {
+    --frame-bottom: 45px;
+    --frame-side: 20px;
+
     margin: var(--size-4);
-    align-self: stretch;
-    border-radius: 1e3px 1e3px 0 0;
-    background: var(--_day-bg);
 
     &::before {
       content: "1";
+      inset-block-start: -2px;
     }
+  }
+
+  .pane {
+    display: grid;
+    border-radius: 1e3px 1e3px 0 0;
+    overflow: hidden;
+  }
+
+  .una_body {
+    align-self: flex-end;
+    margin-block-end: -15px;
+    padding-inline-start: 10px;
+    padding-block-end: var(--frame-bottom);
+  }
+
+  .una_lower {
+    margin-block-end: -18px;
+    margin-inline-end: -40px;
+    padding-block-end: var(--frame-bottom);
+    max-inline-size: 90%;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+  .adam {
+    align-items: flex-end;
+    justify-items: flex-end;
+    padding-inline-end: var(--frame-side);
+    padding-block-end: var(--frame-bottom);
+  }
+
+  .adam_body {
+    max-inline-size: 60%;
+  }
+
+  .adam_hand {
+    align-self: center;
+    justify-self: center;
+    max-inline-size: 18%;
+    margin-block-start: -60px;
+    margin-inline-end: 40px;
+  }
+
+  .lights {
+    max-inline-size: 30%;
+    margin-inline-start: 40px;
+  }
+
+  .bg {
+    padding-inline: 20px;
   }
 </style>
 
-<div id="1st" class="day one" tabindex="0">
-
-</div>
+<a href="#1st" id="1st" class="day one stacked" title="Una and Adam sitting in a window">
+  <div class="pane stacked">
+    <div class="bg">
+      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/db4lz1sPzkAbncVH5SfL.png" loading="lazy" role="presentation" />
+    </div>
+    <div class="lights">
+      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/hQWeg2Ghby3cqrtpziDI.png" loading="lazy" role="presentation" />
+    </div>
+    <div class="adam stacked">
+      <div class="adam_hand">
+        <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/QJSbyTyUJtA9QSxJCpw3.png" loading="lazy" role="presentation" />
+      </div>
+      <div class="adam_body">
+        <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/22ao6TJk9oe4iuS4pQor.png" loading="lazy" role="presentation" />
+      </div>
+    </div>
+    <div class="una_body">
+      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/Fhh06b0Z2hEgODBgJKXu.png" loading="lazy" role="presentation" />
+    </div>
+    <div class="frame">
+      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/37dwvrM3ELiGPD7ruxP6.png" loading="lazy" role="presentation" />
+    </div>
+  </div>
+  <span class="una_lower">
+    <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/prjF0esYqyx3lJBCGOGL.png" loading="lazy" role="presentation" />
+  </span>
+</a>
