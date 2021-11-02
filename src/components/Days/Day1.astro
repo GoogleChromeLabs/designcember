@@ -22,10 +22,12 @@ import Imgix from '../Imgix/Imgix.astro';
     /* padding-block: 0 var(--frame-bottom); */
     margin-block-end: -10%;
     overflow: hidden;
+    isolation: isolate;
   }
 
   .frame {
     margin-inline: calc(var(--frame-side) * -1);
+    z-index: 2;
   }
 
   .una_body {
@@ -40,6 +42,7 @@ import Imgix from '../Imgix/Imgix.astro';
     max-inline-size: 70%;
     align-self: flex-end;
     justify-self: flex-end;
+    z-index: 1;
   }
 
   .adam {
