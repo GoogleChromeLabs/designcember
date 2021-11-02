@@ -29,3 +29,12 @@
     color: var(--gray-8);
   }
 }
+
+.stacked {
+  display: grid;
+  grid: [stack] 1fr / [stack] 1fr;
+
+  & > * {
+    grid-area: stack;
+  }
+}
