@@ -26,7 +26,16 @@ import Imgix from '../Imgix/Imgix.astro';
   .frame {
     margin-inline: calc(var(--frame-side) * -1);
     z-index: 2;
-    /* background: linear-gradient(to bottom right, #fdfcf2, #f7fad4); */
+  }
+
+  .bg {
+    border-radius: 1e3px 1e3px 0 0;
+    background: linear-gradient(to bottom right, #fdfcf2, #f7fad4);
+    margin-block-end: var(--frame-bottom);
+  }
+
+  .bg-shadow {
+    max-inline-size: 80%;
   }
 
   .una {
@@ -105,8 +114,9 @@ import Imgix from '../Imgix/Imgix.astro';
 
 <a href="#1st" id="1st" class="day one stacked" title="Una and Adam sitting in a window">
   <div class="pane stacked">
-    <div class="bg">
-      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/db4lz1sPzkAbncVH5SfL.png" loading="lazy" role="presentation" />
+    <div class="bg"></div>
+    <div class="bg-shadow">
+      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/8mTbbdLlFHHRDIjhj5uO.png" loading="lazy" role="presentation" />
     </div>
     <div class="lights">
       <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/hQWeg2Ghby3cqrtpziDI.png" loading="lazy" role="presentation" />
