@@ -7,8 +7,10 @@
   scroll-margin-block-start: 10vh;
   cursor: pointer;
 
-  &:target {
-    --_day-bg: var(--blue-5);
+  &:target::before {
+    background-color: var(--blue-5);
+    border-color: var(--blue-5);
+    color: white;
   }
   
   &::before {
