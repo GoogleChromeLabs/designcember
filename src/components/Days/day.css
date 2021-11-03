@@ -7,10 +7,15 @@
   scroll-margin-block-start: 10vh;
   cursor: pointer;
 
-  &:target::before {
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:is(:target, :focus-visible)::before {
     background-color: var(--blue-5);
     border-color: var(--blue-5);
     color: white;
+    transform: scale(1.25);
   }
   
   &::before {
@@ -29,6 +34,10 @@
     border: var(--border-size-2) solid var(--_day-bg);
     font-size: .7rem;
     color: var(--gray-8);
+
+    @media (--motionOK) {
+      transition: transform .25s var(--ease-elastic-3);
+    }
   }
 }
 
