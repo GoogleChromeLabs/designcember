@@ -15,7 +15,7 @@ import Imgix from '../Imgix/Imgix.astro';
     }
 
     @media (--motionOK) {
-      &:is(:hover, :focus-visible) {
+      &:is(:target, :hover, :focus-visible) {
         & .una_hand {
           transform-origin: bottom center;
           transform: rotateZ(-20deg);
