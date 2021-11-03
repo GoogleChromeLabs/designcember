@@ -39,6 +39,7 @@ import Imgix from '../Imgix/Imgix.astro';
 
   .frame {
     margin-inline: calc(var(--frame-side) * -1);
+    aspect-ratio: 800/1020;
     z-index: 2;
   }
 
@@ -50,6 +51,8 @@ import Imgix from '../Imgix/Imgix.astro';
 
   .bg-shadow {
     max-inline-size: 80%;
+    margin-block-start: 5%;
+    margin-inline-start: 4%;
   }
 
   .una {
@@ -80,6 +83,7 @@ import Imgix from '../Imgix/Imgix.astro';
   }
 
   .adam {
+    display: grid;
     align-items: flex-end;
     justify-items: flex-end;
     padding-inline-end: calc(var(--frame-side) / 2);
@@ -92,21 +96,21 @@ import Imgix from '../Imgix/Imgix.astro';
   }
 
   .adam_hand {
-    align-self: center;
-    justify-self: center;
-    max-inline-size: 15%;
-    margin-block-start: -35%;
-    margin-inline-end: 39%;
+    align-self: flex-start;
+    justify-self: flex-start;
+    max-inline-size: 25%;
+    margin-block-start: 9%;
+    margin-inline-start: -23%;
     transform-origin: bottom right;
     transform: rotateZ(20deg);
   }
 
   .adam_wrist {
-    align-self: center;
-    justify-self: center;
-    max-inline-size: 8%;
-    margin-block-start: -22%;
-    margin-inline-end: 22%;
+    align-self: flex-start;
+    justify-self: flex-start;
+    max-inline-size: 18%;
+    margin-block-start: 23%;
+    margin-inline-start: -4%;
   }
 
   .lights {
@@ -132,14 +136,14 @@ import Imgix from '../Imgix/Imgix.astro';
     <div class="lights">
       <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/hQWeg2Ghby3cqrtpziDI.png" loading="lazy" role="presentation" />
     </div>
-    <div class="adam stacked">
-      <div class="adam_wrist">
-        <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/WRUPHM0JJSMzL0fdjuAz.png" loading="lazy" role="presentation" />
-      </div>
-      <div class="adam_hand">
-        <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/r6J1xJYgWx4YvqSwKQKd.png" loading="lazy" role="presentation" />
-      </div>
-      <div class="adam_body">
+    <div class="adam">
+      <div class="adam_body stacked">
+        <div class="adam_wrist">
+          <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/WRUPHM0JJSMzL0fdjuAz.png" loading="lazy" role="presentation" />
+        </div>
+        <div class="adam_hand">
+          <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/r6J1xJYgWx4YvqSwKQKd.png" loading="lazy" role="presentation" />
+        </div>
         <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/22ao6TJk9oe4iuS4pQor.png" loading="lazy" role="presentation" />
       </div>
     </div>
