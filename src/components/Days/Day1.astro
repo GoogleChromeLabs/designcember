@@ -32,25 +32,24 @@ import Imgix from '../Imgix/Imgix.astro';
   .una_body {
     align-self: flex-end;
     margin-block-end: -15px;
-    padding-inline-start: 10px;
     padding-block-end: var(--frame-bottom);
   }
 
   .una_hand {
-    max-inline-size: 15%;
+    max-inline-size: 13%;
     align-self: flex-end;
     justify-self: center;
-    margin-block-end: 45%; 
-    margin-inline-end: 5%; 
+    margin-block-end: 47%; 
+    margin-inline-end: 8%; 
     transform-origin: bottom center;
-    transform: rotateZ(-10deg);
-    animation: adam-wave 1s steps(3, end) infinite;
+    transform: rotateZ(-20deg);
+    animation: una-wave 1s steps(3, end) infinite;
     z-index: 2;
   }
 
   .una_lower {
     margin-inline-end: -5%;
-    max-inline-size: 70%;
+    max-inline-size: 75%;
     align-self: flex-end;
     justify-self: flex-end;
     z-index: 1;
@@ -64,27 +63,27 @@ import Imgix from '../Imgix/Imgix.astro';
   }
 
   .adam_body {
-    max-inline-size: 60%;
+    max-inline-size: 65%;
     z-index: 2;
   }
 
   .adam_hand {
     align-self: center;
     justify-self: center;
-    max-inline-size: 18%;
-    margin-block-start: -28%;
-    margin-inline-end: 30%;
+    max-inline-size: 15%;
+    margin-block-start: -35%;
+    margin-inline-end: 39%;
     transform-origin: bottom right;
-    transform: rotateZ(10deg);
+    transform: rotateZ(20deg);
     animation: adam-wave .75s steps(3, end) infinite;
   }
 
   .adam_wrist {
     align-self: center;
     justify-self: center;
-    max-inline-size: 10%;
-    margin-block-start: -15%;
-    margin-inline-end: 14%;
+    max-inline-size: 8%;
+    margin-block-start: -22%;
+    margin-inline-end: 22%;
   }
 
   .lights {
@@ -92,8 +91,12 @@ import Imgix from '../Imgix/Imgix.astro';
     margin-inline-start: 10%;
   }
 
+  @keyframes una-wave {
+    50% { transform: rotateZ(5deg); }
+  }
+
   @keyframes adam-wave {
-    50% { transform: rotateZ(25deg); }
+    50% { transform: rotateZ(35deg); }
   }
 </style>
 
