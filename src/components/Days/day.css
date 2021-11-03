@@ -2,7 +2,6 @@
   --_day-bg: var(--gray-4);
 
   container: inline-size;
-  grid-row-start: span 2;
   position: relative;
   scroll-margin-block-start: 10vh;
   cursor: pointer;
