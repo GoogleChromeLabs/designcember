@@ -29,17 +29,20 @@ import Imgix from '../Imgix/Imgix.astro';
     /* background: linear-gradient(to bottom right, #fdfcf2, #f7fad4); */
   }
 
+  .una {
+    padding-block-end: var(--frame-bottom);
+    margin-block-end: -15px;
+  }
+
   .una_body {
     align-self: flex-end;
-    margin-block-end: -15px;
-    padding-block-end: var(--frame-bottom);
   }
 
   .una_hand {
     max-inline-size: 13%;
     align-self: flex-end;
     justify-self: center;
-    margin-block-end: 47%; 
+    margin-block-end: 38%; 
     margin-inline-end: 8%; 
     transform-origin: bottom center;
     transform: rotateZ(-20deg);
@@ -119,11 +122,13 @@ import Imgix from '../Imgix/Imgix.astro';
         <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/22ao6TJk9oe4iuS4pQor.png" loading="lazy" role="presentation" />
       </div>
     </div>
-    <div class="una_hand">
-      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/xLoxB4Bgjfac2Qm8SulC.png" loading="lazy" role="presentation" />
-    </div>
-    <div class="una_body">
-      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/j7RL1tUhfcYrr3bNpJYS.png" loading="lazy" role="presentation" />
+    <div class="una stacked">
+      <div class="una_hand">
+        <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/xLoxB4Bgjfac2Qm8SulC.png" loading="lazy" role="presentation" />
+      </div>
+      <div class="una_body">
+        <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/j7RL1tUhfcYrr3bNpJYS.png" loading="lazy" role="presentation" />
+      </div>
     </div>
     <div class="frame">
       <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/37dwvrM3ELiGPD7ruxP6.png" loading="lazy" role="presentation" width="800" height="1020" />
