@@ -5,7 +5,7 @@ import Imgix from '../Imgix/Imgix.astro';
 <style>
   .one {
     --frame-bottom: 15%;
-    --frame-side: 6%;
+    --frame-side: 7%;
 
     margin-inline: var(--size-1);
     margin-block: 0 var(--size-4);
@@ -46,14 +46,22 @@ import Imgix from '../Imgix/Imgix.astro';
 
   .bg {
     border-radius: 1e3px 1e3px 0 0;
-    background: linear-gradient(to bottom right, #fdfcf2, #f7fad4);
     margin-block-end: var(--frame-bottom);
+    background: linear-gradient(to bottom right, #fdfcf2, #f7fad4);
+
+    @media (--dark) {
+      background: linear-gradient(to bottom right, hsl(55deg 3% 20%), hsl(65deg 59% 21%));
+    }
   }
 
   .bg-shadow {
     max-inline-size: 80%;
     margin-block-start: 5%;
     margin-inline-start: 4%;
+
+    @media (--dark) {
+      opacity: .25;
+    }
   }
 
   .una {
@@ -117,6 +125,10 @@ import Imgix from '../Imgix/Imgix.astro';
   .lights {
     max-inline-size: 30%;
     margin-inline-start: 10%;
+
+    @media (--dark) {
+      filter: drop-shadow(0px 0px 10px #fff9);
+    }
   }
 
   @keyframes una-wave {
