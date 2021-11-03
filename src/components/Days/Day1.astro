@@ -13,6 +13,20 @@ import Imgix from '../Imgix/Imgix.astro';
       content: "1";
       inset-block-start: -2px;
     }
+
+    @media (--motionOK) {
+      &:is(:hover, :focus-visible) {
+        & .una_hand {
+          transform-origin: bottom center;
+          transform: rotateZ(-20deg);
+          animation: una-wave 1s steps(3, end) infinite;
+        }
+
+        & .adam_hand {
+          animation: adam-wave .75s steps(3, end) infinite;
+        }
+      }
+    }
   }
 
   .pane {
@@ -53,9 +67,6 @@ import Imgix from '../Imgix/Imgix.astro';
     justify-self: center;
     margin-block-end: 38%; 
     margin-inline-end: 8%; 
-    transform-origin: bottom center;
-    transform: rotateZ(-20deg);
-    animation: una-wave 1s steps(3, end) infinite;
     z-index: 2;
   }
 
@@ -88,7 +99,6 @@ import Imgix from '../Imgix/Imgix.astro';
     margin-inline-end: 39%;
     transform-origin: bottom right;
     transform: rotateZ(20deg);
-    animation: adam-wave .75s steps(3, end) infinite;
   }
 
   .adam_wrist {
