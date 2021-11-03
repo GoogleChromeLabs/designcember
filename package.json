@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.20.12",
+    "astro": "^0.19.x",
     "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
     "postcss-jit-props": "^1.0.1",
