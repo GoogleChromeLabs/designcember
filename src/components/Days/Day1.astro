@@ -7,6 +7,11 @@ import Imgix from '../Imgix/Imgix.astro';
     --frame-bottom: 15%;
     --frame-side: 7%;
 
+    --light-filter: none;
+    --bg-shadow-opacity: 1;
+    --bg-gradient-color-1: #fdfcf2;
+    --bg-gradient-color-2: #f7fad4;
+
     margin-inline: var(--size-1);
     margin-block: 0 var(--size-11);
 
@@ -59,10 +64,11 @@ import Imgix from '../Imgix/Imgix.astro';
   .bg {
     border-radius: 1e3px 1e3px 0 0;
     margin-block-end: var(--frame-bottom);
-    background: linear-gradient(to bottom right, #fdfcf2, #f7fad4);
+    background: linear-gradient(to bottom right, var(--bg-gradient-color-1), var(--bg-gradient-color-2));
   }
 
   .bg-shadow {
+    opacity: var(--bg-shadow-opacity);
     max-inline-size: 80%;
     margin-block-start: 5%;
     margin-inline-start: 4%;
@@ -127,6 +133,7 @@ import Imgix from '../Imgix/Imgix.astro';
   }
 
   .lights {
+    filter: var(--light-filter);
     max-inline-size: 30%;
     margin-inline-start: 10%;
   }
@@ -142,16 +149,11 @@ import Imgix from '../Imgix/Imgix.astro';
 
 <style global>
   [data-theme="dark"] {
-    & .lights {
-      filter: drop-shadow(0px 0px 10px #fff9);
-    }
-
-    & .bg-shadow {
-      opacity: .25;
-    }
-
-    & .bg {
-      background: linear-gradient(to bottom right, hsl(55deg 3% 20%), hsl(65deg 59% 21%));
+    & .one {
+      --light-filter: drop-shadow(0px 0px 10px #fff9);
+      --bg-shadow-opacity: .25;
+      --bg-gradient-color-1: hsl(55deg 3% 20%);
+      --bg-gradient-color-2: hsl(65deg 59% 21%);
     }
   }
 </style>
