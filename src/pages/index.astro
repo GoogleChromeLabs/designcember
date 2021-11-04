@@ -1,6 +1,7 @@
 ---
 import Calendar from '../components/Calendar/Calendar.astro';
 import Logo from '../components/Logo/Logo.astro';
+import ThemeToggle from '../components/ThemeToggle/ThemeToggle.astro';
 ---
 
 <style>
@@ -11,6 +12,11 @@ import Logo from '../components/Logo/Logo.astro';
 	  place-content: center;
 	  justify-items: center;
 	  gap: var(--size-10);
+	}
+
+	nav {
+		justify-self: flex-end;
+		padding: var(--size-5);
 	}
 </style>
 
@@ -23,9 +29,13 @@ import Logo from '../components/Logo/Logo.astro';
 		<title>Designcember</title>
 		<!-- consider prefetch of each window frame -->
 		<script async defer src="https://unpkg.com/cqfill"></script>
+		<script src="/ThemeToggle.js"></script>
 	</head>
 
 	<body>
+		<nav>
+			<ThemeToggle />
+		</nav>
 		<Logo />
 		<Calendar />
 	</body>
