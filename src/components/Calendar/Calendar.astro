@@ -54,7 +54,7 @@ import Day31 from '../Days/Day31.astro';
   <Day15 />
   <Day16 />
   <Day17 />
-  <div class="day pair pair-reverse">
+  <div class="day pair">
     <Day18 />
     <Day19 />
   </div>
@@ -164,11 +164,6 @@ import Day31 from '../Days/Day31.astro';
   }
 
   .pair {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pair-reverse {
-    flex-direction: column-reverse;
+    display: grid;
   }
 </style>
