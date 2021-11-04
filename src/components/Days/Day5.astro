@@ -1,37 +1,28 @@
 ---
+import Imgix from '../Imgix/Imgix.astro';
 ---
 
 <style>
   .five {
     aspect-ratio: 4/3;
-    width: min(300px, 90%);
-    margin: var(--size-3);
-    background-color: transparent;
-
-    @media (--lg) {
-      grid-column: 1;
-      grid-row: 3;
-      margin: var(--size-3);
-    }
-
-    @media (--xl) {
-      grid-column: 4;
-      grid-row: 2;
-      margin: -15% var(--size-6) var(--size-5) var(--size-5);
-    }
+    inline-size: min(300px, 75%);
+    justify-self: flex-end;
+    margin-inline-end: 5%;
 
     &::before {
       content: "5";
+      inset-block: 12% auto;
+      inset-inline: auto 2%;
     }
   }
 
   .frame {
     aspect-ratio: 4/3;
-    clip-path: polygon(0 0, 0% 100%, 100% 100%);
-    background-color: var(--_day-bg);
   }
 </style>
 
 <a href="#5th" id="5th" class="day five" title="">
-  <div class="frame"></div>
+  <div class="frame">
+    <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/HV0OeL2idLWzEY2rtIC4.png" width="800" height="580" role="presentation" />
+  </div>
 </a>
