@@ -1,19 +1,35 @@
 ---
+import Imgix from '../Imgix/Imgix.astro';
 ---
 
 <style>
   .two {
     aspect-ratio: 1;
-    margin: var(--size-4);
+    margin: var(--size-11) var(--size-4);
     align-self: center;
-    background: var(--_day-bg);
 
     &::before {
       content: "2";
     }
   }
+
+  .frame {
+    &::before {
+      content: '';
+      position: absolute;
+      right: 2%;
+      z-index: -1;
+      inline-size: 95%;
+      block-size: 18%;
+      inset-block-end: -15%;
+      background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/InRybgKEirj5fzkOKXu4.png?q=50&auto=format&w=400");
+      background-size: contain;
+    }
+  }
 </style>
 
 <a href="#2nd" id="2nd" class="day two" title="">
-  
+  <span class="frame">
+    <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/54iSDDYnkm2dmQTfnppQ.png" loading="lazy" role="presentation" />
+  </span>
 </a>
