@@ -27,7 +27,7 @@
     display: grid;
     place-items: center;
     inline-size: 4ch;
-    aspect-ratio: var(--aspect-box);
+    aspect-ratio: var(--ratio-box);
     font-family: var(--font-mono);
     border-radius: 1e3px;
     border: var(--border-size-2) solid var(--_day-bg);
