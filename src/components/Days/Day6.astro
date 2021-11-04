@@ -1,20 +1,60 @@
 ---
+import Imgix from '../Imgix/Imgix.astro';
 ---
 
 <style>
   .six {
-    aspect-ratio: var(--ratio-box);
+    --bg-color: #fff4d7;
     border-radius: var(--radius-round);
     margin: var(--size-4);
     align-self: center;
-    background: var(--_day-bg);
 
     &::before {
       content: "6";
     }
   }
+
+  .bg {
+    background-color: var(--bg-color);
+    border-radius: var(--radius-round);
+    margin-inline-start: 12%;
+    margin-block-end: 5%;
+  }
+
+  .pig {
+    max-inline-size: 60%;
+    padding-inline-start: 10%;
+    margin-block-end: 20%;
+    margin-inline-end: 10%;
+    align-self: flex-end;
+    justify-self: center;
+  }
+
+  .coin {
+    max-inline-size: 10%;
+    margin-block-start: 10%;
+    margin-inline-start: 15%;
+    justify-self: center;
+  }
 </style>
 
-<a href="#6th" id="6th" class="day six" title="">
+<style global>
+  [data-theme="dark"] {
+    & .six {
+      --bg-color: hsl(44deg 70% 32%);
+    }
+  }
+</style>
 
+<a href="#6th" id="6th" class="day six" title="A circular window with a cute piggy bank and a coin falling in">
+  <div class="frame stacked">
+    <div class="bg"></div>
+    <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/CdPal89V6rlr2F8Nuu3V.png" width="800" height="717" role="presentation" />
+    <div class="pig">
+      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/rcA6lza9DDb5FmUaKeKE.png" loading="lazy" role="presentation" />
+    </div>
+    <div class="coin">
+      <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/rgVhqfVfaoRI5X6SM4ol.png" loading="lazy" role="presentation" />
+    </div>
+  </div>
 </a>
