@@ -17,13 +17,15 @@ import Imgix from '../Imgix/Imgix.astro';
   }
 
   .frame {
+    isolation: isolate;
+
     &::before {
       content: '';
       position: absolute;
       right: 2%;
       z-index: -1;
       inline-size: 95%;
-      block-size: 18%;
+      block-size: 17.5%;
       inset-block-end: -15%;
       background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/InRybgKEirj5fzkOKXu4.png?q=50&auto=format&w=400");
       background-size: contain;
