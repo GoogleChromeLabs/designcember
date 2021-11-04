@@ -1,5 +1,5 @@
 .day {
-  --_day-bg: white;
+  --_day-bg: #e4bb9f;
 
   container: inline-size;
   position: relative;
@@ -23,14 +23,14 @@
     inset-block-end: -2ch;
     inset-inline-start: calc(50% - 2ch);
     
-    background: var(--_building-color);
+    background: var(--_day-bg);
     display: grid;
     place-items: center;
     inline-size: 4ch;
     aspect-ratio: var(--ratio-box);
     font-family: var(--font-mono);
     border-radius: 1e3px;
-    border: var(--border-size-2) solid var(--_day-bg);
+    border: var(--border-size-2) solid var(--_building-color);
     font-size: .7rem;
     color: var(--gray-8);
 
