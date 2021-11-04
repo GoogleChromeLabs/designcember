@@ -113,26 +113,26 @@ import Day31 from '../Days/Day31.astro';
     
     container: inline-size;
     inline-size: min(80vw, 1800px);
-    border: 5px solid black;
     position: relative;
     background: var(--_building-color);
 
     display: grid;
     grid-template-columns: repeat(var(--_windows), minmax(var(--_card-size), 1fr));
     grid-auto-flow: dense;
-    padding: 10px;
+    padding-block: var(--size-14) var(--size-5);
+    padding-inline: 10px;
     align-items: start;
     
     @media (--md) {
       --_card-size: calc(33% - 80px);
       --_windows: 3;
-      padding: 20px;
+      padding-inline: 20px;
     }
     
     @media (--lg) {
       --_card-size: calc(25% - 80px);
       --_windows: 4;
-      padding: 40px;
+      padding-inline: 40px;
     }
     
     @media (--xl) {
@@ -140,30 +140,37 @@ import Day31 from '../Days/Day31.astro';
       --_windows: 5;
     }
     
-    &::before {
-      content: "";
-      position: absolute;
-      top: -20px;
-      left: -5%;
-      block-size: 20px;
-      width: 110%;
-      border: 5px solid black;
-      background: var(--gray-5);
-    }
-    
     &::after {
       content: "";
       position: absolute;
-      top: -40px;
+      top: 10px;
       left: -10%;
-      block-size: 25px;
+      block-size: 60px;
       width: 120%;
-      border: 5px solid black;
-      background: var(--gray-5);
+      background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/X06fNtuw1NA9fPOU5vbU.png?q=80&auto=format&w=1600");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 120px;
+      position: absolute;
+      top: 0;
+      background-color: #ffd4aa;
     }
   }
 
   .pair {
     display: grid;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .calendar {
+      --_building-color: hsl(37deg 100% 85%);
+    }
   }
 </style>

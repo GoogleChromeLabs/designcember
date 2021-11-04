@@ -12,11 +12,22 @@ import ThemeToggle from '../components/ThemeToggle/ThemeToggle.astro';
     place-content: center;
     justify-items: center;
     gap: var(--size-10);
+
+    background-color: #d6ecee;
+    background-image: linear-gradient(to bottom, #d6ecee, white);
   }
 
   nav {
     justify-self: flex-end;
     padding: var(--size-5);
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & body {
+      background-image: linear-gradient(to bottom, hsl(185deg 11% 10%), hsl(185deg 11% 90%));
+    }
   }
 </style>
 
