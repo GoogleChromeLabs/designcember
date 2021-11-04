@@ -8,6 +8,7 @@ import Imgix from '../Imgix/Imgix.astro';
     inline-size: min(300px, 75%);
     justify-self: flex-end;
     margin-inline-end: 5%;
+    margin-block-end: -20%;
 
     &::before {
       content: "5";
@@ -17,7 +18,20 @@ import Imgix from '../Imgix/Imgix.astro';
   }
 
   .frame {
+    isolation: isolate;
     aspect-ratio: 4/3;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset-inline-end: 2%;
+      z-index: -1;
+      inline-size: 95%;
+      block-size: 85%;
+      inset-block-end: -10%;
+      background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/dM5y1VddJpuldssCcTVv.png?q=50&auto=format&w=400");
+      background-size: contain;
+    }
   }
 </style>
 
