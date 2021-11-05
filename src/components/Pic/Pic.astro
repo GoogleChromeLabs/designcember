@@ -1,0 +1,26 @@
+---
+export interface Props {
+  filename: string;
+  alt?: string;
+  height: number;
+  width: number;
+  loading: string;
+  decoding: string;
+  role: string;
+}
+
+const { 
+  filename, height, width, loading, role,
+  alt = ' ',
+  decoding = 'async'
+} = Astro.props;
+---
+
+<picture>
+  <source srcset={`/${filename}.avif`} type="image/avif">
+  <source srcset={`/${filename}.webp`} type="image/webp">
+  <img 
+    alt={alt} width={width} height={height} loading={loading} decoding={decoding} role={role} 
+    src={`/${filename}.png`} 
+  >
+</picture>

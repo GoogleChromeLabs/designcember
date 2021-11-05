@@ -1,5 +1,5 @@
 ---
-import Imgix from '../Imgix/Imgix.astro';
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
@@ -15,23 +15,6 @@ import Imgix from '../Imgix/Imgix.astro';
       inset-block: auto 5%;
     }
   }
-
-  .frame {
-    isolation: isolate;
-    aspect-ratio: 4/3;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset-inline-end: 7%;
-      z-index: -1;
-      inline-size: 95%;
-      block-size: 37.5%;
-      inset-block-end: -15%;
-      background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/j7vXgHLiiyjLEt8k6kdi.png?q=50&auto=format&w=400");
-      background-size: contain;
-    }
-  }
 </style>
 
 <style global>
@@ -42,6 +25,6 @@ import Imgix from '../Imgix/Imgix.astro';
 
 <a href="#4th" id="4th" class="day four" title="An untitled goose on a window sill with a couple plants">
   <div class="frame">
-    <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/DdSyAI12MS0p0eOP1lpS.png" width="800" height="580" role="presentation" />
+    <Pic filename="day4/frame" width="1379" height="999" role="presentation" />
   </div>
 </a>

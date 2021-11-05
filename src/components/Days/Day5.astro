@@ -1,5 +1,5 @@
 ---
-import Imgix from '../Imgix/Imgix.astro';
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
@@ -16,23 +16,6 @@ import Imgix from '../Imgix/Imgix.astro';
       inset-inline: auto 2%;
     }
   }
-
-  .frame {
-    isolation: isolate;
-    aspect-ratio: 4/3;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset-inline-end: 2%;
-      z-index: -1;
-      inline-size: 95%;
-      block-size: 85%;
-      inset-block-end: -10%;
-      background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/dM5y1VddJpuldssCcTVv.png?q=50&auto=format&w=400");
-      background-size: contain;
-    }
-  }
 </style>
 
 <style global>
@@ -43,6 +26,6 @@ import Imgix from '../Imgix/Imgix.astro';
 
 <a href="#5th" id="5th" class="day five" title="">
   <div class="frame">
-    <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/HV0OeL2idLWzEY2rtIC4.png" width="800" height="580" role="presentation" />
+    <Pic filename="day5/frame" width="1086" height="973" role="presentation" />
   </div>
 </a>

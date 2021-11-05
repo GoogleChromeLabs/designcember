@@ -1,5 +1,5 @@
 ---
-import Imgix from '../Imgix/Imgix.astro';
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
@@ -7,34 +7,19 @@ import Imgix from '../Imgix/Imgix.astro';
     --bg-gradient-color-1: #fff3d6;
     --bg-gradient-color-2: #f9c4af;
 
-    aspect-ratio: 1;
     margin: var(--size-11) var(--size-4);
     align-self: center;
 
     &::before {
       content: "2";
-    }
-  }
-
-  .frame {
-    isolation: isolate;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset-inline-end: 2%;
-      inset-block-end: -15%;
-      z-index: -1;
-      inline-size: 95%;
-      block-size: 17.5%;
-      background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/InRybgKEirj5fzkOKXu4.png?q=50&auto=format&w=400");
-      background-size: contain;
+      inset-block: 3% auto;
+      inset-inline-start: 53.75%;
     }
   }
 
   .bg {
-    margin-inline: 7% 6%;
-    margin-block-start: 10%;
+    margin-inline: 13% 6%;
+    margin-block: 10% 25%;
     background: linear-gradient(to bottom, var(--bg-gradient-color-1), var(--bg-gradient-color-2));
   }
 </style>
@@ -50,7 +35,5 @@ import Imgix from '../Imgix/Imgix.astro';
 
 <a href="#2nd" id="2nd" class="day two stacked" title="A cat reading a book next to some sushi">
   <div class="bg"></div>
-  <div class="frame">
-    <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/iAyOQB1JjTBUs5IHxMzW.png" width="800" height="994" role="presentation" />
-  </div>
+  <Pic filename="day2/frame" width="1077" height="1338" role="presentation" />
 </a>
