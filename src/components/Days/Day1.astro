@@ -4,23 +4,28 @@ import Pic from '../Pic/Pic.astro';
 
 <style>
   .one {
-    --frame-bottom: 15%;
-    --frame-side: 7%;
+    --_frame-bottom: 15%;
+    --_frame-side: 7%;
+    --_frame-size: 1rem;
 
-    --light-filter: none;
-    --bg-shadow-opacity: 1;
-    --bg-gradient-color-1: #fdfcf2;
-    --bg-gradient-color-2: #f7fad4;
+    --_light-filter: none;
+    --_bg-shadow-opacity: 1;
+    --_bg-gradient-color-1: #fdfcf2;
+    --_bg-gradient-color-2: #f7fad4;
 
-    margin-inline: var(--size-1);
-    margin-block: 0 var(--size-11);
+    --_border-radius: 1e3px 1e3px 0 0;
+
+    margin: var(--size-2);
 
     &::before {
       content: "1";
-      inset-block-start: -2px;
+      background-image: url(/day1/1.avif);
+      background-image: url(/day1/1.png);
+
+      inset-block: var(--_frame-size) auto;
     }
 
-    @media (--motionOK) {
+    /* @media (--motionOK) {
       &:is(:target, :hover, :focus-visible) {
         & .una_hand {
           transform-origin: bottom center;
@@ -32,55 +37,46 @@ import Pic from '../Pic/Pic.astro';
           animation: adam-wave .75s infinite;
         }
       }
-    }
+    } */
   }
 
   .pane {
-    border-radius: 1e3px 1e3px 0 0;
-    padding-inline: var(--frame-side);
+    min-block-size: 20rem;
+    border-radius: var(--_border-radius);
+    border: var(--_frame-size) solid #d9773e;
     margin-block-end: -10%;
     overflow: hidden;
     isolation: isolate;
   }
 
-  .frame {
-    margin-inline: calc(var(--frame-side) * -1);
-    aspect-ratio: 800/1020;
-    z-index: 2;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      z-index: -1;
-      inline-size: 92%;
-      block-size: 22%;
-      inset-block-end: -22%;
-      background: url("https://web-dev.imgix.net/image/vS06HQ1YTsbMKSFTIPl2iogUQP73/Y6JIJi7ePlWmysEgxhNB.png?q=50&auto=format&w=400");
-      background-size: contain;
-    }
+  .sill {
+    align-self: flex-end;
+    justify-self: center;
+    z-index: 1;
+    inline-size: 110%;
+    margin-block-end: calc(var(--_frame-size) * -1);
   }
 
   .bg {
-    border-radius: 1e3px 1e3px 0 0;
-    margin-block-end: var(--frame-bottom);
-    background: linear-gradient(to bottom right, var(--bg-gradient-color-1), var(--bg-gradient-color-2));
+    border-radius: var(--_border-radius);
+    margin-block-end: var(--_frame-bottom);
+    background: linear-gradient(to bottom right, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2));
   }
 
-  .bg-shadow {
-    opacity: var(--bg-shadow-opacity);
+  .bg_shadow {
+    opacity: var(--_bg-shadow-opacity);
     max-inline-size: 80%;
-    margin-block-start: 5%;
-    margin-inline-start: 4%;
   }
 
   .una {
-    padding-block-end: var(--frame-bottom);
-    margin-block-end: -15px;
+    margin-block-end: -5px;
   }
 
   .una_body {
     align-self: flex-end;
+    max-inline-size: 60%;
+    margin-inline-start: -5%;
+    margin-inline-start: -5%;
   }
 
   .una_hand {
@@ -94,7 +90,7 @@ import Pic from '../Pic/Pic.astro';
 
   .una_lower {
     margin-inline-end: -5%;
-    margin-block-end: -1px;
+    margin-block-end: -4%;
     max-inline-size: 75%;
     align-self: flex-end;
     justify-self: flex-end;
@@ -105,23 +101,21 @@ import Pic from '../Pic/Pic.astro';
     display: grid;
     align-items: flex-end;
     justify-items: flex-end;
-    padding-inline-end: calc(var(--frame-side) / 2);
-    padding-block-end: var(--frame-bottom);
   }
 
   .adam_body {
     max-inline-size: 65%;
+    margin-inline-end: -3%;
     z-index: 2;
   }
 
   .adam_hand {
     align-self: flex-start;
     justify-self: flex-start;
-    max-inline-size: 25%;
+    max-inline-size: 28%;
     margin-block-start: 16%;
-    margin-inline-start: -20%;
+    margin-inline-start: -10%;
     transform-origin: bottom right;
-    transform: rotateZ(20deg);
   }
 
   .adam_wrist {
@@ -133,7 +127,7 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .lights {
-    filter: var(--light-filter);
+    filter: var(--_light-filter);
     max-inline-size: 30%;
     margin-inline-start: 10%;
   }
@@ -150,10 +144,10 @@ import Pic from '../Pic/Pic.astro';
 <style global>
   [data-theme="dark"] {
     & .one {
-      --light-filter: drop-shadow(0px 0px 10px #fff9);
-      --bg-shadow-opacity: .25;
-      --bg-gradient-color-1: hsl(55deg 3% 20%);
-      --bg-gradient-color-2: hsl(65deg 59% 21%);
+      --_light-filter: drop-shadow(0px 0px 10px #fff9);
+      --_bg-shadow-opacity: .25;
+      --_bg-gradient-color-1: hsl(55deg 3% 20%);
+      --_bg-gradient-color-2: hsl(65deg 59% 21%);
     }
   }
 </style>
@@ -161,36 +155,33 @@ import Pic from '../Pic/Pic.astro';
 <a href="#1st" id="1st" class="day one stacked" title="Una and Adam sitting in a window">
   <div class="pane stacked">
     <div class="bg"></div>
-    <div class="bg-shadow">
-      <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/8mTbbdLlFHHRDIjhj5uO.png" loading="lazy" role="presentation" /> -->
+    <div class="bg_shadow">
+      <Pic filename="day1/bg_shadow" role="presentation" />
     </div>
     <div class="lights">
-      <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/hQWeg2Ghby3cqrtpziDI.png" loading="lazy" role="presentation" /> -->
+      <Pic filename="day1/lights" role="presentation" />
     </div>
     <div class="adam">
       <div class="adam_body stacked">
-        <div class="adam_wrist">
-          <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/WRUPHM0JJSMzL0fdjuAz.png" loading="lazy" role="presentation" /> -->
-        </div>
         <div class="adam_hand">
-          <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/r6J1xJYgWx4YvqSwKQKd.png" loading="lazy" role="presentation" /> -->
+          <Pic filename="day1/adam_hand" role="presentation" />
         </div>
-        <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/22ao6TJk9oe4iuS4pQor.png" loading="lazy" role="presentation" /> -->
+        <Pic filename="day1/adam_body" role="presentation" />
       </div>
     </div>
     <div class="una stacked">
-      <div class="una_hand">
-        <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/xLoxB4Bgjfac2Qm8SulC.png" loading="lazy" role="presentation" /> -->
-      </div>
+      <!-- <div class="una_hand">
+        <Pic filename="day1/una_hand" role="presentation" />
+      </div> -->
       <div class="una_body">
-        <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/j7RL1tUhfcYrr3bNpJYS.png" loading="lazy" role="presentation" /> -->
+        <Pic filename="day1/una_body" role="presentation" />
       </div>
-    </div>
-    <div class="frame">
-      <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/37dwvrM3ELiGPD7ruxP6.png" role="presentation" width="800" height="1020" /> -->
     </div>
   </div>
-  <span class="una_lower">
-    <!-- <Imgix uuid="vS06HQ1YTsbMKSFTIPl2iogUQP73/prjF0esYqyx3lJBCGOGL.png" loading="lazy" role="presentation" /> -->
-  </span>
+  <div class="sill">
+    <Pic filename="day1/sill" role="presentation" />
+  </div>
+  <div class="una_lower">
+    <Pic filename="day1/una_foreground" role="presentation" />
+  </div>
 </a>
