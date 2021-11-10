@@ -6,7 +6,7 @@ import Pic from '../Pic/Pic.astro';
   .one {
     --_frame-bottom: 15%;
     --_frame-side: 7%;
-    --_frame-size: 1rem;
+    --_frame-size: var(--size-3);
 
     --_light-filter: none;
     --_bg-shadow-opacity: 1;
@@ -42,7 +42,7 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .pane {
-    min-block-size: 20rem;
+    min-block-size: 25rem;
     border-radius: var(--_border-radius);
     border: var(--_frame-size) solid #d9773e;
     margin-block-end: -10%;
@@ -153,7 +153,7 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#1st" id="1st" class="day one stacked" title="Una and Adam sitting in a window">
+<a href="#1st" id="1st" class="day one stacked cq-interactive" title="Una and Adam sitting in a window">
   <div class="pane stacked">
     <div class="bg"></div>
     <div class="bg_shadow">

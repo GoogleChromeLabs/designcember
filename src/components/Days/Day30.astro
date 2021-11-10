@@ -3,10 +3,8 @@
 
 <style>
   .thirty {
-    aspect-ratio: 5/1;
     grid-column: span 2;
     margin-inline: var(--size-5);
-    background: var(--_day-bg);
 
     &::before {
       content: "30";
@@ -15,8 +13,14 @@
       background-image: url(/day30/30.png);
     }
   }
+
+  .frame {
+    min-block-size: 100px;
+    background: var(--_day-bg);
+    border: var(--size-3) solid #d9773e;
+  }
 </style>
 
 <a href="#30th" id="30th" class="day thirty" title="">
-
+  <div class="frame cq-interactive"></div>
 </a>

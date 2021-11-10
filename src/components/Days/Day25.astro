@@ -3,10 +3,10 @@
 
 <style>
   .twentyfive {
-    aspect-ratio: 3/2;
     border-radius: 0% 100% 100% 0% / 100% 0% 100% 0% ;
     margin: var(--size-3) var(--size-5);
     background: var(--_day-bg);
+    border: var(--size-3) solid #d9773e;
 
     @media (--xl) {
       grid-row: span 1;
@@ -20,8 +20,12 @@
       inset-block-start: 50%;
     }
   }
+
+  .frame {
+    min-block-size: 200px;
+  }
 </style>
 
 <a href="#25th" id="25th" class="day twentyfive" title="">
-
+  <div class="frame"></div>
 </a>

@@ -3,10 +3,8 @@
 
 <style>
   .seven {
-    aspect-ratio: 1/1.25;
     margin: var(--size-10) var(--size-8) var(--size-8) 0;
     align-self: flex-end;
-    background: var(--_day-bg);
 
     &::before {
       content: "7";
@@ -15,8 +13,14 @@
       background-image: url(/day7/7.png);
     }
   }
+
+  .frame {
+    min-block-size: 300px;
+    background-color: var(--_day-bg);
+    border: var(--size-3) solid #d9773e;
+  }
 </style>
 
 <a href="#7th" id="7th" class="day seven" title="">
-  
+  <div class="frame cq-interactive"></div>
 </a>
