@@ -48,6 +48,7 @@ import Pic from '../Pic/Pic.astro';
     margin-block-end: -10%;
     overflow: hidden;
     isolation: isolate;
+    container: inline-size;
   }
 
   .sill {
@@ -66,7 +67,7 @@ import Pic from '../Pic/Pic.astro';
 
   .bg_shadow {
     opacity: var(--_bg-shadow-opacity);
-    max-inline-size: 80%;
+    inline-size: 80%;
   }
 
   .una {
@@ -129,7 +130,7 @@ import Pic from '../Pic/Pic.astro';
 
   .lights {
     filter: var(--_light-filter);
-    max-inline-size: 30%;
+    inline-size: 30%;
     margin-inline-start: 10%;
   }
 
@@ -139,6 +140,21 @@ import Pic from '../Pic/Pic.astro';
 
   @keyframes adam-wave {
     50% { transform: rotateZ(35deg); }
+  }
+
+  @container (max-width: 250px) {
+    .pane {
+      --_frame-size: var(--size-2);
+    }
+
+    .bg_shadow {
+      inline-size: 130%;
+    }
+
+    .lights {
+      inline-size: 40%;
+      margin-top: -10px;
+    }
   }
 </style>
 
