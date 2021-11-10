@@ -6,8 +6,11 @@ import Pic from '../Pic/Pic.astro';
   .two {
     --bg-gradient-color-1: #fff3d6;
     --bg-gradient-color-2: #f9c4af;
+    --_frame-size: var(--size-3);
 
-    margin: var(--size-11) var(--size-4);
+    /* margin: var(--size-11) var(--size-4); */
+    margin-inline: 13% 6%;
+    margin-block: 20% 5%;
     align-self: center;
 
     &::before {
@@ -18,9 +21,49 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .bg {
-    margin-inline: 13% 6%;
-    margin-block: 10% 25%;
     background: linear-gradient(to bottom, var(--bg-gradient-color-1), var(--bg-gradient-color-2));
+  }
+
+  .bg_shadow {
+    align-self: flex-end;
+    justify-self: center;
+  }
+
+  .pane {
+    min-block-size: 15rem;
+    block-size: 100%;
+    min-inline-size: 10rem;
+    border: var(--_frame-size) solid #d9773e;
+    overflow: hidden;
+  }
+
+  .cat {
+    inline-size: 70%;
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin-block-start: -3%;
+    margin-block-end: 35%;
+    margin-inline-end: -3%;
+  }
+
+  .sushi_books {
+    inline-size: 50%;
+    align-self: center;
+    margin-inline-start: -12%;
+    margin-block-start: -15%;
+  }
+
+  .bg_books {
+    inline-size: 110%;
+    align-self: flex-end;
+    margin-block-end: -8%;
+    margin-inline-end: -2%;
+  }
+
+  .main_book {
+    inline-size: 90%;
+    align-self: flex-end;
+    justify-self: center;
   }
 </style>
 
@@ -30,10 +73,30 @@ import Pic from '../Pic/Pic.astro';
       --bg-gradient-color-1: hsl(42deg 20% 52%);
       --bg-gradient-color-2: hsl(17deg 46% 33%);
     }
+
+    & .bg_shadow {
+      opacity: .2;
+    }
   }
 </style>
 
-<a href="#2nd" id="2nd" class="day two stacked" title="A cat reading a book next to some sushi">
+<a href="#2nd" id="2nd" class="day two stacked cq-interactive" title="A cat reading a book next to some sushi">
   <div class="bg"></div>
-  <Pic filename="day2/frame" width="1077" height="1338" role="presentation" />
+  <div class="pane stacked">
+    <div class="bg_shadow">
+      <Pic filename="day2/shadow" role="presentation" />
+    </div>
+    <div class="sushi_books">
+      <Pic filename="day2/books_back" role="presentation" />
+    </div>
+    <div class="bg_books">
+      <Pic filename="day2/books_front" role="presentation" />
+    </div>
+    <div class="main_book">
+      <Pic filename="day2/book_main" role="presentation" />
+    </div>
+    <div class="cat">
+      <Pic filename="day2/cat" role="presentation" />
+    </div>
+  </div>
 </a>
