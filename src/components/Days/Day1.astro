@@ -21,6 +21,7 @@ import Pic from '../Pic/Pic.astro';
       content: "1";
 
       inset-block: var(--_frame-size) auto;
+      inset-inline: calc(50% - 1.5ch);
     }
 
     /* @media (--motionOK) {
@@ -40,9 +41,11 @@ import Pic from '../Pic/Pic.astro';
 
   .pane {
     min-block-size: 25rem;
+    block-size: 100%;
+    min-inline-size: 15rem;
+    max-inline-size: 40rem;
     border-radius: var(--_border-radius);
     border: var(--_frame-size) solid #d9773e;
-    margin-block-end: -10%;
     overflow: hidden;
     isolation: isolate;
     container: inline-size;
@@ -51,14 +54,13 @@ import Pic from '../Pic/Pic.astro';
   .sill {
     align-self: flex-end;
     justify-self: center;
+    align-items: flex-end;
     z-index: 1;
     inline-size: 110%;
-    margin-block-end: calc(var(--_frame-size) * -1);
   }
 
   .bg {
     border-radius: var(--_border-radius);
-    margin-block-end: var(--_frame-bottom);
     background: linear-gradient(to bottom right, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2));
   }
 
@@ -68,12 +70,12 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .una {
-    margin-block-end: -5px;
+    margin-block-end: -5%;
   }
 
   .una_body {
     align-self: flex-end;
-    max-inline-size: 60%;
+    max-inline-size: min(60%, 200px);
     margin-inline-start: -5%;
     margin-inline-start: -5%;
   }
@@ -88,12 +90,26 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .una_lower {
-    margin-inline-end: -5%;
-    margin-block-end: -4%;
-    max-inline-size: 75%;
+    margin-block-end: -3px;
+    margin-inline-start: 100px;
+    max-inline-size: min(75%, 300px);
     align-self: flex-end;
-    justify-self: flex-end;
+    justify-self: flex-start;
     z-index: 1;
+
+    @container (max-width: 360px) {
+      margin-inline-start: 20%;
+    }
+
+    @container (max-width: 310px) {
+      margin-inline-start: 20%;
+      margin-block-end: 0%;
+    }
+
+    @container (max-width: 240px) {
+      margin-inline-start: 20%;
+      margin-block-end: 1%;
+    }
   }
 
   .adam {
@@ -103,8 +119,9 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .adam_body {
-    max-inline-size: 65%;
+    max-inline-size: min(65%, 225px);
     margin-inline-end: -3%;
+    margin-block-end: -12%;
     z-index: 2;
   }
 
@@ -140,17 +157,13 @@ import Pic from '../Pic/Pic.astro';
   }
 
   @container (max-width: 250px) {
-    .pane {
-      --_frame-size: var(--size-2);
-    }
-
     .bg_shadow {
       inline-size: 130%;
     }
 
     .lights {
       inline-size: 40%;
-      margin-top: -10px;
+      margin-top: -13px;
     }
   }
 </style>
@@ -192,10 +205,10 @@ import Pic from '../Pic/Pic.astro';
       </div>
     </div>
   </div>
-  <div class="sill">
-    <Pic filename="day1/sill" role="presentation" />
-  </div>
-  <div class="una_lower">
-    <Pic filename="day1/una_foreground" role="presentation" />
+  <div class="sill stacked">
+    <!-- <Pic filename="day1/sill" role="presentation" /> -->
+    <div class="una_lower">
+      <Pic filename="day1/una_foreground" role="presentation" />
+    </div>
   </div>
 </a>
