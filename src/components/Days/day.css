@@ -20,7 +20,6 @@
   &::before {
     position: absolute;
     z-index: var(--layer-1);
-    background: var(--_day-bg);
     color: var(--_day-color);
     width: 1.5rem;
     height: 1.5rem;
