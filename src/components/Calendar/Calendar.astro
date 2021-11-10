@@ -1,5 +1,6 @@
 ---
 import {day} from '../Days/day.css';
+import Pic from '../Pic/Pic.astro';
 
 import Day1 from '../Days/Day1.astro';
 import Day2 from '../Days/Day2.astro';
@@ -33,46 +34,55 @@ import Day29 from '../Days/Day29.astro';
 import Day30 from '../Days/Day30.astro';
 import Day31 from '../Days/Day31.astro';
 ---
-
-<main class="calendar">
-  <Day1 />
-  <Day2 />
-  <Day3 />
-  <div class="day pair">
-    <Day4 />
-    <Day5 />
+<div class="container">
+  <main class="calendar">
+    <Day1 />
+    <Day2 />
+    <Day3 />
+    <div class="day pair">
+      <Day4 />
+      <Day5 />
+    </div>
+    <Day6 />
+    <Day7 />
+    <Day8 />
+    <Day9 />
+    <Day10 />
+    <Day11 />
+    <Day12 />
+    <Day13 />
+    <Day14 />
+    <Day15 />
+    <Day16 />
+    <Day17 />
+    <div class="day pair">
+      <Day18 />
+      <Day19 />
+    </div>
+    <Day20 />
+    <Day21 />
+    <Day22 />
+    <Day23 />
+    <Day24 />
+    <div class="day pair">
+      <Day25 />
+      <Day26 />
+    </div>
+    <Day27 />
+    <Day28 />
+    <Day29 />
+    <Day30 />
+    <Day31 />
+  </main>
+  <div class="snow">
+    <div class="snow-left">
+      <Pic filename="footer/left" role="presentation" />
+    </div>
+    <div class="snow-right">
+      <Pic filename="footer/right" role="presentation" />
+    </div>
   </div>
-  <Day6 />
-  <Day7 />
-  <Day8 />
-  <Day9 />
-  <Day10 />
-  <Day11 />
-  <Day12 />
-  <Day13 />
-  <Day14 />
-  <Day15 />
-  <Day16 />
-  <Day17 />
-  <div class="day pair">
-    <Day18 />
-    <Day19 />
-  </div>
-  <Day20 />
-  <Day21 />
-  <Day22 />
-  <Day23 />
-  <Day24 />
-  <div class="day pair">
-    <Day25 />
-    <Day26 />
-  </div>
-  <Day27 />
-  <Day28 />
-  <Day29 />
-  <Day30 />
-  <Day31 />
-</main>
+</div>
 
 <script>
   const validhashes = [
@@ -106,13 +116,20 @@ import Day31 from '../Days/Day31.astro';
 </script>
 
 <style>
+  .container {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 100%;
+  }
+
   .calendar {
     --_card-size: calc(50% - 80px); 
     --_windows: 1;
     --_building-color: #ffecd3;
     
     container: inline-size;
-    inline-size: min(80vw, 1800px);
+    inline-size: min(80vw, 1200px);
     position: relative;
     background: var(--_building-color);
 
@@ -122,7 +139,9 @@ import Day31 from '../Days/Day31.astro';
     padding-block: var(--size-14) var(--size-5);
     padding-inline: 10px;
     align-items: start;
-
+    padding-block-end: 40%;
+    z-index: 1;
+    
     @media (--sm) {
       --_windows: 2;
     }
@@ -168,6 +187,30 @@ import Day31 from '../Days/Day31.astro';
 
   .pair {
     display: grid;
+  }
+
+  .snow-left,
+  .snow-right {
+    position: absolute;
+    bottom: 0;
+    width: 25%;
+    z-index: 0;
+    padding-block-end: 30%;
+  }
+
+  .snow-left {
+    left: 0;
+  }
+
+  .snow-right {
+    right: 0;
+  }
+
+  @media (--md) {
+    .snow-left,
+    .snow-right {
+      z-index: 1;
+    }
   }
 </style>
 

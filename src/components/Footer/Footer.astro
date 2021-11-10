@@ -1,0 +1,50 @@
+---
+import Pic from '../Pic/Pic.astro';
+---
+
+<style>
+
+footer {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  margin-top: -30%;
+  z-index: 2;
+}
+
+.bird {
+  position: absolute;
+  width: clamp(300px, 60%, 800px);
+  top: -20%;
+  z-index: 2;
+}
+
+.meta {
+  padding: var(--size-10);
+  background-color: white;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+</style>
+
+<footer>
+  <div class="bird">
+    <Pic filename="footer/footer_birb_green" role="presentation" />
+  </div>
+  <div class="content">
+    <div class="snow-top">
+      <Pic filename="footer/footer_bg" role="presentation" />
+    </div>
+    <div class="meta">
+      <div class="container">
+        <h2>Brought to you by:</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum reprehenderit ipsum, commodi ipsa at expedita magni omnis ipsam magnam doloremque, quidem perferendis beatae fugit excepturi dolores repellat ducimus facere. Ut!</p>
+      </div>
+    </div>
+  </div>
+
+</footer>
