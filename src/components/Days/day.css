@@ -1,5 +1,8 @@
 .day {
   --_day-bg: #e4bb9f;
+  --_day-color: #93592f;
+  --_day-shadow: #edc074;
+  --_day-bg: #f2b970;
 
   container: inline-size;
   position: relative;
@@ -16,14 +19,17 @@
   
   &::before {
     position: absolute;
-    text-indent: 100vw;
-    overflow: hidden;
     z-index: var(--layer-1);
-    inset-block-end: 6%;
-    inset-inline-start: calc(50% - (var(--size-4) / 1.5));
-    inline-size: var(--size-5);
+    background: var(--_day-bg);
+    color: var(--_day-color);
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff5;
+    background-image: url(/blank.avif);
+    background-image: url(/blank.webp);
+    background-image: url(/blank.png);
     background-size: contain;
-    background-repeat: no-repeat;
 
     @media (--motionOK) {
       transition: transform .25s var(--ease-elastic-3);
