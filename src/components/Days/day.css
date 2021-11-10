@@ -25,6 +25,7 @@
     width: 1.5rem;
     height: 1.5rem;
     text-align: center;
+    text-shadow: 0 1px 0 #fff5;
     background-image: url(/blank.avif);
     background-image: url(/blank.webp);
     background-image: url(/blank.png);
