@@ -3,7 +3,6 @@
 
 <style>
   .eleven {
-    grid-column: span 2;
     grid-row-start: span 1;
     align-self: center;
     margin: var(--size-4) var(--size-8) 0 var(--size-4);
@@ -13,6 +12,7 @@
     }
 
     @media (--md) {
+      grid-column: span 2;
       margin: var(--size-4) var(--size-8) var(--size-4) calc(var(--size-3) * -1);
     }
 
