@@ -129,7 +129,7 @@ import Day31 from '../Days/Day31.astro';
     --_building-color: #ffecd3;
     
     container: inline-size;
-    inline-size: min(80vw, 1200px);
+    inline-size: min(80vw, 1280px);
     position: relative;
     background: var(--_building-color);
 
@@ -193,7 +193,7 @@ import Day31 from '../Days/Day31.astro';
   .snow-right {
     position: absolute;
     bottom: 0;
-    width: 25%;
+    width: 30%;
     z-index: 0;
     padding-block-end: 30%;
   }
@@ -209,7 +209,7 @@ import Day31 from '../Days/Day31.astro';
   @media (--md) {
     .snow-left,
     .snow-right {
-      z-index: 1;
+      width: 20%;
     }
   }
 </style>
@@ -217,7 +217,7 @@ import Day31 from '../Days/Day31.astro';
 <style global>
   [data-theme="dark"] {
     & .calendar {
-      --_building-color: hsl(37deg 100% 85%);
+      --_building-color: linear-gradient(#0a253c, #3d566f);
     }
   }
 </style>
