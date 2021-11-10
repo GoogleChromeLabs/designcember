@@ -3,9 +3,9 @@
 
 <style>
   .twelve {
-    aspect-ratio: 1/1.25;
     margin: var(--size-4) var(--size-7);
     border-radius: 1e3px 1e3px 0 0;
+    border: var(--size-3) solid #d9773e;
     background: var(--_day-bg);
 
     &::before {
@@ -15,8 +15,12 @@
       background-image: url(/day12/12.png);
     }
   }
+
+  .frame {
+    min-block-size: 300px;
+  }
 </style>
 
-<a href="#12th" id="12th" class="day twelve" title="">
-
+<a href="#12th" id="12th" class="day twelve cq-interactive" title="">
+  <div class="frame"></div>
 </a>

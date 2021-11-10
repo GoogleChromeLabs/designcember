@@ -4,7 +4,6 @@
 <style>
   .eighteen {
     order: 2;
-    aspect-ratio: 4/3;
     inline-size: 80%;
     margin: var(--size-4);
     align-self: flex-end;
@@ -19,9 +18,10 @@
   }
 
   .frame {
-    aspect-ratio: 4/3;
+    min-block-size: 200px;
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
     background-color: var(--_day-bg);
+    border: var(--size-3) solid #d9773e;
   }
 </style>
 

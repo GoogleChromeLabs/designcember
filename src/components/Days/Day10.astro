@@ -4,10 +4,10 @@
 <style>
   .ten {
     grid-column: span 2;
-    aspect-ratio: 4/1;
     margin: var(--size-4) var(--size-4) 0 var(--size-10);
     border-radius: 50% 50% 100% 0% / 100% 100% 0% 0%;
-    background: var(--_day-bg);
+    border: var(--size-3) solid #d9773e;
+    background-color: var(--_day-bg);
 
     &::before {
       content: "10";
@@ -16,8 +16,13 @@
       background-image: url(/day10/10.png);
     }
   }
+
+  .frame {
+    border-radius: inherit;
+    min-block-size: 80px;
+  }
 </style>
 
-<a href="#10th" id="10th" class="day ten" title="">
-
+<a href="#10th" id="10th" class="day ten stacked cq-interactive" title="">
+  <div class="frame"></div>
 </a>

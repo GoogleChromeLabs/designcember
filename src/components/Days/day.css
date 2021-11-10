@@ -6,11 +6,6 @@
   scroll-margin-block-start: 10vh;
   cursor: pointer;
 
-  /* debug */
-  overflow: hidden;
-  resize: both;
-  padding: var(--size-3);
-
   &:focus-visible {
     outline: none;
   }
@@ -24,9 +19,9 @@
     text-indent: 100vw;
     overflow: hidden;
     z-index: var(--layer-1);
-    inset-block-end: -1ch;
+    inset-block-end: 6%;
     inset-inline-start: calc(50% - (var(--size-4) / 1.5));
-    inline-size: var(--size-4);
+    inline-size: var(--size-5);
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -43,4 +38,12 @@
   & > * {
     grid-area: stack;
   }
+}
+
+.cq-interactive {
+  overflow: hidden;
+  resize: both;
+  padding: var(--size-3);
+  padding-block-end: var(--size-6);
+  box-sizing: content-box;
 }

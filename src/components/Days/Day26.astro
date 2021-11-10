@@ -3,7 +3,6 @@
 
 <style>
   .twentysix {
-    aspect-ratio: 1;
     inline-size: 50%;
     margin-block: -25% var(--size-5);
     margin-inline: auto var(--size-5);
@@ -23,9 +22,10 @@
   }
 
   .frame {
-    aspect-ratio: 1;
+    min-block-size: 150px;
     clip-path: polygon(100% 100%, 100% 0, 0 100%);
     background-color: var(--_day-bg);
+    border: var(--size-3) solid #d9773e;
   }
 </style>
 

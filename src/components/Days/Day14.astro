@@ -3,10 +3,8 @@
 
 <style>
   .fourteen {
-    aspect-ratio: 2/1;
     align-self: flex-end;
     margin: 0 var(--size-4) var(--size-8) 0;
-    background: var(--_day-bg);
 
     &::before {
       content: "14";
@@ -15,8 +13,14 @@
       background-image: url(/day14/14.png);
     }
   }
+
+  .frame {
+    min-block-size: 150px;
+    border: var(--size-3) solid #d9773e;
+    background: var(--_day-bg);
+  }
 </style>
 
 <a href="#14th" id="14th" class="day fourteen" title="">
-
+  <div class="frame cq-interactive"></div>
 </a>

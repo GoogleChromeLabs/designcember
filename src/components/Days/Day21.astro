@@ -3,11 +3,9 @@
 
 <style>
   .twentyone {
-    aspect-ratio: 1;
     align-self: center;
     margin: var(--size-3);
     margin-inline: var(--size-12) 0;
-    background: var(--_day-bg);
 
     &::before {
       content: "21";
@@ -16,8 +14,14 @@
       background-image: url(/day21/21.png);
     }
   }
+
+  .frame {
+    min-block-size: 250px;
+    border: var(--size-3) solid #d9773e;
+    background: var(--_day-bg);
+  }
 </style>
 
 <a href="#21st" id="21st" class="day twentyone" title="">
-
+  <div class="frame cq-interactive"></div>
 </a>
