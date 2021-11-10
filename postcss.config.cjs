@@ -14,10 +14,11 @@ module.exports = {
       importFrom: [
         {
           customMedia: {
+            '--xs': '(width >= 600px)',
             '--sm': '(width >= 720px)',
             '--md': '(width >= 1024px)',
-            '--lg': '(width >= 1681px)',
-            '--xl': '(width >= 1920px)',
+            '--lg': '(width >= 1400px)',
+            '--xl': '(width >= 1600px)',
             '--motionOK': '(prefers-reduced-motion: no-preference)',
             '--dark': '(prefers-color-scheme: dark)',
             '--light': '(prefers-color-scheme: light)',
