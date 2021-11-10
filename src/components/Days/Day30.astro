@@ -3,8 +3,11 @@
 
 <style>
   .thirty {
-    grid-column: span 2;
     margin-inline: var(--size-5);
+
+    @media (--md) {
+      grid-column: span 2;
+    }
 
     &::before {
       content: "30";

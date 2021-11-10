@@ -108,7 +108,7 @@ import Day31 from '../Days/Day31.astro';
 <style>
   .calendar {
     --_card-size: calc(50% - 80px); 
-    --_windows: 2;
+    --_windows: 1;
     --_building-color: #ffecd3;
     
     container: inline-size;
@@ -122,6 +122,10 @@ import Day31 from '../Days/Day31.astro';
     padding-block: var(--size-14) var(--size-5);
     padding-inline: 10px;
     align-items: start;
+
+    @media (--sm) {
+      --_windows: 2;
+    }
     
     @media (--md) {
       --_card-size: calc(33% - 80px);
