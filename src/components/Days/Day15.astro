@@ -1,14 +1,118 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .fifteen {
-    align-self: flex-end;
-    margin-inline: var(--size-4);
+    --_frame-bottom: 15%;
+    --_frame-side: 7%;
+    --_frame-size: .8rem;
+
+    --_bg-shadow-opacity: 1;
+    --_bg-gradient-color-1: #fed0a9;
+    --_bg-gradient-color-2: #fff;
+
+    margin: var(--size-2);
 
     &::before {
       content: "15";
+      /* background-image: url(/day15/15.avif);
+      background-image: url(/day15/15.png); */
+
+      inset-block: var(--_frame-size) auto;
     }
+
+  }
+
+  .pane {
+    min-block-size: 18rem;
+    border: var(--_frame-size) solid #d9773e;
+    margin-block-end: -10%;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .sill {
+    align-self: flex-end;
+    justify-self: center;
+    z-index: 1;
+    inline-size: 110%;
+    margin-block-end: calc(var(--_frame-size) * -1);
+  }
+
+  .bg {
+    background: linear-gradient(to bottom right, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2));
+    z-index: -1;
+  }
+
+  .bg_shadow {
+    opacity: var(--_bg-shadow-opacity);
+    max-inline-size: 130%;
+    margin-inline-end: -10%;
+    z-index: -1;
+  }
+
+  .lamp {
+    align-self: flex-start;
+    justify-self: flex-start;
+    max-inline-size: 30%;
+    margin-block-start: -5%;
+  }
+
+  .character {
+    align-self: flex-end;
+    justify-self: center;
+    max-inline-size: 109%;
+    margin-block-end: 5%;
+    margin-inline: -5%;
+  }
+
+  .table {
+    display: grid;
+    align-self: flex-end;
+    justify-self: center;
+    align-items: flex-end;
+    justify-items: flex-end;
+    margin-block-end: -3%;
+    margin-inline: -3%;
+  }
+
+  .good_soup {
+    align-items: flex-end;
+    justify-self: flex-start;
+    max-inline-size: 55%;
+    position: relative;
+  }
+
+  .steam {
+    align-self: flex-start;
+    position: absolute;
+    top: -160%;
+    left: 0;
+  }
+
+  .pot {
+    margin-inline-start: -10%;
+  }
+
+  .soy_sauce {
+    max-inline-size: 15%;
+    justify-self: center;
+    align-self: flex-start;
+    margin-block-start: 15%;
+    margin-inline-start: 35%;
+  }
+
+  .rice {
+    max-inline-size: 35%;
+    justify-self: center;
+    margin-inline-start: 15%;
+    z-index: 2;
+  }
+
+  .dish {
+    max-inline-size: 30%;
+    margin-block-end: 3%;
   }
 
   .frame {
@@ -18,6 +122,50 @@
   }
 </style>
 
-<a href="#15th" id="15th" class="day fifteen" title="">
-  <div class="frame cq-interactive"></div>
+<style global>
+  [data-theme="dark"] {
+    & .fifteen {
+      --_bg-shadow-opacity: .25;
+      --_bg-gradient-color-1: hsl(55deg 3% 20%);
+      --_bg-gradient-color-2: hsl(65deg 59% 21%);
+    }
+  }
+</style>
+
+<a href="#15th" id="1st" class="day fifteen stacked" title="">
+  <div class="pane stacked">
+    <div class="bg"></div>
+    <div class="bg_shadow">
+      <Pic filename="day15/bg_shadow" role="presentation" />
+    </div>
+    <div class="lamp">
+      <Pic filename="day15/lamp" role="presentation" />
+    </div>
+    <div class="character">
+      <Pic filename="day15/character" role="presentation" />
+    </div>
+    <div class="table stacked">
+      <Pic filename="day15/table" role="presentation" />
+        <div class="good_soup stacked">
+          <div class="pot">
+            <Pic filename="day15/pot" role="presentation" />
+          </div>
+          <div class="steam">
+            <Pic filename="day15/steam" role="presentation" />
+          </div>
+        </div>
+        <div class="soy_sauce">
+          <Pic filename="day15/soy_sauce" role="presentation" />
+        </div>
+        <div class="dish">
+          <Pic filename="day15/dish" role="presentation" />
+        </div>
+        <div class="rice">
+          <Pic filename="day15/rice" role="presentation" />
+        </div>
+    </div>
+  </div>
+  <div class="sill">
+    <Pic filename="day15/sill" role="presentation" />
+  </div>
 </a>
