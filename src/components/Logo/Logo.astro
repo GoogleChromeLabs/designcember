@@ -3,7 +3,9 @@ import Pic from '../Pic/Pic.astro';
 ---
 
 <header>
-  <Pic filename="title" alt="Designcember" height="999" width="3808" />
+  <div class="logo">
+    <Pic filename="title" alt="Designcember" class="logo" height="999" width="3808" />
+  </div>
 </header>
 
 <style>
@@ -11,9 +13,9 @@ import Pic from '../Pic/Pic.astro';
     padding-block: 10vh;
     display: grid;
     place-items: center;
+  }
 
-    & > img {
-      inline-size: min(80vw, 1800px);
-    }
+  .logo {
+    inline-size: min(80vw, 1800px);
   }
 </style>
