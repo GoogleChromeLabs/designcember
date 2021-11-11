@@ -21,8 +21,9 @@
     position: absolute;
     z-index: var(--layer-1);
     color: var(--_day-color);
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.25rem;
     text-align: center;
     text-shadow: 0 1px 0 #fff5;
     background-image: url(/blank.avif);
@@ -51,4 +52,8 @@
   padding: var(--size-3);
   padding-block-end: var(--size-6);
   box-sizing: content-box;
+}
+
+.cq-interactive:active {
+  z-index: 3;
 }

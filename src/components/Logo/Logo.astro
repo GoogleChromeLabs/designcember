@@ -6,16 +6,21 @@ import Pic from '../Pic/Pic.astro';
   <div class="logo">
     <Pic filename="title" alt="Designcember" class="logo" height="999" width="3808" />
   </div>
+  <p class="intro">A celebration of web design brought to you by <a href="https://web.dev">web.dev</a>. Every day we'll drop a UI development treat for you to celebrate the new responsive web of tomorrow.</p>
 </header>
 
 <style>
   header {
-    padding-block: 10vh;
     display: grid;
     place-items: center;
   }
 
   .logo {
-    inline-size: min(80vw, 1200px);
+    inline-size: min(80vw, 1000px);
+  }
+
+  .intro {
+    padding: 1rem;
+    inline-size: clamp(200px, 80vw, 700px);
   }
 </style>

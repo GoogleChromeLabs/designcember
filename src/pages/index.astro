@@ -12,7 +12,7 @@ import Footer from '../components/Footer/Footer.astro';
     display: grid;
     align-items: center;
     justify-items: center;
-    gap: var(--size-10);
+    gap: var(--size-3) var(--size-10);
 
     background-color: #d7ebed;
     background-image: linear-gradient(to bottom, #d7ebed 15%, white 30%, white 70%, #d7ebed 85%, #d7ebed);
@@ -21,6 +21,12 @@ import Footer from '../components/Footer/Footer.astro';
   nav {
     justify-self: flex-end;
     padding: var(--size-5);
+  }
+
+  @media (--sm) {
+    body {
+      gap: var(--size-10);
+    }
   }
 </style>
 
