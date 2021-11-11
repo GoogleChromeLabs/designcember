@@ -1,0 +1,20 @@
+.stacked {
+  display: grid;
+  grid: [stack] 1fr / [stack] 1fr;
+
+  & > * {
+    grid-area: stack;
+  }
+}
+
+.cq-interactive {
+  overflow: hidden;
+  resize: both;
+  padding: var(--size-3);
+  padding-block-end: var(--size-6);
+  box-sizing: content-box;
+}
+
+.cq-interactive:active {
+  z-index: 3;
+}
