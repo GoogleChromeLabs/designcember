@@ -8,10 +8,11 @@ import Pic from '../Pic/Pic.astro';
     justify-self: flex-end;
     margin-inline-end: 5%;
     margin-block-end: -20%;
+    align-items: flex-start;
 
     &::before {
       content: "5";
-      inset-block: auto 20%;
+      inset-block: auto 40%;
       inset-inline: auto 25%;
     }
   }
@@ -34,6 +35,8 @@ import Pic from '../Pic/Pic.astro';
 </style>
 
 <a href="#5th" id="5th" class="day five stacked" title="">
-  <div class="frame"></div>
-  <Pic filename="day5/combo" width="1193" height="1003" role="presentation" />
+  <div class="combo stacked">
+    <div class="frame"></div>
+    <Pic filename="day5/combo" width="1193" height="1003" role="presentation" />
+  </div>
 </a>
