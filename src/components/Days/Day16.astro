@@ -1,23 +1,49 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .sixteen {
-    align-self: flex-end;
-    margin-inline: var(--size-4);
+    --bg-color: #f8eceb;
+    margin: var(--size-4);
+    align-self: center;
 
     &::before {
       content: "16";
+      inset-block-end: -9%;
+      inset-inline-start: 44%;
     }
   }
 
   .frame {
-    min-block-size: 350px;
-    border: var(--size-2) solid #d9773e;
-    background: var(--_day-bg);
+    place-items: center;
+  }
+
+  .bg_texture {
+    background-color: var(--bg-color);
+    align-self: start;
+  }
+
+  .combo {
+    min-inline-size: 110%;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .sixteen {
+      --bg-color: hsl(44deg 70% 32%);
+    }
   }
 </style>
 
 <a href="#16th" id="16th" class="day sixteen" title="">
-  <div class="frame cq-interactive"></div>
+  <div class="frame stacked">
+    <div class="bg_texture">
+      <Pic filename="day16/bg_texture" width="1246" height="387" role="presentation" />
+    </div>
+    <div class="combo">
+      <Pic filename="day16/combo" width="1383" height="816" role="presentation" />
+    </div>
+  </div>
 </a>
