@@ -6,7 +6,7 @@ import Pic from '../Pic/Pic.astro';
   .one {
     --_frame-bottom: 15%;
     --_frame-side: 7%;
-    --_frame-size: var(--size-3);
+    --_frame-size: var(--size-2);
 
     --_light-filter: none;
     --_bg-shadow-opacity: 1;
@@ -16,6 +16,13 @@ import Pic from '../Pic/Pic.astro';
     --_border-radius: 1e3px 1e3px 0 0;
 
     margin: var(--size-2);
+
+    /* Size constraints */
+    height: 300px;
+    min-height: 240px;
+    max-height: 370px;
+    min-width: 200px;
+    max-width: 420px;
 
     &::before {
       content: "1";
@@ -40,7 +47,6 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .pane {
-    min-block-size: 25rem;
     block-size: 100%;
     max-inline-size: 40rem;
     border-radius: var(--_border-radius);
@@ -70,11 +76,12 @@ import Pic from '../Pic/Pic.astro';
 
   .una {
     margin-block-end: -5%;
+    z-index: 1;
   }
 
   .una_body {
     align-self: flex-end;
-    max-inline-size: min(60%, 200px);
+    max-inline-size: min(60%, 220px);
     margin-inline-start: -5%;
     margin-inline-start: -5%;
   }
@@ -108,6 +115,12 @@ import Pic from '../Pic/Pic.astro';
     @container (max-width: 240px) {
       margin-inline-start: 20%;
       margin-block-end: 1%;
+    }
+
+    @container (min-width: 310px) {
+      @container (min-height: 200px) {
+      display: none;
+      }
     }
   }
 

@@ -14,8 +14,8 @@ module.exports = {
       importFrom: [
         {
           customMedia: {
-            '--xs': '(width >= 600px)',
-            '--sm': '(width >= 720px)',
+            '--xs': '(width >= 500px)',
+            '--sm': '(width >= 600px)',
             '--md': '(width >= 1024px)',
             '--lg': '(width >= 1400px)',
             '--xl': '(width >= 1600px)',
