@@ -1,10 +1,15 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .eight {
+    --_light-filter: none;
+    --_bg-gradient-color-1: #ffe8d1;
+    --_bg-gradient-color-2: #f5baa2;
+
     margin-bottom: var(--size-4);
-    min-block-size: 290px;
+    aspect-ratio: 1;
 
     &::before {
       content: "8";
@@ -13,13 +18,55 @@
   }
 
   .frame {
-    mask-image: url(/flower.svg);
-    mask-size: contain;
+    padding: var(--size-2);
+    position: relative;
+  }
+
+  .light {
+    inline-size: 25%;
+    margin-block-start: 3%;
+    place-self: flex-start center;
+    filter: var(--_light-filter);
+  }
+
+  .combo {
+    mask-image: url(/day8/mask.png);
+    mask-size: cover;
     mask-repeat: no-repeat;
-    background-color: var(--_day-bg);
+    mask-image: url(/day8/mask.png);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    background-image: 
+      linear-gradient(transparent, 55%, #c86d69 0%, #c86d69 0%),
+      linear-gradient(to bottom, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2))
+    ;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .eight {
+      --_light-filter: drop-shadow(0px 0px 10px #fff9);
+      --_bg-gradient-color-1: hsl(42deg 20% 32%);
+      --_bg-gradient-color-2: hsl(17deg 46% 13%);
+    }
+  }
+
+  .eight .combo > picture:first-of-type img {
+    object-position: bottom;
+    height: 100%;
+    object-fit: contain;
   }
 </style>
 
 <a href="#8th" id="8th" class="day eight stacked" title="">
-  <div class="frame"></div>
+  <div class="frame stacked">
+    <Pic filename="day8/frame" width="1635" height="1635" role="presentation" />
+    <div class="combo stacked">
+      <Pic filename="day8/8-combo" role="presentation" />
+      <div class="light">
+        <Pic filename="day8/light" role="presentation" />
+      </div>
+    </div>
+  </div>
 </a>
