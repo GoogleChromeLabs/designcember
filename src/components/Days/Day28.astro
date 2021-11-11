@@ -1,11 +1,15 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .twentyeight {
+    --_light-filter: none;
+    --_bg-gradient-color-1: #fef7f1;
+    --_bg-gradient-color-2: #ffc5b6;
+
     margin-block-end: var(--size-4);
     margin-inline-end: var(--size-4);
-    aspect-ratio: 1;
 
     &::before {
       content: "28";
@@ -13,13 +17,44 @@
   }
 
   .frame {
-    mask-image: url(/flower.svg);
-    mask-size: contain;
+    z-index: -1;
+    mask-image: url(/day28/mask.png);
+    mask-size: cover;
     mask-repeat: no-repeat;
-    background-color: var(--_day-bg);
+    background-image: linear-gradient(to bottom, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2));
+  }
+
+  .light {
+    inline-size: 15%;
+    justify-self: center;
+    margin-block-start: 5%;
+    filter: var(--_light-filter);
   }
 </style>
 
-<a href="#28th" id="28th" class="day twentyeight stacked" title="">
-  <div class="frame"></div>
+<style global>
+  [data-theme="dark"] {
+    & .twentyeight .combo {
+      --_light-filter: drop-shadow(0px 0px 10px #fff9);
+      --_bg-gradient-color-1: hsl(19deg 40% 30%);
+      --_bg-gradient-color-2: hsl(19deg 40% 2%);
+    }
+  }
+
+  .twentyeight .combo > picture:first-of-type img {
+    object-position: bottom;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<a href="#28th" id="28th" class="day twentyeight" title="">
+  <div class="combo stacked">
+    <div class="frame stacked">
+      <div class="light">
+        <Pic filename="day28/light" role="presentation" />
+      </div>
+    </div>
+    <Pic filename="day28/day28" width="1759" height="1594" role="presentation" />
+  </div>
 </a>
