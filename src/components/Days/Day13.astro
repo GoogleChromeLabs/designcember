@@ -1,25 +1,54 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .thirteen {
-    margin: var(--size-8) var(--size-6) 0 0;
-    background-color: transparent;
+    --bg-color: #e0e7ca;
+
+    margin: var(--size-10) var(--size-8);
 
     &::before {
       content: "13";
-      inset-block: 1ch auto;
+
+      inset-inline-start: 43%;
+      inset-block-end: -10%;
+      z-index: 2;
     }
   }
 
   .frame {
-    block-size: 200px;
-    clip-path: polygon(0 0, 100% 0, 50% 80%);
-    background-color: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
+    place-self: center;
+    block-size: 110px;
+  }
+
+  .combo {
+    max-inline-size: 90%;
+    place-self: center;
+    margin-block-start: -30%;
+  }
+
+  .window {
+    background: linear-gradient(to bottom, var(--bg-color), transparent);
+    border-radius: 5px 5px 45px 45px;
+    height: 70%;
+    align-self: flex-end;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .sixteen {
+      --bg-color: hsl(44deg 70% 32%);
+    }
   }
 </style>
 
 <a href="#13th" id="13th" class="day thirteen" title="">
-  <div class="frame"></div>
+  <div class="frame stacked">
+    <div class="window"></div>
+    <div class="combo">
+      <Pic filename="day13/13-combo" width="754" height="707" role="presentation" />
+    </div>
+  </div>
 </a>

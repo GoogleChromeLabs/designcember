@@ -1,4 +1,5 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
@@ -8,16 +9,38 @@
 
     &::before {
       content: "14";
+
+      inset-inline-start: 45%;
+      inset-block-end: -5%;
+      z-index: 2;
     }
   }
 
   .frame {
-    min-block-size: 150px;
+    place-items: center;
     border: var(--size-2) solid #d9773e;
     background: linear-gradient(to bottom left, #427197 15%, #5181a8 0%);
+    overflow: hidden;
+  }
+
+  .combo {
+    inline-size: 110%;
+    margin-block: -5%;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .sixteen {
+      --bg-color: hsl(44deg 70% 32%);
+    }
   }
 </style>
 
 <a href="#14th" id="14th" class="day fourteen" title="">
-  <div class="frame cq-interactive"></div>
+  <div class="frame stacked">
+    <div class="combo">
+      <Pic filename="day14/14" width="1048" height="1183" role="presentation" />
+    </div>
+  </div>
 </a>
