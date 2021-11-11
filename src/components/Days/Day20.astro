@@ -1,25 +1,35 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .twenty {
-    border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
     margin-inline: var(--size-5) -20px;
     align-self: center;
-    background: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
 
     &::before {
       content: "20";
     }
   }
 
-  .frame {
-    border-radius: inherit;
-    min-block-size: 80px;
+  .bg {
+    border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+    background: #7dabc8;
+    margin: 6% 2% 2% 3%;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .twenty .bg {
+      background: hsl(203 41% 14%);
+    }
   }
 </style>
 
 <a href="#20th" id="20th" class="day twenty" title="">
-  <div class="frame"></div>
+  <div class="frame stacked">
+    <div class="bg"></div>
+    <Pic filename="day20/20" width="1558" height="795" role="presentation" />
+  </div>
 </a>
