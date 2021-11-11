@@ -1,8 +1,12 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .thirtyone {
+    --_bg-gradient-color-1: #fffffc;
+    --_bg-gradient-color-2: #fff7d3;
+    
     align-self: flex-end;
     margin: var(--size-3);
 
@@ -11,15 +15,27 @@
     }
   }
 
-  .frame {
-    min-block-size: 300px;
-    mask-image: url(/star.svg);
-    mask-size: contain;
+  .bg {
+    z-index: -1;
+    mask-image: url(/day31/mask.png);
+    mask-size: cover;
     mask-repeat: no-repeat;
-    background-color: var(--_day-bg);
+    background-image: linear-gradient(to bottom, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2));
   }
 </style>
 
-<a href="#31st" id="31st" class="day thirtyone stacked" title="">
-  <div class="frame"></div>
+<style global>
+  [data-theme="dark"] {
+    & .thirtyone .combo {
+      --_bg-gradient-color-1: hsl(19deg 40% 30%);
+      --_bg-gradient-color-2: hsl(19deg 40% 2%);
+    }
+  }
+</style>
+
+<a href="#31st" id="31st" class="day thirtyone" title="">
+  <div class="combo stacked">
+    <div class="bg"></div>
+    <Pic filename="day31/combo" width="1872" height="1928" role="presentation" />
+  </div>
 </a>
