@@ -1,25 +1,44 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .nineteen {
     inline-size: 50%;
     justify-self: flex-end;
-    border-radius: 1e3px 1e3px 0 0;
-    border: var(--size-2) solid #d9773e;
     margin: var(--size-3) var(--size-5) -10%;
-    background: var(--_day-bg);
 
     &::before {
       content: "19";
+      inset-inline: 40%;
+      inset-block: auto -4%;
     }
   }
 
-  .frame {
-    min-block-size: 200px;
+  .bg {
+    border-radius: var(--radius-round);
+    background: #ffddbb;
+  }
+
+  .snow {
+    inline-size: 35%;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .nineteen .bg {
+      background: hsl(244deg 21% 42%);
+    }
   }
 </style>
 
 <a href="#19th" id="19th" class="day nineteen" title="">
-  <div class="frame"></div>
+  <div class="frame stacked">
+    <div class="bg"></div>
+    <Pic filename="day19/19" width="753" height="763" role="presentation" />
+    <div class="snow">
+      <Pic filename="day19/snow" role="presentation" />
+    </div>
+  </div>
 </a>
