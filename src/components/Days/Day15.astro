@@ -6,7 +6,7 @@ import Pic from '../Pic/Pic.astro';
   .fifteen {
     --_frame-bottom: 15%;
     --_frame-side: 7%;
-    --_frame-size: .8rem;
+    --_frame-size: var(--size-2);
 
     --_bg-shadow-opacity: 1;
     --_bg-gradient-color-1: #fed0a9;
@@ -17,8 +17,8 @@ import Pic from '../Pic/Pic.astro';
     &::before {
       content: "15";
 
-      inset-inline-start: 48%;
-      inset-block-end: -5%;
+      inset-inline-start: 45%;
+      inset-block-end: -10%;
       z-index: 2;
     }
 
@@ -37,7 +37,7 @@ import Pic from '../Pic/Pic.astro';
     justify-self: center;
     z-index: 1;
     inline-size: 110%;
-    margin-block-end: calc(var(--_frame-size) * -1);
+    margin-block-end: calc(var(--_frame-size) * -4);
   }
 
   .bg {
@@ -132,7 +132,7 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#15th" id="1st" class="day fifteen stacked" title="">
+<a href="#15th" id="15th" class="day fifteen stacked" title="">
   <div class="pane stacked">
     <div class="bg"></div>
     <div class="bg_shadow">

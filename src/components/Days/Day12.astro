@@ -1,23 +1,24 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .twelve {
     margin: var(--size-4) var(--size-7);
     border-radius: 1e3px 1e3px 0 0;
-    border: var(--size-2) solid #d9773e;
-    background: var(--_day-bg);
+    padding: 0;
+    overflow: visible;
 
     &::before {
       content: "12";
-    }
-  }
 
-  .frame {
-    min-block-size: 300px;
+      inset-inline-start: 45%;
+      inset-block-end: 0%;
+      z-index: 2;
+    }
   }
 </style>
 
 <a href="#12th" id="12th" class="day twelve cq-interactive" title="">
-  <div class="frame"></div>
+  <Pic filename="day12/12-combo" width="821" height="876" role="presentation" />
 </a>
