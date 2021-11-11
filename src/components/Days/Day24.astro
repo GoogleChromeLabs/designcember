@@ -1,16 +1,15 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .twentyfour {
-    aspect-ratio: 4/3;
-    align-self: flex-end;
-    background-color: transparent;
-    margin-inline: var(--size-5);
+    --_light-filter: none;
+    --_bg-gradient-color-1: #ffddcd;
+    --_bg-gradient-color-2: white;
 
-    @media (--xl) {
-      grid-row: span 1;
-    }
+    align-self: flex-end;
+    margin-inline: var(--size-5);
 
     &::before {
       content: "24";
@@ -18,14 +17,45 @@
     }
   }
 
-  .frame {
-    block-size: 100%;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-    background-color: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
+  .light {
+    inline-size: 25%;
+    justify-self: center;
+    margin-inline-start: -15%;
+    filter: var(--_light-filter);
+  }
+
+  .combo {
+    mask-image: url(/day24/mask.png);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    background-image: linear-gradient(to bottom, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2));
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .twentyfour .combo {
+      --_light-filter: drop-shadow(0px 0px 10px #fff9);
+      --_bg-gradient-color-1: hsl(19deg 40% 30%);
+      --_bg-gradient-color-2: hsl(19deg 40% 2%);
+    }
+  }
+
+  .twentyfour .combo > picture:first-of-type img {
+    object-position: bottom;
+    height: 100%;
+    object-fit: contain;
   }
 </style>
 
 <a href="#24th" id="24th" class="day twentyfour" title="">
-  <div class="frame"></div>
+  <div class="frame stacked">
+    <Pic filename="day24/frame" role="presentation" />
+    <div class="combo stacked">
+      <Pic filename="day24/24" width="1645" height="1175" role="presentation" />
+      <div class="light">
+        <Pic filename="day24/light" role="presentation" />
+      </div>
+    </div>
+  </div>
 </a>
