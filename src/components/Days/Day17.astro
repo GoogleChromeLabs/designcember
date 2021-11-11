@@ -1,9 +1,12 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .seventeen {
-    aspect-ratio: 1/1.5;
+    --_bg-gradient-color-1: #f0eeea;
+    --_bg-gradient-color-2: #ffbebb;
+
     align-self: flex-end;
     margin: var(--size-4);
 
@@ -12,13 +15,27 @@
     }
   }
 
-  .frame {
-    min-block-size: 450px;
-    border: var(--size-2) solid #d9773e;
-    background: var(--_day-bg);
+  .bg {
+    mask-image: url(/day17/mask.png);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    background: linear-gradient(to bottom, var(--_bg-gradient-color-1), var(--_bg-gradient-color-2));
+    z-index: -1;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .seventeen {
+      --_bg-gradient-color-1: hsl(3deg 5% 70%);
+      --_bg-gradient-color-2: hsl(3deg 40% 37%);
+    }
   }
 </style>
 
 <a href="#17th" id="17th" class="day seventeen" title="">
-  <div class="frame cq-interactive"></div>
+  <div class="frame stacked">
+    <div class="bg"></div>
+    <Pic filename="day17/combo" width="1548" height="1238" role="presentation" />
+  </div>
 </a>
