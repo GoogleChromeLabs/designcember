@@ -1,4 +1,5 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
@@ -18,14 +19,16 @@
     }
   }
 
-  .frame {
-    min-block-size: 150px;
-    clip-path: polygon(100% 100%, 100% 0, 0 100%);
-    background-color: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
+  .bg {
+    background-image: linear-gradient(to bottom left, #fff 30%, #ecf4f1 0%);
+    margin: -20% 5% 40% 0%;
+    border-radius: 10px 0 0 10px;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    z-index: -1;
   }
 </style>
 
-<a href="#26th" id="26th" class="day twentysix" title="">
-  <div class="frame"></div>
+<a href="#26th" id="26th" class="day twentysix stacked" title="">
+  <div class="bg"></div>
+  <Pic filename="day26/26" width="799" height="786" role="presentation" />
 </a>
