@@ -131,7 +131,10 @@ import Day31 from '../Days/Day31.astro';
     container: inline-size;
     inline-size: min(80vw, 1280px);
     position: relative;
-    background: var(--_building-color);
+    background-color: var(--_building-color);
+    background-image: url(/brick-pattern.png);
+    background-size: 100% auto;
+    background-repeat: repeat-y;
 
     display: grid;
     grid-template-columns: repeat(var(--_windows), minmax(var(--_card-size), 1fr));
