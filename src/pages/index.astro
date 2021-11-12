@@ -16,7 +16,12 @@ import Footer from '../components/Footer/Footer.astro';
     gap: var(--size-3) var(--size-10);
 
     background-color: #d7ebed;
-    background-image: linear-gradient(to bottom, #d7ebed 15%, white 30%, white 70%, #d7ebed 85%, #d7ebed);
+    background-image: 
+      url('/header-left.png'),
+      url('/header-right.png'),
+      linear-gradient(to bottom, #d7ebed 15%, white 30%, white 70%, #d7ebed 85%, #d7ebed);
+    background-size: 40% auto, 40% auto, 100% 100%;
+    background-position: left top, right top, center center;
   }
 
   nav {
