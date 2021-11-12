@@ -8,22 +8,42 @@ import Pic from '../Pic/Pic.astro';
     inline-size: min(300px, 90%);
     align-self: flex-end;
     margin-block-start: -20%;
+    --bg-gradient-color-1: #b4cda3;
+    --bg-gradient-color-2: #c5ddb0;
 
     &::before {
       content: "4";
       inset-block: auto 5%;
     }
+
+  }
+
+  .frame {
+    mask-image: url(/day4/day4-shape-mask.png);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    z-index: -1;
+    margin: 0 0 4% 6%;
+  }
+
+  .bg {
+      background: linear-gradient(to bottom, var(--bg-gradient-color-1), var(--bg-gradient-color-2));
   }
 </style>
 
 <style global>
   [data-theme="dark"] {
-    & .four {}
+    & .four {
+      --bg-gradient-color-1: hsl(96deg 30% 12%);
+      --bg-gradient-color-2: hsl(92deg 40% 28%);
+    }
   }
 </style>
 
-<a href="#4th" id="4th" class="day four" title="An untitled goose on a window sill with a couple plants">
-  <div class="frame">
-    <Pic filename="day4/frame" width="1379" height="999" role="presentation" />
+<a href="#4th" id="4th" class="day four stacked" title="An untitled goose on a window sill with a couple plants">
+  <div class="frame stacked">
+    <div class="bg"></div>
+    <div class="bg-shadow"></div>
   </div>
+  <Pic filename="day4/day4" width="1262" height="914" role="presentation" />
 </a>
