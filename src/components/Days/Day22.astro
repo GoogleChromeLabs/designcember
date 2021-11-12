@@ -1,23 +1,26 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .twentytwo {
-    width: min(200px, 50%);
-    aspect-ratio: 1;
-    border-radius: var(--radius-round);
+    width: min(300px, 50%);
     align-self: flex-end;
     justify-self: flex-end;
     margin: var(--size-3);
-    background: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
 
     &::before {
       content: "22";
     }
   }
+
+  .bg {
+    margin: 0 8% 15% 5%;
+    background-image: linear-gradient(to bottom right, #ffefc2, white);
+  }
 </style>
 
-<a href="#22nd" id="22nd" class="day twentytwo" title="">
-
+<a href="#22nd" id="22nd" class="day twentytwo stacked" title="">
+  <div class="bg"></div>
+  <Pic filename="day22/22" width="624" height="659" role="presentation" />
 </a>
