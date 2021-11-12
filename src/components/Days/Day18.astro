@@ -1,27 +1,36 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .eighteen {
     order: 2;
-    inline-size: 80%;
     margin: var(--size-4);
     align-self: flex-end;
-    background-color: transparent;
 
     &::before {
       content: "18";
     }
   }
 
-  .frame {
-    min-block-size: 200px;
+  .bg {
+    background-image: linear-gradient(to bottom, #ecf4f1 30%, #fff 0%);
+    margin: 20% ​5% 10% 5;
+    border-radius: 10px 0 0 10px;
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
-    background-color: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
+    z-index: -1;
   }
 </style>
 
-<a href="#18th" id="18th" class="day eighteen" title="">
-  <div class="frame"></div>
+<style global>
+  [data-theme="dark"] .eighteen {
+    & .bg {
+      background-image: linear-gradient(to bottom, hsl(157deg 27% 74%) 30%, hsl(0deg 0% 80%) 0%);
+    }
+  }
+</style>
+
+<a href="#18th" id="18th" class="day eighteen stacked" title="">
+  <div class="bg"></div>
+  <Pic filename="day18/18" width="1045" height="1209" role="presentation" />
 </a>
