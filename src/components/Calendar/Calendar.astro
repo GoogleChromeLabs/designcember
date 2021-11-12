@@ -133,9 +133,10 @@ import Day31 from '../Days/Day31.astro';
     container: inline-size;
     inline-size: min(80vw, 1280px);
     position: relative;
-    background-image: var(--_building);
+    background: var(--_building);
     background-size: 100% auto;
     background-repeat: repeat-y;
+    background-blend-mode: luminosity;
 
     display: grid;
     grid-template-columns: repeat(var(--_windows), minmax(var(--_card-size), 1fr));
@@ -223,8 +224,12 @@ import Day31 from '../Days/Day31.astro';
   [data-theme="dark"] {
     & .calendar {
       --_building: 
-        linear-gradient(hsl(208deg 71% 14% / 80%), hsl(210deg 29% 34% / 80%)), 
-        url(/brick-pattern.png);
+        linear-gradient(hsl(208deg 71% 14% / 80%), hsl(210deg 29% 34% / 80%)), url(/brick-pattern.png), linear-gradient(hsl(208deg 71% 14% / 100%), hsl(210deg 29% 34% / 100%));
+    }
+
+    & .snow-left,
+    & .snow-right {
+      opacity: 0.3;
     }
   }
 </style>
