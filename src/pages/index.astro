@@ -42,6 +42,19 @@ import Footer from '../components/Footer/Footer.astro';
   [data-theme="dark"] {
     & body {
       --_sky-gradient: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
+      --_sky-gradient--alpha: linear-gradient(to bottom, rgb(0 40 74 / 70%), rgb(105 141 179 / 70%));
+      background-image: 
+      var(--_sky-gradient--alpha),
+      url('/header-left.png'),
+      url('/header-right.png'),
+      var(--_sky-gradient);
+      background-size: 100% 100%, 40% auto, 40% auto, 100% 100%;
+      background-position: center center, left top, right top, center center;
+    }
+
+    & .snow-left,
+    & .snow-right {
+      opacity: 0.3;
     }
   }
 </style>
