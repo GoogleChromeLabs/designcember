@@ -10,6 +10,8 @@ import Footer from '../components/Footer/Footer.astro';
   @import "../styles/utilities.css";
   
   body {
+    --_sky-gradient: linear-gradient(to bottom, #d7ebed 15%, white 30%, white 70%, #d7ebed 85%, #d7ebed);
+
     display: grid;
     align-items: center;
     justify-items: center;
@@ -19,7 +21,7 @@ import Footer from '../components/Footer/Footer.astro';
     background-image: 
       url('/header-left.png'),
       url('/header-right.png'),
-      linear-gradient(to bottom, #d7ebed 15%, white 30%, white 70%, #d7ebed 85%, #d7ebed);
+      var(--_sky-gradient);
     background-size: 40% auto, 40% auto, 100% 100%;
     background-position: left top, right top, center center;
   }
@@ -39,7 +41,7 @@ import Footer from '../components/Footer/Footer.astro';
 <style global>
   [data-theme="dark"] {
     & body {
-      background-image: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
+      --_sky-gradient: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
     }
   }
 </style>
