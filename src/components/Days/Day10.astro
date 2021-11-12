@@ -9,13 +9,17 @@ import Pic from '../Pic/Pic.astro';
     margin: var(--size-4) var(--size-4) 0 var(--size-10);
 
     @media (--md) {
-      /* grid-column: span 2; */
+      --_day-column: 1;
     }
 
     &::before {
       content: "10";
       inset-block: auto 4%;
       inset-inline: 44%;
+    }
+
+    @media (--xl) {
+      --_day-height: 1;
     }
   }
 

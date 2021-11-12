@@ -11,6 +11,11 @@ import Pic from '../Pic/Pic.astro';
       content: "23";
       inset-block-end: 45%;
     }
+
+    @media (--xl) {
+      --_day-height: 1;
+      grid-row: span 1;
+    }
   }
 
   .bg {

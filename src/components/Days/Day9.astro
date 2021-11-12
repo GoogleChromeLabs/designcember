@@ -3,15 +3,21 @@
 
 <style>
   .nine {
-    aspect-ratio: var(--ratio-box);
-    inline-size: 60%;
+    min-height: 150px;
+    inline-size: 90%;
     justify-self: flex-end;
-    border-radius: var(--radius-round);
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
     background: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
 
     &::before {
       content: "9";
+    }
+
+    @media (--xl) {
+      --_day-column: 2;
+      --_day-height: 1;
     }
   }
 </style>

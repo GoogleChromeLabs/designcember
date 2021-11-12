@@ -12,6 +12,11 @@ import Pic from '../Pic/Pic.astro';
     &::before {
       content: "22";
     }
+
+    @media (--xl) {
+      --_day-height: 1;
+      grid-row: 10 / span 1;
+    }
   }
 
   .bg {
