@@ -1,28 +1,45 @@
 ---
+import Pic from '../Pic/Pic.astro';
 ---
 
 <style>
   .ten {
+    --_bg-gradient-color-1: #f7d09a;
+    --_bg-gradient-color-2: #f9dfc0;
     margin: var(--size-4) var(--size-4) 0 var(--size-10);
-    border-radius: 50% 50% 100% 0% / 100% 100% 0% 0%;
-    border: var(--size-2) solid #d9773e;
-    background-color: var(--_day-bg);
 
     @media (--md) {
-      grid-column: span 2;
+      /* grid-column: span 2; */
     }
 
     &::before {
       content: "10";
+      inset-block: auto 4%;
+      inset-inline: 44%;
     }
   }
 
-  .frame {
-    border-radius: inherit;
-    min-block-size: 80px;
+  .combo {
+    mask-image: url(/day10/heart-mask.png);
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    background-image: 
+      linear-gradient(to bottom left, var(--_bg-gradient-color-1) 30%, var(--_bg-gradient-color-2) 0%)
+    ;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .ten {
+      --_bg-gradient-color-1: hsl(19deg 40% 30%);
+      --_bg-gradient-color-2: hsl(19deg 40% 2%);
+    }
   }
 </style>
 
 <a href="#10th" id="10th" class="day ten stacked cq-interactive" title="">
-  <div class="frame"></div>
+  <div class="combo">
+    <Pic filename="day10/10-combo" width="933" height="929" role="presentation" />
+  </div>
 </a>
