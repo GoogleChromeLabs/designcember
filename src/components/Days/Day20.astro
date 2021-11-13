@@ -10,6 +10,14 @@ import Pic from '../Pic/Pic.astro';
     &::before {
       content: "20";
     }
+
+    @media (--md) {
+      --_day-column: 2;
+    }
+
+    @media (--lg) {
+      --_day-column: 1;
+    }
   }
 
   .bg {

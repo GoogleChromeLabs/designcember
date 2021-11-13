@@ -7,15 +7,19 @@ import Pic from '../Pic/Pic.astro';
     --_bg-gradient-color-1: #f0eeea;
     --_bg-gradient-color-2: #ffbebb;
 
-    align-self: flex-end;
+    align-self: center;
     margin: var(--size-4);
 
     &::before {
       content: "17";
     }
 
-    @media (--xl) {
+    @media (--md) {
       --_day-column: 2;
+    }
+
+    @media (--lg) {
+      --_day-column: 1;
     }
   }
 

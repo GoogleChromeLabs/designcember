@@ -6,16 +6,30 @@
     align-self: center;
     margin: var(--size-3);
     margin-inline: var(--size-12) 0;
+    height: 100%;
 
     &::before {
       content: "21";
     }
+
+    @media (--md) {
+      --_day-height: 2;
+    }
+
+    @media (--lg) {
+      --_day-column: 2;
+    }
   }
 
   .frame {
+    height: 75%;
     min-block-size: 250px;
     border: var(--size-2) solid #d9773e;
     background: var(--_day-bg);
+
+    @media (--lg) {
+      height: 50%;
+    }
   }
 </style>
 

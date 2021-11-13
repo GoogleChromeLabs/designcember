@@ -3,8 +3,9 @@
 
 <style>
   .eleven {
-    /* grid-row-start: span 1; */
-    align-self: center;
+    height: 100%;
+    width: 80%;
+    place-self: flex-start center;
     margin: var(--size-4) var(--size-8) 0 var(--size-4);
 
     &::before {
@@ -12,24 +13,33 @@
     }
 
     @media (--md) {
-      --_day-column: 2;
+      --_day-height: 2;
       margin: var(--size-4) var(--size-8) var(--size-4) calc(var(--size-3) * -1);
+      margin-left: 0;
     }
 
-    @media (--md) {
-      margin-left: 0;
+    @media (--lg) {
+      height: 80%;
+      --_day-column: 2;
+      --_day-height: 1;
     }
 
     @media (--xl) {
       --_day-column: 3;
-      --_day-height: 1;
     }
   }
 
   .frame {
+    height: 100%;
+    width: 80%;
     min-block-size: 80px;
     background-color: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
+
+    @media (--lg) {
+      box-sizing: border-box;
+      width: 100%;
+    }
   }
 </style>
 

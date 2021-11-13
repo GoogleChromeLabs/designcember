@@ -72,7 +72,7 @@ import Day31 from '../Days/Day31.astro';
     <Day22 />
     <Day23 />
     <Day24 />
-    <div class="day pair">
+    <div class="day pair twentyfive-twentysix">
       <Day25 />
       <Day26 />
     </div>
@@ -203,6 +203,17 @@ import Day31 from '../Days/Day31.astro';
   .pair {
     display: grid;
     aspect-ratio: 1;
+  }
+
+  .twentyfive-twentysix {
+    @media (--md) {
+      --_day-column: 2;
+      --_day-height: 2;
+    }
+
+    @media (--lg) {
+      --_day-column: 1;
+    }
   }
 
   .snow-left,

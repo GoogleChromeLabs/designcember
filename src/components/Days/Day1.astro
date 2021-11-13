@@ -22,13 +22,21 @@ import Pic from '../Pic/Pic.astro';
     min-height: 240px;
     max-height: 370px;
     min-width: 200px;
-    max-width: 420px;
+    /* max-width: 420px; */
 
     &::before {
       content: "1";
 
       inset-block: var(--_frame-size) auto;
       inset-inline: calc(50% - 1.5ch);
+    }
+
+    @media (--sm) {
+      --_day-column: 2;
+    }
+
+    @media (--md) {
+      --_day-column: 1;
     }
 
     /* @media (--motionOK) {

@@ -7,9 +7,21 @@
     background: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
     height: 90%;
+    block-size: 300px;
 
     &::before {
       content: "3";
+    }
+
+    @media (--sm) {
+      grid-row-start: 3;
+    }
+
+    @media (--md) {
+      height: 80%;
+      grid-row: 1 / span 2;
+      grid-column-start: 3;
+      --_day-height: 2;
     }
   }
 </style>
