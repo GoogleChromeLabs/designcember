@@ -6,7 +6,8 @@ import Pic from '../Pic/Pic.astro';
   <div class="logo">
     <Pic filename="title" alt="Designcember" class="logo" height="999" width="3808" />
   </div>
-  <p class="intro">A celebration of web design brought to you by <a href="https://web.dev">web.dev</a>. Every day we'll drop a UI development treat for you to celebrate the new responsive web of tomorrow.</p>
+  <p class="intro">A celebration of web design brought to you by <a href="https://web.dev">web.dev</a>.</p>
+  <p class="prose">Every day we'll drop a UI development treat for you to celebrate the new responsive web of tomorrow.</p>
 </header>
 
 <style>
@@ -21,6 +22,27 @@ import Pic from '../Pic/Pic.astro';
 
   .intro {
     padding: 1rem;
-    inline-size: clamp(200px, 80vw, 700px);
+    max-inline-size: var(--size-content-2);
+    color: var(--indigo-4);
+    font-size: var(--font-size-fluid-1);
+  }
+
+  .prose {
+    padding: 1rem;
+    max-inline-size: var(--size-content-3);
+    color: var(--indigo-6);
+    font-size: var(--font-size-fluid-1);
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .intro {
+      color: var(--indigo-1);
+    }
+
+    & .prose {
+      color: var(--indigo-2);
+    }
   }
 </style>
