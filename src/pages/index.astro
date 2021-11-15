@@ -26,11 +26,6 @@ import Footer from '../components/Footer/Footer.astro';
     background-position: left top, right top, center center;
   }
 
-  nav {
-    justify-self: flex-end;
-    padding: var(--size-5);
-  }
-
   @media (--sm) {
     body {
       gap: var(--size-10);
@@ -85,9 +80,7 @@ import Footer from '../components/Footer/Footer.astro';
   </head>
 
   <body>
-    <nav>
-      <ThemeToggle />
-    </nav>
+    <ThemeToggle />
     <Logo />
     <Calendar />
     <Footer />

@@ -3,7 +3,14 @@
 
 <style>
   .theme-toggle {
-    background: none;
+    background: white;
+    border-radius: var(--radius-round);
+    aspect-ratio: var(--ratio-box);
+    position: sticky;
+    top: var(--size-3);
+    justify-self: flex-end;
+    margin: var(--size-3);
+    contain: paint;
   }
 
   #moon, #sun {
@@ -27,7 +34,7 @@
     transform-origin: center center;
     transition: 
       transform .5s var(--ease-elastic-4),
-      opacity var(--_opacity-dur) var(--ease-3);
+      opacity var(--_opacity-dur) var(--ease-4);
 
     @nest :hover > svg > & {
       stroke: var(--nav-icon-hover);
@@ -77,8 +84,8 @@
     --surface-3: var(--gray-3);
     --surface-4: var(--gray-4);
 
-    --nav-icon: var(--gray-7);
-    --nav-icon-hover: var(--gray-9);
+    --nav-icon: var(--yellow-5);
+    --nav-icon-hover: var(--yellow-6);
 
     --shadow-color: 220 3% 15%;
     --shadow-strength: 1%;
@@ -105,8 +112,8 @@
     --surface-3: var(--gray-7);
     --surface-4: var(--gray-6);
 
-    --nav-icon: var(--gray-5);
-    --nav-icon-hover: var(--gray-2);
+    --nav-icon: var(--gray-6);
+    --nav-icon-hover: var(--gray-7);
 
     --shadow-strength: 10%;
     --shadow-color: 220 40% 2%;
