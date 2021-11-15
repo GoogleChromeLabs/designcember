@@ -11,15 +11,15 @@
   },
   "devDependencies": {
     "@snowpack/plugin-postcss": "^1.4.3",
-    "astro": "^0.19.x",
+    "astro": "^0.20.x",
     "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
     "postcss-jit-props": "^1.0.1",
     "postcss-media-minmax": "^5.0.0",
-    "postcss-nesting": "^8.0.1"
+    "postcss-nesting": "^9.0.0"
   },
   "dependencies": {
-    "@argyleink/open-props": "^0.2.x",
-    "cqfill": "^0.6.0"
+    "@argyleink/open-props": "^0.3.x",
+    "cqfill": "^0.6.1"
   }
 }
