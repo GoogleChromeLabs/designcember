@@ -12,30 +12,8 @@
   grid-row: span var(--_day-height);
   grid-column: span var(--_day-column);
 
-  &:is(:target, :focus-visible)::before {
-    transform: scale(1.25);
+  &:not([data-day-state='active']) {
+    filter: grayscale(1);
+    cursor: not-allowed;
   }
-  
-  /* &::before {
-    position: absolute;
-    z-index: var(--layer-1);
-    color: var(--_day-color);
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.25rem;
-    text-align: center;
-    text-shadow: 0 1px 0 #fff5;
-    background-image: url(/blank.avif);
-    background-image: url(/blank.webp);
-    background-image: url(/blank.png);
-    background-size: contain;
-
-    @media (--motionOK) {
-      transition: transform .25s var(--ease-elastic-3);
-    }
-  }
-
-  @media (--xl) {
-    --_day-height: 2;
-  } */
 }

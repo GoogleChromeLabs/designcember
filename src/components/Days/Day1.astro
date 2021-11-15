@@ -1,6 +1,9 @@
 ---
 import Pic from '../Pic/Pic.astro';
 import Number from '../Calendar/Number.astro';
+import Days from './day.store.js';
+
+const day_state = Days.day1;
 ---
 
 <style>
@@ -193,7 +196,12 @@ import Number from '../Calendar/Number.astro';
   }
 </style>
 
-<div id="1st" class="day one stacked cq-interactive" title="Una and Adam sitting in a window">
+<div 
+  id="1st" 
+  data-day-state={day_state} 
+  class="day one stacked cq-interactive" 
+  title="Una and Adam sitting in a window"
+>
   <span class="plaque">
     <Number num="1" link="#1st" />
   </span>

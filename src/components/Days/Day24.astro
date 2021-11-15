@@ -1,6 +1,9 @@
 ---
 import Pic from '../Pic/Pic.astro';
 import Number from '../Calendar/Number.astro';
+import Days from './day.store.js';
+
+const day_state = Days.day24;
 ---
 
 <style>
@@ -58,7 +61,12 @@ import Number from '../Calendar/Number.astro';
   }
 </style>
 
-<div id="24th" class="day twentyfour stacked" title="">
+<div 
+  id="24th" 
+  data-day-state={day_state} 
+  class="day twentyfour stacked" 
+  title=""
+>
   <span class="plaque">
     <Number num="24" link="#24th" />
   </span>
