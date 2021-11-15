@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -10,12 +11,12 @@ import Pic from '../Pic/Pic.astro';
     margin-block-start: -20%;
     --bg-gradient-color-1: #b4cda3;
     --bg-gradient-color-2: #c5ddb0;
+  }
 
-    &::before {
-      content: "4";
-      inset-block: auto 5%;
-    }
-
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
+    margin-block-end: -5px;
   }
 
   .frame {
@@ -40,10 +41,13 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#4th" id="4th" class="day four stacked" title="An untitled goose on a window sill with a couple plants">
+<div id="4th" class="day four stacked" title="An untitled goose on a window sill with a couple plants">
+  <span class="plaque">
+    <Number num="4" link="#4th" />
+  </span>
   <div class="frame stacked">
     <div class="bg"></div>
     <div class="bg-shadow"></div>
   </div>
   <Pic filename="day4/day4" width="1262" height="914" role="presentation" />
-</a>
+</div>

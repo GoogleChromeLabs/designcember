@@ -1,4 +1,6 @@
 ---
+import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -8,10 +10,6 @@
     border: var(--size-2) solid #d9773e;
     height: 90%;
     block-size: 300px;
-
-    &::before {
-      content: "3";
-    }
 
     @media (--sm) {
       grid-row-start: 3;
@@ -24,8 +22,16 @@
       --_day-height: 2;
     }
   }
+
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-start center;
+    margin-block-start: -15px;
+  }
 </style>
 
-<a href="#3rd" id="3rd" class="day three" title="">
-  
-</a>
+<div id="3rd" class="day three stacked" title="">
+  <span class="plaque">
+    <Number num="3" link="#3rd" />
+  </span>
+</div>

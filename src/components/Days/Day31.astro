@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -10,10 +11,6 @@ import Pic from '../Pic/Pic.astro';
     align-self: flex-end;
     margin: var(--size-3);
 
-    &::before {
-      content: "31";
-    }
-
     @media (--md) {
       --_day-height: 2;
     }
@@ -21,6 +18,11 @@ import Pic from '../Pic/Pic.astro';
     @media (--xl) {
       --_day-column: 2;
     }
+  }
+
+  .plaque {
+    z-index: var(--layer-1);
+    margin-block-start: 30%;
   }
 
   .bg {
@@ -41,9 +43,12 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#31st" id="31st" class="day thirtyone" title="">
+<div id="31st" class="day thirtyone stacked" title="">
+  <span class="plaque">
+    <Number num="31" link="#31st" />
+  </span>
   <div class="combo stacked">
     <div class="bg"></div>
     <Pic filename="day31/combo" width="1872" height="1928" role="presentation" />
   </div>
-</a>
+</div>

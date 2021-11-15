@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -11,12 +12,6 @@ import Pic from '../Pic/Pic.astro';
     margin-bottom: var(--size-4);
     aspect-ratio: 1;
 
-    &::before {
-      content: "8";
-      inset-block: auto 2%;
-      inset-inline: 44%;
-    }
-
     @media (--md) {
       --_day-column: 2;
     }
@@ -24,6 +19,13 @@ import Pic from '../Pic/Pic.astro';
     @media (--lg) {
       --_day-column: 1;
     }
+  }
+
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end flex-start;
+    margin-inline-start: 10%;
+    margin-block-end: 10%;
   }
 
   .frame {
@@ -65,7 +67,10 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#8th" id="8th" class="day eight stacked" title="">
+<div id="8th" class="day eight stacked" title="">
+  <span class="plaque">
+    <Number num="8" link="#8th" />
+  </span>
   <div class="frame stacked">
     <Pic filename="day8/frame" width="1635" height="1635" role="presentation" />
     <div class="combo stacked">
@@ -75,4 +80,4 @@ import Pic from '../Pic/Pic.astro';
       </div>
     </div>
   </div>
-</a>
+</div>

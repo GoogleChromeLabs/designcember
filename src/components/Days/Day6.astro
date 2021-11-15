@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -8,12 +9,12 @@ import Pic from '../Pic/Pic.astro';
     border-radius: var(--radius-round);
     margin: var(--size-4);
     align-self: center;
+  }
 
-    &::before {
-      content: "6";
-      margin-inline-start: 5%;
-      inset-block: 3% auto;
-    }
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end flex-start;
+    margin-block-end: -15px;
   }
 
   .bg {
@@ -28,8 +29,7 @@ import Pic from '../Pic/Pic.astro';
     padding-inline-start: 10%;
     margin-block-end: 20%;
     margin-inline-end: 10%;
-    align-self: flex-end;
-    justify-self: center;
+    place-self: flex-end center;
   }
 
   .coin {
@@ -48,7 +48,10 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#6th" id="6th" class="day six" title="A circular window with a cute piggy bank and a coin falling in">
+<div href="#6th" id="6th" class="day six stacked" title="A circular window with a cute piggy bank and a coin falling in">
+  <span class="plaque">
+    <Number num="6" link="#6th" />
+  </span>
   <div class="frame stacked">
     <div class="bg"></div>
     <Pic filename="day6/frame" width="1031" height="924" role="presentation" />
@@ -59,4 +62,4 @@ import Pic from '../Pic/Pic.astro';
       <Pic filename="day6/coin" role="presentation" />
     </div>
   </div>
-</a>
+</div>

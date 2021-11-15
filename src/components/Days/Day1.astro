@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -24,13 +25,6 @@ import Pic from '../Pic/Pic.astro';
     min-width: 200px;
     /* max-width: 420px; */
 
-    &::before {
-      content: "1";
-
-      inset-block: var(--_frame-size) auto;
-      inset-inline: calc(50% - 1.5ch);
-    }
-
     @media (--sm) {
       --_day-column: 2;
     }
@@ -38,7 +32,7 @@ import Pic from '../Pic/Pic.astro';
     @media (--md) {
       --_day-column: 1;
     }
-
+    
     /* @media (--motionOK) {
       &:is(:target, :hover, :focus-visible) {
         & .una_hand {
@@ -52,6 +46,12 @@ import Pic from '../Pic/Pic.astro';
         }
       }
     } */
+  }
+
+  .plaque {
+    z-index: var(--layer-2);
+    place-self: flex-end center;
+    margin-block-end: -15px;
   }
 
   .pane {
@@ -104,7 +104,7 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .una_lower {
-    margin-block-end: -3px;
+    margin-block-end: -2.5%;
     margin-inline-start: 100px;
     max-inline-size: min(75%, 300px);
     align-self: flex-end;
@@ -117,17 +117,11 @@ import Pic from '../Pic/Pic.astro';
 
     @container (max-width: 310px) {
       margin-inline-start: 20%;
-      margin-block-end: 0%;
-    }
-
-    @container (max-width: 240px) {
-      margin-inline-start: 20%;
-      margin-block-end: 1%;
     }
 
     @container (min-width: 310px) {
       @container (min-height: 200px) {
-      display: none;
+        display: none;
       }
     }
   }
@@ -199,7 +193,10 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#1st" id="1st" class="day one stacked cq-interactive" title="Una and Adam sitting in a window">
+<div id="1st" class="day one stacked cq-interactive" title="Una and Adam sitting in a window">
+  <span class="plaque">
+    <Number num="1" link="#1st" />
+  </span>
   <div class="pane stacked">
     <div class="bg"></div>
     <div class="bg_shadow">
@@ -231,4 +228,4 @@ import Pic from '../Pic/Pic.astro';
       <Pic filename="day1/una_foreground" role="presentation" />
     </div>
   </div>
-</a>
+</div>

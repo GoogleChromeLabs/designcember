@@ -1,25 +1,23 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
   .thirteen {
     --bg-color: #e0e7ca;
+  }
 
-    margin: var(--size-10) var(--size-8);
-
-    &::before {
-      content: "13";
-
-      inset-inline-start: 43%;
-      inset-block-end: -10%;
-      z-index: 2;
-    }
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
+    margin-block-end: 20px;
   }
 
   .frame {
     place-self: center;
     block-size: 110px;
+    margin: var(--size-10) var(--size-8);
   }
 
   .combo {
@@ -44,11 +42,14 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#13th" id="13th" class="day thirteen" title="">
+<div id="13th" class="day thirteen stacked" title="">
+  <span class="plaque">
+    <Number num="13" link="#13th" />
+  </span>
   <div class="frame stacked">
     <div class="window"></div>
     <div class="combo">
       <Pic filename="day13/13-combo" width="754" height="707" role="presentation" />
     </div>
   </div>
-</a>
+</div>

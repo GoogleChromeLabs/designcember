@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -7,12 +8,12 @@ import Pic from '../Pic/Pic.astro';
     inline-size: 50%;
     justify-self: flex-end;
     margin: var(--size-3) var(--size-5) -10%;
+  }
 
-    &::before {
-      content: "19";
-      inset-inline: 40%;
-      inset-block: auto -4%;
-    }
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
+    margin-block-end: -15px;
   }
 
   .bg {
@@ -33,7 +34,10 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#19th" id="19th" class="day nineteen" title="">
+<div href="#19th" id="19th" class="day nineteen stacked" title="">
+  <span class="plaque">
+    <Number num="19" link="#19th" />
+  </span>
   <div class="frame stacked">
     <div class="bg"></div>
     <Pic filename="day19/19" width="753" height="763" role="presentation" />
@@ -41,4 +45,4 @@ import Pic from '../Pic/Pic.astro';
       <Pic filename="day19/snow" role="presentation" />
     </div>
   </div>
-</a>
+</div>

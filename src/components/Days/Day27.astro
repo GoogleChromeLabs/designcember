@@ -1,4 +1,6 @@
 ---
+import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -6,10 +8,6 @@
     align-self: center;
     margin: 0 var(--size-4) var(--size-8) 0;
     height: 90%;
-
-    &::before {
-      content: "27";
-    }
 
     @media (--md) {
       --_day-height: 2;
@@ -20,6 +18,12 @@
     }
   }
 
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-start center;
+    margin-block-start: -10px;
+  }
+
   .frame {
     height: 80%;
     min-block-size: 150px;
@@ -28,6 +32,9 @@
   }
 </style>
 
-<a href="#27th" id="27th" class="day twentyseven" title="">
+<div id="27th" class="day twentyseven stacked" title="">
+  <span class="plaque">
+    <Number num="27" link="#27th" />
+  </span>
   <div class="frame cq-interactive"></div>
-</a>
+</div>

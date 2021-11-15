@@ -9,19 +9,14 @@
   container: inline-size;
   position: relative;
   scroll-margin-block-start: 10vh;
-  cursor: pointer;
   grid-row: span var(--_day-height);
   grid-column: span var(--_day-column);
-
-  &:focus-visible {
-    outline: none;
-  }
 
   &:is(:target, :focus-visible)::before {
     transform: scale(1.25);
   }
   
-  &::before {
+  /* &::before {
     position: absolute;
     z-index: var(--layer-1);
     color: var(--_day-color);
@@ -42,5 +37,5 @@
 
   @media (--xl) {
     --_day-height: 2;
-  }
+  } */
 }

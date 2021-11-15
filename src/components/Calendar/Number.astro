@@ -1,0 +1,55 @@
+---
+export interface Props {
+  num: string;
+  link: string;
+}
+
+import Pic from '../Pic/Pic.astro';
+
+const { num, link } = Astro.props;
+---
+
+<style>
+  .number {
+    --_size: 3ch;
+
+    color: var(--_day-color);
+    inline-size: var(--_size);
+    block-size: var(--_size);
+    padding: 0;
+    font-size: var(--font-size-2);
+    font-family: var(--font-mono);
+    letter-spacing: var(--font-letterspacing-0);
+    text-align: center;
+    text-shadow: 0 1px 0 #fff5;
+    font-variant-numeric: tabular-nums;
+    align-items: center;
+    place-content: center;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:is(:focus, :hover) {
+      outline: none;
+      transform: scale(1.25);
+    }
+
+    & > span {
+      padding-inline-end: 1px;
+    }
+
+    @media (--motionOK) {
+      transition: transform .25s var(--ease-elastic-3);
+    }
+
+    @media (hover: none) {
+      --_size: 4ch;
+    }
+  }
+</style>
+
+<a href={link} class="number stacked">
+  <Pic filename="blank" role="presentation" /> 
+  <span>{num}</span>
+</a>

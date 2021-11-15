@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -12,15 +13,15 @@ import Pic from '../Pic/Pic.astro';
       --_day-column: 1;
     }
 
-    &::before {
-      content: "10";
-      inset-block: auto 4%;
-      inset-inline: 44%;
-    }
-
     @media (--xl) {
       --_day-height: 1;
     }
+  }
+
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
+    margin-block-end: -15px;
   }
 
   .combo {
@@ -42,8 +43,11 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#10th" id="10th" class="day ten stacked cq-interactive" title="">
+<div id="10th" class="day ten stacked cq-interactive" title="">
+  <span class="plaque">
+    <Number num="10" link="#10th" />
+  </span>
   <div class="combo">
     <Pic filename="day10/10-combo" width="933" height="929" role="presentation" />
   </div>
-</a>
+</div>

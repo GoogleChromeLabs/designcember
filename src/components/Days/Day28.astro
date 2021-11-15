@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -10,10 +11,12 @@ import Pic from '../Pic/Pic.astro';
 
     margin-block-end: var(--size-4);
     margin-inline-end: var(--size-4);
+  }
 
-    &::before {
-      content: "28";
-    }
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
+    margin-block-end: -10px;
   }
 
   .frame {
@@ -48,7 +51,10 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#28th" id="28th" class="day twentyeight" title="">
+<div id="28th" class="day twentyeight stacked" title="">
+  <span class="plaque">
+    <Number num="28" link="#28th" />
+  </span>
   <div class="combo stacked">
     <div class="frame stacked">
       <div class="light">
@@ -57,4 +63,4 @@ import Pic from '../Pic/Pic.astro';
     </div>
     <Pic filename="day28/day28" width="1759" height="1594" role="presentation" />
   </div>
-</a>
+</div>

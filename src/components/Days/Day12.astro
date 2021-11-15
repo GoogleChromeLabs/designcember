@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -8,17 +9,17 @@ import Pic from '../Pic/Pic.astro';
     border-radius: 1e3px 1e3px 0 0;
     padding: 0;
     overflow: visible;
+  }
 
-    &::before {
-      content: "12";
-
-      inset-inline-start: 45%;
-      inset-block-end: 0%;
-      z-index: 2;
-    }
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
   }
 </style>
 
-<a href="#12th" id="12th" class="day twelve cq-interactive" title="">
+<div id="12th" class="day twelve stacked cq-interactive" title="">
+  <span class="plaque">
+    <Number num="12" link="#12th" />
+  </span>
   <Pic filename="day12/12-combo" width="821" height="876" role="presentation" />
-</a>
+</div>

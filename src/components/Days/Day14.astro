@@ -1,19 +1,18 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
   .fourteen {
     align-self: flex-end;
     margin: 0 var(--size-4) var(--size-8) 0;
+  }
 
-    &::before {
-      content: "14";
-
-      inset-inline-start: 45%;
-      inset-block-end: -5%;
-      z-index: 2;
-    }
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
+    margin-block-end: -15px;
   }
 
   .frame {
@@ -37,10 +36,13 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#14th" id="14th" class="day fourteen" title="">
+<div id="14th" class="day fourteen stacked" title="">
+  <span class="plaque">
+    <Number num="14" link="#14th" />
+  </span>
   <div class="frame stacked">
     <div class="combo">
       <Pic filename="day14/14" width="1048" height="1183" role="presentation" />
     </div>
   </div>
-</a>
+</div>

@@ -1,5 +1,6 @@
 ---
 import Pic from '../Pic/Pic.astro';
+import Number from '../Calendar/Number.astro';
 ---
 
 <style>
@@ -12,12 +13,12 @@ import Pic from '../Pic/Pic.astro';
     margin-inline: 13% 6%;
     margin-block: 20% 5%;
     align-self: center;
+  }
 
-    &::before {
-      content: "2";
-      inset-block: 3% auto;
-      inset-inline-start: 48%;
-    }
+  .plaque {
+    z-index: var(--layer-1);
+    place-self: flex-end center;
+    margin-block-end: -15px;
   }
 
   .bg {
@@ -80,7 +81,10 @@ import Pic from '../Pic/Pic.astro';
   }
 </style>
 
-<a href="#2nd" id="2nd" class="day two stacked" title="A cat reading a book next to some sushi">
+<div id="2nd" class="day two stacked" title="A cat reading a book next to some sushi">
+  <span class="plaque">
+    <Number num="2" link="#2nd" />
+  </span>
   <div class="bg"></div>
   <div class="pane stacked">
     <div class="bg_shadow">
@@ -99,4 +103,4 @@ import Pic from '../Pic/Pic.astro';
       <Pic filename="day2/cat" role="presentation" />
     </div>
   </div>
-</a>
+</div>
