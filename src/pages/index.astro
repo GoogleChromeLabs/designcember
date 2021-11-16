@@ -16,6 +16,7 @@ import Footer from '../components/Footer/Footer.astro';
     align-items: center;
     justify-items: center;
     gap: var(--size-3) var(--size-10);
+    overflow-x: hidden;
 
     background-color: #d7ebed;
     background-image: 
@@ -37,7 +38,7 @@ import Footer from '../components/Footer/Footer.astro';
   [data-theme="dark"] {
     & body {
       --_sky-gradient: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
-      --_sky-gradient--alpha: linear-gradient(to bottom, rgb(0 40 74 / 70%), rgb(105 141 179 / 70%));
+      --_sky-gradient--alpha: linear-gradient(to bottom, rgb(0 40 74 / 90%), rgb(105 141 179 / 90%));
       background-image: 
       var(--_sky-gradient--alpha),
       url('/header-left.png'),
