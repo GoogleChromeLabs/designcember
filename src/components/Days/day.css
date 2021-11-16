@@ -7,10 +7,12 @@
   --_day-column: 1;
   
   container: inline-size;
+  justify-self: center;
   position: relative;
   scroll-margin-block-start: 10vh;
   grid-row: span var(--_day-height);
   grid-column: span var(--_day-column);
+  margin-block: 5%;
 
   &:not([data-day-state='active']) {
     filter: grayscale(0.7);

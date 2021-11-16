@@ -8,21 +8,15 @@ const day_state = Days.day20;
 
 <style>
   .twenty {
-    margin-inline: var(--size-5) -20px;
-    align-self: center;
-
     @media (--md) {
       --_day-column: 2;
-    }
-
-    @media (--lg) {
-      --_day-column: 1;
+      max-inline-size: 25rem;
     }
   }
 
   .plaque {
     z-index: var(--layer-1);
-    place-self: flex-start center;
+    place-self: flex-end center;
     margin-block-end: -15px;
   }
 

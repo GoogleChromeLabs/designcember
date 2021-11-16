@@ -8,25 +8,19 @@ const day_state = Days.day11;
 
 <style>
   .eleven {
-    height: 100%;
-    width: 80%;
-    place-self: flex-start center;
-    margin: var(--size-4) var(--size-8) 0 var(--size-4);
+    height: 90%;
+    block-size: 300px;
+    inline-size: 100%;
+    justify-items: center;
 
     @media (--md) {
       --_day-height: 2;
-      margin: var(--size-4) var(--size-8) var(--size-4) calc(var(--size-3) * -1);
-      margin-left: 0;
+      height: 100%;
     }
 
     @media (--lg) {
       height: 80%;
-      --_day-column: 2;
-      --_day-height: 1;
-    }
-
-    @media (--xl) {
-      --_day-column: 3;
+      --_day-height: 2;
     }
   }
 

@@ -25,11 +25,9 @@ module.exports = {
       importFrom: [
         {
           customMedia: {
-            '--xs': '(width >= 500px)',
             '--sm': '(width >= 600px)',
             '--md': '(width >= 1024px)',
-            '--lg': '(width >= 1400px)',
-            '--xl': '(width >= 1600px)',
+            '--lg': '(width >= 1680px)',
             '--motionOK': '(prefers-reduced-motion: no-preference)',
             '--dark': '(prefers-color-scheme: dark)',
             '--light': '(prefers-color-scheme: light)',

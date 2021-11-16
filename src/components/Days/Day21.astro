@@ -8,16 +8,15 @@ const day_state = Days.day21;
 
 <style>
   .twentyone {
-    align-self: center;
-    margin: var(--size-3);
-    margin-inline: var(--size-12) 0;
+    width: 100%;
 
     @media (--md) {
       --_day-height: 2;
+      height: 90%;
     }
 
     @media (--lg) {
-      --_day-column: 2;
+      --_day-height: 1;
     }
   }
 
@@ -32,6 +31,10 @@ const day_state = Days.day21;
     min-block-size: 250px;
     border: var(--size-2) solid #d9773e;
     background: var(--_day-bg);
+
+    @media (--md) {
+      height: 100%;
+    }
 
     @media (--lg) {
       height: 50%;

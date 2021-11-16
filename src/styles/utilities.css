@@ -10,8 +10,8 @@
 .cq-interactive {
   overflow: hidden;
   resize: both;
-  padding: var(--size-3);
-  padding-block-end: var(--size-6);
+  /* padding: var(--size-3); */
+  /* padding-block-end: var(--size-6); */
   box-sizing: content-box;
 }
 

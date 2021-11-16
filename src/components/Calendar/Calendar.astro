@@ -69,8 +69,10 @@ import Day31 from '../Days/Day31.astro';
     </div>
     <Day20 />
     <Day21 />
-    <Day22 />
-    <Day23 />
+    <div class="pair twentytwo-twentythree">
+      <Day23 />
+      <Day22 />
+    </div>
     <Day24 />
     <div class="pair twentyfive-twentysix">
       <Day25 />
@@ -172,10 +174,10 @@ import Day31 from '../Days/Day31.astro';
     display: grid;
     grid-template-columns: repeat(var(--_windows), minmax(var(--_card-size), 1fr));
     grid-auto-flow: dense;
-    padding-block: var(--size-9) var(--size-5);
-    padding-inline: 10px;
-    align-items: start;
-    padding-block-end: 40%;
+    column-gap: 5%;
+    padding-inline: 5%;
+    align-items: center;
+    padding-block: 2% 40%;
     z-index: 1;
     
     @media (--sm) {
@@ -185,7 +187,8 @@ import Day31 from '../Days/Day31.astro';
     @media (--md) {
       --_card-size: calc(33% - 80px);
       --_windows: 3;
-      padding-inline: 20px;
+      column-gap: 4%;
+      padding-inline: 4%;
     }
     
     @media (--lg) {
@@ -193,19 +196,22 @@ import Day31 from '../Days/Day31.astro';
       --_windows: 4;
       padding-inline: 40px;
     }
-    
-    @media (--xl) {
-      --_card-size: calc(20% - 80px);
-      --_windows: 5;
-    }
   }
 
   .pair {
     display: grid;
+    justify-items: center;
     aspect-ratio: 1;
   }
 
-  .twentyfive-twentysix {
+  .twentytwo-twentythree {
+    @media (--sm) {
+      --_day-column: 1;
+      --_day-height: 1;
+    }
+  }
+
+.twentyfive-twentysix {
     @media (--md) {
       --_day-column: 2;
       --_day-height: 2;

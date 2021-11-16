@@ -8,24 +8,22 @@ const day_state = Days.day25;
 
 <style>
   .twentyfive {
-    border-radius: 0% 100% 100% 0% / 100% 0% 100% 0% ;
-    margin: var(--size-3) var(--size-5);
+    width: 70%;
+    justify-self: flex-start;
+    border-radius: 0% 150% 100% 0% / 150% 0% 100% 0%;
     background: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
-
-    @media (--xl) {
-      grid-row: span 1;
-    }
   }
 
   .plaque {
     z-index: var(--layer-1);
-    margin-block-start: -20px;
-    margin-inline-start: -20px;
+    place-self: flex-end flex-start;
+    margin-block-end: -20px;
+    margin-inline-start: 20px;
   }
 
   .frame {
-    min-block-size: 200px;
+    min-block-size: 150px;
   }
 </style>
 

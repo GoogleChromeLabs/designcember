@@ -8,18 +8,14 @@ const day_state = Days.day3;
 
 <style>
   .three {
-    margin: var(--size-4);
     background: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
     height: 90%;
     block-size: 300px;
-
-    @media (--sm) {
-      grid-row-start: 3;
-    }
+    inline-size: 100%;
 
     @media (--md) {
-      height: 80%;
+      height: 100%;
       grid-row: 1 / span 2;
       grid-column-start: 3;
       --_day-height: 2;
@@ -28,8 +24,8 @@ const day_state = Days.day3;
 
   .plaque {
     z-index: var(--layer-1);
-    place-self: flex-start center;
-    margin-block-start: -15px;
+    place-self: flex-end center;
+    margin-block-end: -15px;
   }
 </style>
 

@@ -19,7 +19,8 @@ const day_state = Days.day1;
 
     --_border-radius: 1e3px 1e3px 0 0;
 
-    margin: var(--size-2);
+    margin-block-start: 0;
+    overflow: visible;
 
     /* Size constraints */
     height: 300px;
@@ -29,11 +30,11 @@ const day_state = Days.day1;
     /* max-width: 420px; */
 
     @media (--sm) {
-      --_day-column: 2;
+      --_day-column: 1;
     }
 
     @media (--md) {
-      --_day-column: 1;
+      /* --_day-column: 1; */
     }
     
     /* @media (--motionOK) {

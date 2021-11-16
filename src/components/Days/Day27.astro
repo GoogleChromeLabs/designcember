@@ -8,9 +8,7 @@ const day_state = Days.day27;
 
 <style>
   .twentyseven {
-    align-self: center;
-    margin: 0 var(--size-4) var(--size-8) 0;
-    height: 90%;
+    width: 100%;
 
     @media (--md) {
       --_day-height: 2;
@@ -23,8 +21,8 @@ const day_state = Days.day27;
 
   .plaque {
     z-index: var(--layer-1);
-    place-self: flex-start center;
-    margin-block-start: -10px;
+    place-self: flex-end center;
+    margin-block-end: -10px;
   }
 
   .frame {
@@ -32,6 +30,10 @@ const day_state = Days.day27;
     min-block-size: 150px;
     border: var(--size-2) solid #d9773e;
     background: var(--_day-bg);
+
+    @media (--lg) {
+      min-block-size: 350px;
+    }
   }
 </style>
 
