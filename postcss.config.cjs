@@ -3,7 +3,6 @@ const postcssNesting = require('postcss-nesting')
 const postcssCustomMedia = require('postcss-custom-media')
 const postcssMediaRanges = require('postcss-media-minmax')
 const postcssImport = require('postcss-import')
-const postcssCQFill = require('cqfill/postcss')
 
 const OpenProps = require('@argyleink/open-props')
 const flatten = data => Object.assign({}, 
@@ -38,6 +37,5 @@ module.exports = {
     postcssMediaRanges(),
     postcssJitProps(flatten(OpenProps)),
     postcssNesting(),
-    postcssCQFill(),
   ],
 }
