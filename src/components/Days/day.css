@@ -16,8 +16,8 @@
   margin-block: 5%;
 
   &:not([data-day-state='active']) {
-    filter: grayscale(0.7);
-    cursor: not-allowed;
+    /* filter: grayscale(0.7); */
+    cursor: url(/cursor.png), not-allowed;
     transition: filter 0.25s;
 
     &:hover,
