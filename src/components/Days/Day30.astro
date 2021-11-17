@@ -13,6 +13,10 @@ const day_state = Days.day30;
     @media (--md) {
       --_day-column: 2;
     }
+
+    @media (--lg) {
+      --_day-column: 3;
+    }
   }
 
   .plaque {
@@ -25,6 +29,10 @@ const day_state = Days.day30;
     min-block-size: 100px;
     background: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
+
+    @media (--md) {
+      min-block-size: 175px;
+    }
   }
 </style>
 

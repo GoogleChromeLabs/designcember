@@ -202,23 +202,21 @@ import Day31 from '../Days/Day31.astro';
     display: grid;
     justify-items: center;
     aspect-ratio: 1;
-  }
 
-  .twentytwo-twentythree {
-    @media (--sm) {
-      --_day-column: 1;
-      --_day-height: 1;
-    }
+    --_pair-column: 1;
+    --_pair-height: 1;
+    grid-row: span var(--_pair-height);
+    grid-column: span var(--_pair-column);
   }
 
 .twentyfive-twentysix {
     @media (--md) {
-      --_day-column: 2;
-      --_day-height: 2;
+      --_pair-column: 2;
+      aspect-ratio: 0;
     }
 
     @media (--lg) {
-      --_day-column: 1;
+      --_pair-column: 1;
     }
   }
 

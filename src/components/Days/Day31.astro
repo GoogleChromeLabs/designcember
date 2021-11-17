@@ -13,13 +13,17 @@ const day_state = Days.day31;
     
     align-self: flex-end;
     margin: var(--size-3);
+    margin-block-end: 30%;
 
     @media (--sm) {
       grid-column-start: 2;
+      margin-block-end: var(--size-3);
     }
     
     @media (--md) {
       grid-column: 2 / -1;
+      max-inline-size: 30rem;
+      justify-self: flex-end;
     }
 
     @media (--lg) {

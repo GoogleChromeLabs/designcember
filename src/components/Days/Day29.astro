@@ -9,6 +9,16 @@ const day_state = Days.day29;
 <style>
   .twentynine {
     width: 100%;
+
+    @media (--md) {
+      grid-column-start: 3;
+      grid-row-start: 13;
+    }
+
+    @media (--lg) {
+      grid-column-start: 1;
+      grid-row-start: 10;
+    }
   }
 
   .plaque {
@@ -21,6 +31,7 @@ const day_state = Days.day29;
     min-block-size: 200px;
     background: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
+    border-radius: 0% 0% 100% 200% / 100% 0% 0% 200%;
   }
 </style>
 

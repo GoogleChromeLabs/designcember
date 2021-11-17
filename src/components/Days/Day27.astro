@@ -12,10 +12,14 @@ const day_state = Days.day27;
 
     @media (--md) {
       --_day-height: 2;
+      grid-row: 11 / 13;
+      grid-column: 3 / 3;
     }
 
     @media (--lg) {
       --_day-column: 2;
+      grid-row: 8 / 10;
+      grid-column: 1 / 3;
     }
   }
 
@@ -31,6 +35,10 @@ const day_state = Days.day27;
     border: var(--size-2) solid #d9773e;
     background: var(--_day-bg);
 
+    @media (--md) {
+      min-block-size: 500px;
+    }
+    
     @media (--lg) {
       min-block-size: 350px;
     }

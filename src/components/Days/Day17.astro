@@ -14,9 +14,18 @@ const day_state = Days.day17;
     align-self: center;
     margin: var(--size-4);
 
+    @media (--sm) {
+      margin-block-end: -20%;
+    }
+
     @media (--md) {
       --_day-column: 2;
       max-inline-size: 25rem;
+      margin-block-end: -5%;
+    }
+
+    @media (--lg) {
+      margin-block-end: var(--size-4);
     }
   }
 
