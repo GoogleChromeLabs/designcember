@@ -1,0 +1,17 @@
+# Deploy to firebase using gcloud build
+
+timeout: 900s # set build timeout to 15 mins
+steps:
+  - name: node:14
+    id: 'Install dependencies'
+    entrypoint: npm
+    args: ['ci']
+
+  - name: node:14
+    id: 'Build site'
+    entrypoint: npm
+    args: ['run', 'build']
+
+  - name: 'gcr.io/designcember/firebase'
+    id: 'Deploy site to Firebase'
+    args: ['deploy', '--project=designcember', '--only=hosting']
