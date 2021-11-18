@@ -19,7 +19,7 @@
     "postcss-nesting": "^9.0.0"
   },
   "dependencies": {
-    "@argyleink/open-props": "^0.3.x",
+    "@argyleink/open-props": "^0.4.x",
     "container-query-polyfill": "^0.0.6"
   }
 }
