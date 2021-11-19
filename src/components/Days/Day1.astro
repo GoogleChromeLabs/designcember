@@ -102,6 +102,22 @@ const day_state = Days.day1;
     max-inline-size: min(70%, 220px);
     margin-inline-start: -5%;
     margin-inline-start: -5%;
+
+    aspect-ratio: 784/749;
+    background: url("/day1/una_sprite.png") 0% 0%;
+    background: url("/day1/una_sprite.webp") 0% 0%;
+    background-size: 400% auto;
+
+    @nest .day:hover & {
+      animation: una-wave .5s steps(1) alternate infinite;
+    }
+  }
+
+  @keyframes una-wave {
+    0%  { background-position-x: 0%; }
+    25% { background-position-x: 300%; }
+    50% { background-position-x: 200%; }
+    75% { background-position-x: 100%; }
   }
 
   .una_hand {
@@ -133,9 +149,26 @@ const day_state = Days.day1;
   }
 
   .adam_body {
-    max-inline-size: min(65%, 225px);
+    inline-size: 100%;
+    max-inline-size: min(85%, 275px);
     margin-inline-end: -3%;
     margin-block-end: -12%;
+
+    aspect-ratio: 704/852;
+    background: url("/day1/adam_sprite.png") 0% 0%;
+    background: url("/day1/adam_sprite.webp") 0% 0%;
+    background-size: 400% auto;
+
+    @nest .day:hover & {
+      animation: adam-wave .5s steps(1) alternate infinite;
+    }
+  }
+
+  @keyframes adam-wave {
+    0%  { background-position-x: 0%; }
+    25% { background-position-x: 300%; }
+    50% { background-position-x: 200%; }
+    75% { background-position-x: 100%; }
   }
 
   .adam_hand {
@@ -164,14 +197,6 @@ const day_state = Days.day1;
       inline-size: 40%;
       margin-top: -13px;
     }
-  }
-
-  @keyframes una-wave {
-    50% { transform: rotateZ(5deg); }
-  }
-
-  @keyframes adam-wave {
-    50% { transform: rotateZ(35deg); }
   }
 </style>
 
@@ -204,19 +229,11 @@ const day_state = Days.day1;
       <Pic filename="day1/lights" role="presentation" />
     </div>
     <div class="adam">
-      <div class="adam_body stacked">
-        <div class="adam_hand">
-          <Pic filename="day1/adam_hand" role="presentation" />
-        </div>
-        <Pic filename="day1/adam_body" role="presentation" />
-      </div>
+      <div class="adam_body"></div>
     </div>
     <div class="una stacked">
-      <!-- <div class="una_hand">
-        <Pic filename="day1/una_hand" role="presentation" />
-      </div> -->
       <div class="una_body">
-        <Pic filename="day1/una_body" role="presentation" />
+        <!-- <Pic filename="day1/una_body" role="presentation" /> -->
       </div>
     </div>
     <div class="inner-frame">
