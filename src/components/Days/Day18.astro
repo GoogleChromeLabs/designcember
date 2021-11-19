@@ -11,7 +11,6 @@ const day_state = Days.day18;
     width: 70%;
     order: 2;
     margin: var(--size-4);
-    margin-block-start: -25%;
     place-self: flex-end flex-start;
   }
 
@@ -23,10 +22,36 @@ const day_state = Days.day18;
 
   .bg {
     background-image: linear-gradient(to bottom, #ecf4f1 30%, #fff 0%);
-    margin: 20% 5% 10% 5%;
-    border-radius: 10px 0 0 10px;
+    margin: 2% 5% 12% 6%;
+    border-radius: 10px 0 0 0;
     clip-path: polygon(0 0, 0% 100%, 100% 100%);
     z-index: -1;
+  }
+
+  .steam {
+    inline-size: 25%;
+    aspect-ratio: 303/494;
+    margin-inline-start: 15%;
+    margin-block-start: -20%;
+
+    background: url("/day18/steam_sprites.png") 800% 0%;
+    background: url("/day18/steam_sprites.webp") 800% 0%;
+    background-size: 800% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: steam 1.5s steps(1) infinite;
+    }
+  }
+
+  @keyframes steam {
+    0%  { background-position-x: 800%; }
+    15% { background-position-x: 700%; }
+    30% { background-position-x: 600%; }
+    45% { background-position-x: 500%; }
+    60% { background-position-x: 400%; }
+    75% { background-position-x: 300%; }
+    90% { background-position-x: 200%; }
+    100% { background-position-x: 100%; }
   }
 </style>
 
@@ -53,4 +78,5 @@ const day_state = Days.day18;
   </span>
   <div class="bg"></div>
   <Pic filename="day18/18" width="1045" height="1209" role="presentation" />
+  <div class="steam"></div>
 </div>
