@@ -21,9 +21,11 @@
   }
 
   &:not([data-day-state='active']) {
-    /* filter: grayscale(0.7); */
-    cursor: url(/cursor.png), not-allowed;
+    cursor: url(/cursor_dark.png), not-allowed;
     transition: filter 0.25s;
+
+
+
 
     &:hover,
     &:focus {
@@ -31,3 +33,5 @@
     }
   }
 }
+
+
