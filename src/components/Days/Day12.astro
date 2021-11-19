@@ -18,11 +18,38 @@ const day_state = Days.day12;
     z-index: var(--layer-1);
     place-self: flex-end center;
   }
+
+  .bg {
+    margin: 3% 3% 2% 4%;
+    border-radius: 50% 50% 0 0;
+    background-image: linear-gradient(150deg, #f4c8a6 40%, #ffddc0 0%);
+  }
+
+  .lights {
+    align-self: flex-end;
+
+    aspect-ratio: 3/0.7;
+    margin-block-end: -9%;
+    background: url("/day12/light_sprite.png") 100% 0%;
+    background: url("/day12/light_sprite.webp") 100% 0%;
+    background-size: 400% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: twinkle 1s steps(1) infinite;
+    }
+  }
+
+  @keyframes twinkle {
+    0%  { background-position-x: 100%; }
+    25% { background-position-x: 200%; }
+    50% { background-position-x: 400%; }
+    75% { background-position-x: 300%; }
+  }
 </style>
 
 <div 
   id="12th" 
-  class="day twelve stacked cq-interactive" 
+  class="day twelve stacked" 
   title="A carousel horse is on display with holiday lights twinkling."
   data-day-state={day_state} 
   data-detail-position="bottom" 
@@ -33,5 +60,7 @@ const day_state = Days.day12;
   <span class="plaque">
     <Number num="12" link="#12th" active={day_state} />
   </span>
-  <Pic filename="day12/12-combo" width="821" height="876" role="presentation" />
+  <div class="bg"></div>
+  <Pic filename="day12/12-combo" width="821" height="800" role="presentation" />
+  <div class="lights"></div>
 </div>
