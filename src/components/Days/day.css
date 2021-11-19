@@ -24,14 +24,9 @@
     cursor: url(/cursor_dark.png), not-allowed;
     transition: filter 0.25s;
 
-
-
-
     &:hover,
     &:focus {
       filter: none;
     }
   }
 }
-
-
