@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "@argyleink/open-props": "^0.4.x",
-    "container-query-polyfill": "^0.0.6"
+    "container-query-polyfill": "^0.0.7"
   }
 }
