@@ -22,12 +22,16 @@ const day_state = Days.day12;
 
 <div 
   id="12th" 
-  data-day-state={day_state} 
   class="day twelve stacked cq-interactive" 
   title="A carousel horse is on display with holiday lights twinkling."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Core Web Vitals: Patterns" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://web.dev/patterns/web-vitals-patterns/"
 >
   <span class="plaque">
-    <Number num="12" link="#12th" />
+    <Number num="12" link="#12th" active={day_state} />
   </span>
   <Pic filename="day12/12-combo" width="821" height="876" role="presentation" />
 </div>

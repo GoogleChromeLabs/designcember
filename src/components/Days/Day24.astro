@@ -70,12 +70,16 @@ const day_state = Days.day24;
 
 <div 
   id="24th" 
-  data-day-state={day_state} 
   class="day twentyfour stacked" 
   title="An artist (Alice) draws on her tablet, painting the illustrations on this very website!"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Community Highlight?" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="24" link="#24th" />
+    <Number num="24" link="#24th" active={day_state} />
   </span>
   <div class="frame stacked">
     <Pic filename="day24/frame" role="presentation" />

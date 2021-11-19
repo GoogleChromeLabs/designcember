@@ -34,12 +34,16 @@ const day_state = Days.day25;
 
 <div 
   id="25th" 
-  data-day-state={day_state} 
   class="day twentyfive stacked" 
   title="A curious young girl plays with wondrous, colorful butterflies flying around in her room."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Designcember Printable" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="25" link="#25th" />
+    <Number num="25" link="#25th" active={day_state} />
   </span>
   <div class="frame"></div>
 </div>

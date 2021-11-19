@@ -140,12 +140,16 @@ const day_state = Days.day15;
 
 <div 
   id="15th" 
-  data-day-state={day_state} 
   class="day fifteen stacked" 
   title="A young cook whips up a home-made batch of ramen while talking on the phone, pleasantly surprised at how delicious the meal is turning out! Her cat is perched on her shoulder and smiling because it smells delicious."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="CSS Podcast: Layout DevTools" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://pod.link/thecsspodcast"
 >
   <span class="plaque">
-    <Number num="15" link="#15th" />
+    <Number num="15" link="#15th" active={day_state} />
   </span>
   <div class="pane stacked">
     <div class="bg"></div>

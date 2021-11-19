@@ -40,12 +40,16 @@ const day_state = Days.day18;
 
 <div 
   id="18th" 
-  data-day-state={day_state} 
   class="day eighteen stacked" 
   title="A delicious assortment of holiday snacks, decorated cookies, and hot cocoa with marshmallows."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Dark Theme Case Study (Terra)" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="18" link="#18th" />
+    <Number num="18" link="#18th" active={day_state} />
   </span>
   <div class="bg"></div>
   <Pic filename="day18/18" width="1045" height="1209" role="presentation" />

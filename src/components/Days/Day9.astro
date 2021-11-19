@@ -29,11 +29,15 @@ const day_state = Days.day9;
 
 <div 
   id="9th" 
-  data-day-state={day_state} 
   class="day nine stacked" 
   title="A student gets ready for her design lesson with a freshly brewed cup of tea... and lots of caffeine!"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Learn Design: New Content" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://web.dev/learn/design/"
 >
   <span class="plaque">
-    <Number num="9" link="#9th" />
+    <Number num="9" link="#9th" active={day_state} />
   </span>
 </div>

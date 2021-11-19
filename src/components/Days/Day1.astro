@@ -213,12 +213,16 @@ const day_state = Days.day1;
 
 <div 
   id="1st" 
-  data-day-state={day_state} 
   class="day one stacked cq-interactive" 
-  title="Una and Adam sitting in a window."
+  title="Una and Adam sitting in a window"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Designcember Site" 
+  data-detail-description="" 
+  data-detail-url="#" 
 >
   <span class="plaque">
-    <Number num="1" link="#1st" />
+    <Number num="1" link="#1st" active={day_state} />
   </span>
   <div class="pane stacked">
     <div class="bg"></div>

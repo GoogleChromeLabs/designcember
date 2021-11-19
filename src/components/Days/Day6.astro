@@ -52,12 +52,16 @@ const day_state = Days.day6;
 
 <div 
   id="6th" 
-  data-day-state={day_state} 
   class="day six stacked" 
   title="A circular window where a coin drops into a lucky piggy bank."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Open UI Fund" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://open-ui.org/"
 >
   <span class="plaque">
-    <Number num="6" link="#6th" />
+    <Number num="6" link="#6th" active={day_state} />
   </span>
   <div class="frame stacked">
     <div class="bg"></div>

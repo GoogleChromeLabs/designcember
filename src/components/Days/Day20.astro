@@ -41,12 +41,16 @@ const day_state = Days.day20;
 
 <div 
   id="20th" 
-  data-day-state={day_state} 
   class="day twenty stacked" 
   title="Mochi the pup snoozes on the window sill as the blinds are completely drawn. This is the only window that we can't see fully into! Two candles flicker in the night."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Learn Forms/Privacy Hold" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="20" link="#20th" />
+    <Number num="20" link="#20th" active={day_state} />
   </span>
   <div class="frame stacked">
     <div class="bg"></div>

@@ -73,12 +73,16 @@ const day_state = Days.day8;
 
 <div 
   id="8th" 
-  data-day-state={day_state} 
   class="day eight stacked" 
   title="An intrepid young artist colorfully paints the sunrise, inspired by Van Gogh's Starry Night."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="CSS Podcast: Color DevTools" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://pod.link/thecsspodcast"
 >
   <span class="plaque">
-    <Number num="8" link="#8th" />
+    <Number num="8" link="#8th" active={day_state} />
   </span>
   <div class="frame stacked">
     <Pic filename="day8/frame" width="1635" height="1635" role="presentation" />

@@ -35,11 +35,15 @@ const day_state = Days.day3;
 
 <div 
   id="3rd" 
-  data-day-state={day_state} 
   class="day three stacked" 
   title="A smiling chef whips up delicious batches of dim sum, as fragrant steam rises through the air."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Design in the Browser: Container Queries" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://web.dev/shows/designing-in-the-browser/" 
 >
   <span class="plaque">
-    <Number num="3" link="#3rd" />
+    <Number num="3" link="#3rd" active={day_state} />
   </span>
 </div>

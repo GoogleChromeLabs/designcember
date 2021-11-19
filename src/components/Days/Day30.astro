@@ -38,12 +38,16 @@ const day_state = Days.day30;
 
 <div 
   id="30th" 
-  data-day-state={day_state} 
   class="day thirty stacked" 
   title="A colorful holiday feast to end the year with loved ones with."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Community Highlight?" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="30" link="#30th" />
+    <Number num="30" link="#30th" active={day_state} />
   </span>
   <div class="frame cq-interactive"></div>
 </div>
