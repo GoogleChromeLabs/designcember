@@ -108,7 +108,7 @@ const day_state = Days.day1;
     background: url("/day1/una_sprite.webp") 0% 0%;
     background-size: 400% auto;
 
-    @nest .day:hover & {
+    @nest .day:is(:hover, :focus-within) & {
       animation: una-wave .5s steps(1) alternate infinite;
     }
   }
@@ -159,7 +159,7 @@ const day_state = Days.day1;
     background: url("/day1/adam_sprite.webp") 0% 0%;
     background-size: 400% auto;
 
-    @nest .day:hover & {
+    @nest .day:is(:hover, :focus-within) & {
       animation: adam-wave .5s steps(1) alternate infinite;
     }
   }
