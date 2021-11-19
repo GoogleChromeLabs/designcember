@@ -138,6 +138,10 @@ import Day31 from '../Days/Day31.astro';
     background-color: #ffdbb8;
     display: grid;
     justify-items: flex-end;
+    
+    @media print {
+      display: none; 
+    }
   }
 
   .building-wreath {
@@ -195,6 +199,10 @@ import Day31 from '../Days/Day31.astro';
       --_card-size: calc(25% - 80px);
       --_windows: 4;
       padding-inline: 40px;
+    }
+
+    @media print {
+      display: none; 
     }
   }
 

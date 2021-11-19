@@ -25,6 +25,17 @@ import Footer from '../components/Footer/Footer.astro';
       var(--_sky-gradient);
     background-size: 40% auto, 40% auto, 100% 100%;
     background-position: left top, right top, center center;
+
+    @media print {
+      background-color: transparent;
+      background-image: 
+        url('/printsheet.jpg');
+      background-image: 
+        url('/printsheet.webp');
+      background-image: 
+        url('/printsheet.avif');
+      background-size: contain;
+    }  
   }
 
   @media (--sm) {
@@ -53,6 +64,7 @@ import Footer from '../components/Footer/Footer.astro';
       opacity: 0.3;
     }
   }
+
 </style>
 
 <html lang="en">

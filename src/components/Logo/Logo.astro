@@ -13,6 +13,10 @@ import Pic from '../Pic/Pic.astro';
   header {
     display: grid;
     place-items: center;
+
+    @media print {
+      display: none; 
+    }
   }
 
   .logo {
