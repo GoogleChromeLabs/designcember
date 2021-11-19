@@ -7,28 +7,36 @@ const day_state = Days.day14;
 ---
 
 <style>
-  .fourteen {
-    @media (--lg) {
-      aspect-ratio: 1;
-    }
-  }
-
   .plaque {
     z-index: var(--layer-1);
     place-self: flex-end center;
     margin-block-end: -15px;
   }
 
-  .frame {
-    place-items: center;
-    border: var(--size-2) solid #d9773e;
-    background: linear-gradient(to bottom left, #427197 15%, #5181a8 0%);
-    overflow: hidden;
+  .bg {
+    margin-block: 1% 2%;
+    margin-inline: 3% 1%;
+    background: linear-gradient(to bottom left, #427197 30%, #5181a8 0%);
   }
 
-  .combo {
-    inline-size: 110%;
-    margin-block: -5%;
+  .stars {
+    aspect-ratio: 2265/1400;
+    max-inline-size: 75%;
+    margin-inline: auto;
+    margin-block-start: 4%;
+    background: url("/day14/star_sprites.png") 0% 0%;
+    background: url("/day14/star_sprites.webp") 0% 0%;
+    background-size: 300% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: twinkle 1.5s steps(1) infinite;
+    }
+  }
+
+  @keyframes twinkle {
+    0%  { background-position-x: 0%; }
+    33% { background-position-x: 100%; }
+    66% { background-position-x: 200%; }
   }
 </style>
 
@@ -53,9 +61,9 @@ const day_state = Days.day14;
   <span class="plaque">
     <Number num="14" link="#14th" active={day_state} />
   </span>
-  <div class="frame stacked">
-    <div class="combo">
-      <Pic filename="day14/14" width="1048" height="1183" role="presentation" />
-    </div>
+  <div class="bg"></div>
+  <div class="combo">
+    <Pic filename="day14/14" width="1010" height="1168" role="presentation" />
   </div>
+  <div class="stars"></div>
 </div>
