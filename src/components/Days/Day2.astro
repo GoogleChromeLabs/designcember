@@ -12,9 +12,6 @@ const day_state = Days.day2;
     --bg-gradient-color-2: #f9c4af;
     --_frame-size: var(--size-2);
 
-    /* margin: var(--size-11) var(--size-4); */
-    margin-inline: 13% 6%;
-    margin-block: 20% 5%;
     align-self: center;
   }
 
@@ -86,12 +83,16 @@ const day_state = Days.day2;
 
 <div 
   id="2nd" 
-  data-day-state={day_state} 
   class="day two stacked" 
   title="A cat reading a book next to some sushi"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Web Almanac CSS Chapter" 
+  data-detail-description="The Web Almanac is a comprehensive report on the state of the web, backed by real data and trusted web experts." 
+  data-detail-url="https://almanac.httparchive.org/en/2021/css" 
 >
   <span class="plaque">
-    <Number num="2" link="#2nd" />
+    <Number num="2" link="#2nd" active={day_state} />
   </span>
   <div class="bg"></div>
   <div class="pane stacked">

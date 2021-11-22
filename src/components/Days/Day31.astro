@@ -13,13 +13,21 @@ const day_state = Days.day31;
     
     align-self: flex-end;
     margin: var(--size-3);
+    margin-block-end: 30%;
 
+    @media (--sm) {
+      grid-column-start: 2;
+      margin-block-end: var(--size-3);
+    }
+    
     @media (--md) {
-      --_day-height: 2;
+      grid-column: 2 / -1;
+      max-inline-size: 30rem;
+      justify-self: flex-end;
     }
 
-    @media (--xl) {
-      --_day-column: 2;
+    @media (--lg) {
+      grid-column: 3 / -1;
     }
   }
 
@@ -48,12 +56,16 @@ const day_state = Days.day31;
 
 <div 
   id="31st" 
-  data-day-state={day_state} 
   class="day thirtyone stacked" 
-  title=""
+  title="Happy New Year's Eve! A trio of characters celebrate with party hats, a trumpet, sparklers, and confetti."
+  data-day-state={day_state} 
+  data-detail-position="top" 
+  data-detail-title="" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="31" link="#31st" />
+    <Number num="31" link="#31st" active={day_state} />
   </span>
   <div class="combo stacked">
     <div class="bg"></div>

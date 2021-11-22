@@ -8,9 +8,14 @@ const day_state = Days.day19;
 
 <style>
   .nineteen {
-    inline-size: 50%;
+    inline-size: 40%;
     justify-self: flex-end;
     margin: var(--size-3) var(--size-5) -10%;
+
+    @media (--md) {
+      inline-size: 50%;
+      margin: var(--size-3) -10% -20%;
+    }
   }
 
   .plaque {
@@ -39,12 +44,16 @@ const day_state = Days.day19;
 
 <div 
   id="19th" 
-  data-day-state={day_state} 
   class="day nineteen stacked" 
-  title=""
+  title="A paint palette and two paint brushes sit on a desk, waiting for the painter!"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="HTTP 203: Random Paint Worklets" 
+  data-detail-description="In this episode Jake and Surma chat about creating 'random' paint effects, and why they shouldn't be truly random." 
+  data-detail-url="https://www.youtube.com/watch?v=ALKqavp9Fg0"
 >
   <span class="plaque">
-    <Number num="19" link="#19th" />
+    <Number num="19" link="#19th" active={day_state} />
   </span>
   <div class="frame stacked">
     <div class="bg"></div>

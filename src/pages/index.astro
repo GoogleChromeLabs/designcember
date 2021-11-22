@@ -1,5 +1,7 @@
 ---
+import Pic from '../components/Pic/Pic.astro';
 import Calendar from '../components/Calendar/Calendar.astro';
+import Tooltip from '../components/Tooltip/Tooltip.astro';
 import Logo from '../components/Logo/Logo.astro';
 import ThemeToggle from '../components/ThemeToggle/ThemeToggle.astro';
 import Footer from '../components/Footer/Footer.astro';
@@ -16,6 +18,7 @@ import Footer from '../components/Footer/Footer.astro';
     align-items: center;
     justify-items: center;
     gap: var(--size-3) var(--size-10);
+    overflow-x: hidden;
 
     background-color: #d7ebed;
     background-image: 
@@ -24,6 +27,19 @@ import Footer from '../components/Footer/Footer.astro';
       var(--_sky-gradient);
     background-size: 40% auto, 40% auto, 100% 100%;
     background-position: left top, right top, center center;
+
+    @media print {
+      background-color: transparent;
+      background-image: none;
+    }  
+  }
+
+  .printable {
+    display: none;
+
+    @media print {
+      display: block;
+    }
   }
 
   @media (--sm) {
@@ -37,7 +53,7 @@ import Footer from '../components/Footer/Footer.astro';
   [data-theme="dark"] {
     & body {
       --_sky-gradient: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
-      --_sky-gradient--alpha: linear-gradient(to bottom, rgb(0 40 74 / 70%), rgb(105 141 179 / 70%));
+      --_sky-gradient--alpha: linear-gradient(to bottom, rgb(0 40 74 / 90%), rgb(105 141 179 / 90%));
       background-image: 
       var(--_sky-gradient--alpha),
       url('/header-left.png'),
@@ -52,13 +68,14 @@ import Footer from '../components/Footer/Footer.astro';
       opacity: 0.3;
     }
   }
+
 </style>
 
 <html lang="en">
 
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
 
     <title>Designcember</title>
@@ -75,15 +92,19 @@ import Footer from '../components/Footer/Footer.astro';
     <meta property="og:image" content="https://designcember-hoooray.netlify.app/social.jpg">
     <meta property="og:image:alt" content="TODO">
 
-    <script async defer src="https://unpkg.com/cqfill"></script>
+    <script type="module" src="/cqfillwrapper.js"></script>
     <script src="/ThemeToggle.js"></script>
   </head>
 
   <body>
+    <Tooltip />
     <ThemeToggle />
     <Logo />
     <Calendar />
     <Footer />
+    <div class="printable">
+      <Pic filename="printsheet" role="presentation" />
+    </div>
   </body>
 
 </html>

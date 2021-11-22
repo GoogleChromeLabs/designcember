@@ -14,6 +14,17 @@ const day_state = Days.day28;
 
     margin-block-end: var(--size-4);
     margin-inline-end: var(--size-4);
+
+    @media (--md) {
+      --_day-column: 2;
+      --_day-height: 2;
+      justify-self: flex-start;
+      max-inline-size: 30rem;
+    }
+
+    @media (--lg) {
+      justify-self: center;
+    }
   }
 
   .plaque {
@@ -56,12 +67,16 @@ const day_state = Days.day28;
 
 <div 
   id="28th" 
-  data-day-state={day_state} 
   class="day twentyeight stacked" 
-  title=""
+  title="A variety of tropical plants in bloom: Schefflera, Monstera, and Begonia Maculata!"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="How we built Designcember" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="28" link="#28th" />
+    <Number num="28" link="#28th" active={day_state} />
   </span>
   <div class="combo stacked">
     <div class="frame stacked">

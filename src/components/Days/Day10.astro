@@ -10,14 +10,11 @@ const day_state = Days.day10;
   .ten {
     --_bg-gradient-color-1: #f7d09a;
     --_bg-gradient-color-2: #f9dfc0;
-    margin: var(--size-4) var(--size-4) 0 var(--size-10);
+    overflow: visible;
+    max-inline-size: 80%;
 
     @media (--md) {
       --_day-column: 1;
-    }
-
-    @media (--xl) {
-      --_day-height: 1;
     }
   }
 
@@ -48,12 +45,16 @@ const day_state = Days.day10;
 
 <div 
   id="10th" 
-  data-day-state={day_state} 
   class="day ten stacked cq-interactive" 
-  title=""
+  title="A decked out gingerbread house complete with sprinkles, gumdrops, and peppermints."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Community Highlight" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="10" link="#10th" />
+    <Number num="10" link="#10th" active={day_state} />
   </span>
   <div class="combo">
     <Pic filename="day10/10-combo" width="933" height="929" role="presentation" />

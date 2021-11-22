@@ -8,23 +8,25 @@ const day_state = Days.day27;
 
 <style>
   .twentyseven {
-    align-self: center;
-    margin: 0 var(--size-4) var(--size-8) 0;
-    height: 90%;
+    width: 100%;
 
     @media (--md) {
       --_day-height: 2;
+      grid-row: 11 / 13;
+      grid-column: 3 / 3;
     }
 
     @media (--lg) {
       --_day-column: 2;
+      grid-row: 8 / 10;
+      grid-column: 1 / 3;
     }
   }
 
   .plaque {
     z-index: var(--layer-1);
-    place-self: flex-start center;
-    margin-block-start: -10px;
+    place-self: flex-end center;
+    margin-block-end: -10px;
   }
 
   .frame {
@@ -32,17 +34,29 @@ const day_state = Days.day27;
     min-block-size: 150px;
     border: var(--size-2) solid #d9773e;
     background: var(--_day-bg);
+
+    @media (--md) {
+      min-block-size: 500px;
+    }
+    
+    @media (--lg) {
+      min-block-size: 350px;
+    }
   }
 </style>
 
 <div 
   id="27th" 
-  data-day-state={day_state} 
   class="day twentyseven stacked" 
-  title=""
+  title="A young kid is building a snowman indoors, right as the parent walks by and is aghast! Hope the kid doesn't get into too much trouble as the snowman is starting to melt everywhere..."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="HTTP 203: End of year show" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="27" link="#27th" />
+    <Number num="27" link="#27th" active={day_state} />
   </span>
   <div class="frame cq-interactive"></div>
 </div>

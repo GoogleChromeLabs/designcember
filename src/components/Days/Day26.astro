@@ -14,8 +14,9 @@ const day_state = Days.day26;
     align-self: flex-end;
     background-color: transparent;
 
-    @media (--xl) {
-      grid-row: span 1;
+    @media (--md) {
+      inline-size: 45%;
+      margin-block-start: 0;
     }
   }
 
@@ -37,12 +38,16 @@ const day_state = Days.day26;
 
 <div 
   id="26th" 
-  data-day-state={day_state} 
   class="day twentysix stacked" 
-  title=""
+  title="A bowl of fruit: grapes, apple, and pear."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="PWA / Fugu Content Hold" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="26" link="#26th" />
+    <Number num="26" link="#26th" active={day_state} />
   </span>
   <div class="bg"></div>
   <Pic filename="day26/26" width="799" height="786" role="presentation" />

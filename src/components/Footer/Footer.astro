@@ -10,6 +10,10 @@ footer {
   background-size: cover;
   margin-top: -30%;
   z-index: 2;
+
+  @media print {
+    display: none; 
+  }
 }
 
 .bird {
@@ -39,7 +43,7 @@ footer {
 <style global>
   [data-theme="dark"] {
     & .bird {
-      filter: brightness(0.7);
+      filter: brightness(0.9);
     }
   }
 </style>

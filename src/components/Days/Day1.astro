@@ -18,37 +18,17 @@ const day_state = Days.day1;
     --_bg-gradient-color-2: #f7fad4;
 
     --_border-radius: 1e3px 1e3px 0 0;
-
-    margin: var(--size-2);
-
-    /* Size constraints */
-    height: 300px;
-    min-height: 240px;
-    max-height: 370px;
-    min-width: 200px;
-    /* max-width: 420px; */
+    
+    align-self: flex-start;
+    overflow: visible;
 
     @media (--sm) {
-      --_day-column: 2;
+      --_day-column: 1;
     }
 
     @media (--md) {
-      --_day-column: 1;
+      margin-block-start: -50px;
     }
-    
-    /* @media (--motionOK) {
-      &:is(:target, :hover, :focus-visible) {
-        & .una_hand {
-          transform-origin: bottom center;
-          transform: rotateZ(-20deg);
-          animation: una-wave 1s infinite;
-        }
-
-        & .adam_hand {
-          animation: adam-wave .75s infinite;
-        }
-      }
-    } */
   }
 
   .plaque {
@@ -58,13 +38,36 @@ const day_state = Days.day1;
   }
 
   .pane {
-    block-size: 100%;
-    max-inline-size: 40rem;
+    min-block-size: 250px;
     border-radius: var(--_border-radius);
     border: var(--_frame-size) solid #d9773e;
     overflow: hidden;
     isolation: isolate;
     container: inline-size;
+
+    @container (min-width: 220px) {
+      min-block-size: 300px;
+    }
+
+    @container (min-width: 260px) {
+      min-block-size: 310px;
+    }
+
+    @container (min-width: 270px) {
+      min-block-size: 350px;
+    }
+
+    @container (min-width: 320px) {
+      min-block-size: 400px;
+    }
+
+    @container (min-width: 360px) {
+      min-block-size: 450px;
+    }
+  }
+
+  .inner-frame {
+    z-index: var(--layer-3);
   }
 
   .sill {
@@ -82,7 +85,11 @@ const day_state = Days.day1;
 
   .bg_shadow {
     opacity: var(--_bg-shadow-opacity);
-    inline-size: 80%;
+    inline-size: 90%;
+
+    @container (min-width: 240px) {
+      inline-size: 100%;
+    }
   }
 
   .una {
@@ -92,9 +99,25 @@ const day_state = Days.day1;
 
   .una_body {
     align-self: flex-end;
-    max-inline-size: min(60%, 220px);
+    max-inline-size: min(70%, 220px);
     margin-inline-start: -5%;
     margin-inline-start: -5%;
+
+    aspect-ratio: 784/749;
+    background: url("/day1/una_sprite.png") 0% 0%;
+    background: url("/day1/una_sprite.webp") 0% 0%;
+    background-size: 400% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: una-wave .5s steps(1) alternate infinite;
+    }
+  }
+
+  @keyframes una-wave {
+    0%  { background-position-x: 0%; }
+    25% { background-position-x: 300%; }
+    50% { background-position-x: 200%; }
+    75% { background-position-x: 100%; }
   }
 
   .una_hand {
@@ -108,24 +131,14 @@ const day_state = Days.day1;
 
   .una_lower {
     margin-block-end: -2.5%;
-    margin-inline-start: 100px;
+    margin-inline-start: min(25%, 100px);
     max-inline-size: min(75%, 300px);
     align-self: flex-end;
     justify-self: flex-start;
     z-index: 1;
 
-    @container (max-width: 360px) {
-      margin-inline-start: 20%;
-    }
-
-    @container (max-width: 310px) {
-      margin-inline-start: 20%;
-    }
-
-    @container (min-width: 310px) {
-      @container (min-height: 200px) {
-        display: none;
-      }
+    @container (min-width: 310px) and (min-height: 200px) {
+      display: none;
     }
   }
 
@@ -136,10 +149,26 @@ const day_state = Days.day1;
   }
 
   .adam_body {
-    max-inline-size: min(65%, 225px);
+    inline-size: 100%;
+    max-inline-size: min(85%, 275px);
     margin-inline-end: -3%;
     margin-block-end: -12%;
-    z-index: 2;
+
+    aspect-ratio: 704/852;
+    background: url("/day1/adam_sprite.png") 0% 0%;
+    background: url("/day1/adam_sprite.webp") 0% 0%;
+    background-size: 400% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: adam-wave .5s steps(1) alternate infinite;
+    }
+  }
+
+  @keyframes adam-wave {
+    0%  { background-position-x: 0%; }
+    25% { background-position-x: 300%; }
+    50% { background-position-x: 200%; }
+    75% { background-position-x: 100%; }
   }
 
   .adam_hand {
@@ -163,22 +192,8 @@ const day_state = Days.day1;
     filter: var(--_light-filter);
     inline-size: 30%;
     margin-inline-start: 10%;
-  }
 
-  @keyframes una-wave {
-    50% { transform: rotateZ(5deg); }
-  }
-
-  @keyframes adam-wave {
-    50% { transform: rotateZ(35deg); }
-  }
-
-  @container (max-width: 250px) {
-    .bg_shadow {
-      inline-size: 130%;
-    }
-
-    .lights {
+    @container (min-width: 240px) {
       inline-size: 40%;
       margin-top: -13px;
     }
@@ -198,12 +213,16 @@ const day_state = Days.day1;
 
 <div 
   id="1st" 
-  data-day-state={day_state} 
   class="day one stacked cq-interactive" 
   title="Una and Adam sitting in a window"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Designcember Site" 
+  data-detail-description="" 
+  data-detail-url="#" 
 >
   <span class="plaque">
-    <Number num="1" link="#1st" />
+    <Number num="1" link="#1st" active={day_state} />
   </span>
   <div class="pane stacked">
     <div class="bg"></div>
@@ -214,20 +233,15 @@ const day_state = Days.day1;
       <Pic filename="day1/lights" role="presentation" />
     </div>
     <div class="adam">
-      <div class="adam_body stacked">
-        <div class="adam_hand">
-          <Pic filename="day1/adam_hand" role="presentation" />
-        </div>
-        <Pic filename="day1/adam_body" role="presentation" />
-      </div>
+      <div class="adam_body"></div>
     </div>
     <div class="una stacked">
-      <!-- <div class="una_hand">
-        <Pic filename="day1/una_hand" role="presentation" />
-      </div> -->
       <div class="una_body">
-        <Pic filename="day1/una_body" role="presentation" />
+        <!-- <Pic filename="day1/una_body" role="presentation" /> -->
       </div>
+    </div>
+    <div class="inner-frame">
+      <Pic filename="day1/inner-frame" role="presentation" />
     </div>
   </div>
   <div class="sill stacked">

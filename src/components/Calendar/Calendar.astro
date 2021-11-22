@@ -34,7 +34,7 @@ import Day29 from '../Days/Day29.astro';
 import Day30 from '../Days/Day30.astro';
 import Day31 from '../Days/Day31.astro';
 ---
-<div class="container">
+<main class="container">
   <div class="building-topper stacked">
     <div class="building-wreath">
       <Pic filename="building-top-with-wreath" width="3912" height="614" role="presentation" />
@@ -69,8 +69,10 @@ import Day31 from '../Days/Day31.astro';
     </div>
     <Day20 />
     <Day21 />
-    <Day22 />
-    <Day23 />
+    <div class="pair twentytwo-twentythree">
+      <Day23 />
+      <Day22 />
+    </div>
     <Day24 />
     <div class="pair twentyfive-twentysix">
       <Day25 />
@@ -90,17 +92,16 @@ import Day31 from '../Days/Day31.astro';
       <Pic filename="footer/right" role="presentation" />
     </div>
   </div>
-</div>
+</main>
 
-<script>
+<script hoist>
   const validhashes = [
            '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th',
     '10th','11th','12th','13th','14th','15th','16th','17th','18th','19th',
     '20th','21st','22nd','23rd','24th','25th','26th','27th','28th','29th',
     '30th','31st',
   ]
-  const hashtarget = window.location.hash
-
+  
   const onscroll = () => {
     // repeatedly clear the timer on scroll
     clearTimeout(window.scrollEndTimer)
@@ -110,17 +111,51 @@ import Day31 from '../Days/Day31.astro';
   }
 
   const onscrollended = () => {
-    console.info(`Show modal for the ${hashtarget}`)
+    const day = document.getElementById(hashtarget)
+    document.querySelector('#tooltip').open(day)
 
     // remove event as we only needed scrollend notice once
     window.removeEventListener('scroll', onscroll)
   }
 
-  // if there's a valid hashtarget
-  // watch scroll for scrollend
-  if (validhashes.includes(hashtarget.substring(1, hashtarget.length))) {
+  // if there's a valid hashtarget, watch scroll for scrollend to show modal
+  let hashtarget = window.location.hash.substring(1, window.location.hash.length)
+  if (validhashes.includes(hashtarget)) {
     window.addEventListener('scroll', onscroll)
   }
+
+  // on click/focus of active days 
+  document.querySelectorAll('.day[data-day-state="active"]').forEach(day => {
+    day.addEventListener('click', e => {
+      // prevent browser scrolling to element
+      e.preventDefault()
+      e.stopPropagation()
+
+      history.pushState(null, null, day.querySelector('a').getAttribute('href'))
+      document.querySelector('#tooltip').open(day)
+    })
+
+    // when a day is focused, move focus to the <Number/> link element
+    // and auto open the day
+    day.addEventListener('focusin', e => {
+      // only trigger focus when it's from a Number link
+      // focus() is called on days after the tooltip is closed
+      // `return` here prevents an infinite focus loop
+      if (!e.relatedTarget) return
+
+      history.pushState(null, null, day.querySelector('a').getAttribute('href'))
+      document.querySelector('#tooltip').open(day)
+    })
+
+    // when enter is pressed, forward focus to the tooltip section
+    day.addEventListener('keypress', e => {
+      if (e.keyCode === 32) {
+        e.preventDefault()
+        e.stopPropagation()
+        document.querySelector('#tooltip > section').focus()
+      }
+    })
+  })
 </script>
 
 <style>
@@ -136,6 +171,10 @@ import Day31 from '../Days/Day31.astro';
     background-color: #ffdbb8;
     display: grid;
     justify-items: flex-end;
+    
+    @media print {
+      display: none; 
+    }
   }
 
   .building-wreath {
@@ -172,10 +211,10 @@ import Day31 from '../Days/Day31.astro';
     display: grid;
     grid-template-columns: repeat(var(--_windows), minmax(var(--_card-size), 1fr));
     grid-auto-flow: dense;
-    padding-block: var(--size-9) var(--size-5);
-    padding-inline: 10px;
-    align-items: start;
-    padding-block-end: 40%;
+    column-gap: 5%;
+    padding-inline: 5%;
+    align-items: center;
+    padding-block: 2% 40%;
     z-index: 1;
     
     @media (--sm) {
@@ -185,7 +224,8 @@ import Day31 from '../Days/Day31.astro';
     @media (--md) {
       --_card-size: calc(33% - 80px);
       --_windows: 3;
-      padding-inline: 20px;
+      column-gap: 4%;
+      padding-inline: 4%;
     }
     
     @media (--lg) {
@@ -193,26 +233,31 @@ import Day31 from '../Days/Day31.astro';
       --_windows: 4;
       padding-inline: 40px;
     }
-    
-    @media (--xl) {
-      --_card-size: calc(20% - 80px);
-      --_windows: 5;
+
+    @media print {
+      display: none; 
     }
   }
 
   .pair {
     display: grid;
+    justify-items: center;
     aspect-ratio: 1;
+
+    --_pair-column: 1;
+    --_pair-height: 1;
+    grid-row: span var(--_pair-height);
+    grid-column: span var(--_pair-column);
   }
 
-  .twentyfive-twentysix {
+.twentyfive-twentysix {
     @media (--md) {
-      --_day-column: 2;
-      --_day-height: 2;
+      --_pair-column: 2;
+      aspect-ratio: 0;
     }
 
     @media (--lg) {
-      --_day-column: 1;
+      --_pair-column: 1;
     }
   }
 
@@ -255,6 +300,10 @@ import Day31 from '../Days/Day31.astro';
 
     & .building-topper {
       background-color: hsl(208deg 71% 11%);
+    }
+
+    & .building-wreath {
+      filter: brightness(0.6) saturate(0.6)
     }
   }
 </style>

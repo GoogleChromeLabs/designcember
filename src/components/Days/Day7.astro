@@ -7,11 +7,6 @@ const day_state = Days.day7;
 ---
 
 <style>
-  .seven {
-    margin: var(--size-10) var(--size-8) var(--size-8) 0;
-    align-self: flex-end;
-  }
-
   .plaque {
     z-index: var(--layer-1);
     place-self: flex-end center;
@@ -53,12 +48,16 @@ const day_state = Days.day7;
 
 <div 
   id="7th" 
-  data-day-state={day_state} 
   class="day seven stacked" 
-  title=""
+  title="Disco the pup plays with his pie toy while a disco ball spins overhead."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Design in the Browser: Macro and Micro Layout" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://web.dev/shows/designing-in-the-browser/"
 >
   <span class="plaque">
-    <Number num="7" link="#7th" />
+    <Number num="7" link="#7th" active={day_state} />
   </span>
   <div class="frame stacked">
     <div class="mat">

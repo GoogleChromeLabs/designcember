@@ -6,14 +6,17 @@ import Pic from '../Pic/Pic.astro';
   <div class="logo">
     <Pic filename="title" alt="Designcember" class="logo" height="999" width="3808" />
   </div>
-  <p class="intro">A celebration of web design brought to you by <a href="https://web.dev">web.dev</a>.</p>
-  <p class="prose">Every day we'll drop a UI development treat for you to celebrate the new responsive web of tomorrow.</p>
+  <p class="intro">A celebration of web design brought to you by <a href="https://web.dev">web.dev</a>. Every day we'll drop a UI development treat for you to celebrate the new responsive web of tomorrow.</p>
 </header>
 
 <style>
   header {
     display: grid;
     place-items: center;
+
+    @media print {
+      display: none; 
+    }
   }
 
   .logo {
@@ -23,8 +26,13 @@ import Pic from '../Pic/Pic.astro';
   .intro {
     padding: 1rem;
     max-inline-size: var(--size-content-2);
-    color: var(--indigo-4);
+    color: var(--text-2);
     font-size: var(--font-size-fluid-1);
+  }
+
+  .intro a {
+    color: var(--indigo-6);
+    text-decoration-color: var(--indigo-6);
   }
 
   .prose {
@@ -43,6 +51,10 @@ import Pic from '../Pic/Pic.astro';
 
     & .prose {
       color: var(--indigo-2);
+    }
+
+    & .logo {
+      filter: hue-rotate(205deg) grayscale(0.85) brightness(2)
     }
   }
 </style>

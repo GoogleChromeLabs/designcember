@@ -1,0 +1,200 @@
+---
+---
+
+<style>
+  .detail {
+    position: absolute;
+    top: var(--_y);
+    left: var(--_x);
+    z-index: var(--layer-3);
+    max-inline-size: 96vw;
+    
+    @media (--motionOK) {
+      transition: top .6s var(--ease-squish-3), left .6s var(--ease-squish-3) .05s;
+    }
+  }
+
+  .bubble {
+    position: absolute;
+    bottom: -25px;
+    left: 40%;
+    inline-size: var(--size-4);
+    aspect-ratio: var(--ratio-box);
+    border-radius: var(--radius-round);
+    box-shadow: var(--shadow-5);
+    background: white;
+    opacity: 0;
+    transform: scale(0);
+    animation: bring-in .4s var(--ease-elastic-3) .2s forwards;
+
+    &:nth-child(2) {
+      inline-size: var(--size-2);
+      left: 45%;
+      box-shadow: var(--shadow-4);
+      animation-delay: 0s;
+    }
+
+    @nest [detail-position="bottom"] & {
+      top: -25px;
+      bottom: auto;
+    }
+  }
+
+  .tooltip {
+    display: grid;
+    gap: var(--size-2);
+    background-color: var(--surface-1);
+    padding: var(--size-5);
+    border-radius: var(--radius-4);
+    box-shadow: var(--shadow-6);
+
+    opacity: 0;
+    animation: bring-in .5s var(--ease-elastic-3) .4s forwards;
+
+    @media (--motionOK) {
+      transform: scale(.9);
+    }
+  }
+
+  .detail-title {
+    max-inline-size: var(--size-header-1);
+    line-height: var(--font-relative-lineheight-1);
+  }
+
+  .detail-description {
+    max-inline-size: var(--size-content-2);
+  }
+
+  @keyframes bring-in {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+<div id="tooltip" class="detail" style="display:none">
+  <span class="bubble"></span>
+  <span class="bubble"></span>
+  <section tabindex="0" class="tooltip">
+    <h3 class="detail-title">Set via attributes</h3>
+    <p class="detail-description">Set via attributes</p>
+    <a class="detail-url">Explore the project <span aria-hidden="true">↗</span></a>
+  </section>
+</div>
+
+<script hoist>
+  const tooltip = document.querySelector('#tooltip')
+  let activeDay = null
+
+  // create an observer to watch the active day
+  const resizeObserver = new ResizeObserver(entries => {
+    activeDay && positionTip()
+  })
+
+  const closeTooltip = async () => {
+    const { matches:motionOK } = window.matchMedia(
+      '(prefers-reduced-motion: no-preference)'
+    )
+
+    // wait for completion of a scale out push animation
+    await tooltip.animate([
+      { transform: `scale(1)`, opacity: 1 },
+      { transform: `scale(${motionOK ? '.9':1})`, opacity: 0 }
+    ], {
+      duration: 300,
+      easing: 'cubic-bezier(.5, 1.25, .75, 1.25)',
+    }).finished
+
+    // remove element from DOM
+    tooltip.style.display = 'none'
+    tooltip.style.removeProperty('--_x')
+    tooltip.style.removeProperty('--_y')
+    // update url to empty
+    history.replaceState(null, null, ' ')
+
+    // cleanup and redirect focus back to day
+    if (activeDay) {
+      resizeObserver.unobserve(activeDay)
+      activeDay.querySelector('a').focus()
+      activeDay = null
+    }
+  }
+  
+  const openTooltip = element => {
+    if (activeDay === element) return
+
+    activeDay = element
+
+    const { detailTitle, detailDescription, detailUrl } = activeDay.dataset
+    tooltip.querySelector('.detail-title').textContent = detailTitle
+    tooltip.querySelector('.detail-description').textContent = detailDescription
+    tooltip.querySelector('.detail-url').setAttribute('href', detailUrl)
+
+    tooltip.style.display = null // will render the element
+
+    positionTip()
+  }
+
+  const positionTip = () => {
+    // grab data from active day node
+    const { detailPosition } = activeDay.dataset
+
+    // grab bounds for the day and the content updated tooltip
+    const {x,y,width:signWidth,height:signHeight} = activeDay.querySelector('a').getBoundingClientRect()
+    const {width:tooltipWidth,height:tooltipHeight} = tooltip.getBoundingClientRect()
+
+    // figure out x and y that stay within window
+    let centeredX = Math.round(x) - (tooltipWidth/2) + (signWidth/2)
+    if (centeredX <= 0) centeredX = 0
+    if ((centeredX + tooltipWidth) > window.innerWidth)
+      centeredX = window.innerWidth - tooltipWidth
+
+    let centeredY
+
+    switch (detailPosition) {
+      case "top":
+        centeredY = Math.round(y) - tooltipHeight + window.scrollY - 10
+        break
+      case "bottom":
+        centeredY = Math.round(y) + signHeight + window.scrollY + 10
+        break
+    }
+
+    // update custom properties which position the tip
+    tooltip.style.setProperty('--_x', centeredX + 'px')
+    tooltip.style.setProperty('--_y', centeredY + 'px')
+
+    // match position on tooltip so the bubbles are on the right side
+    tooltip.setAttribute('detail-position', detailPosition)
+
+    // watch day element for size changes so position can track
+    resizeObserver.observe(activeDay)
+  }
+
+  // convenience methods for other components to use
+  tooltip.close = closeTooltip
+  tooltip.open = openTooltip
+
+  document.body.addEventListener('click', e => {
+    const clickedTheDay = activeDay?.contains(e.target)
+    const clickedTheTooltip = tooltip?.contains(e.target)
+
+    if (activeDay && !clickedTheDay && !clickedTheTooltip)
+      closeTooltip()
+  })
+
+  tooltip.addEventListener('keyup', e => {
+    if (e.code === 'Escape')
+      closeTooltip()
+  })
+
+  document.addEventListener('keyup', e => {
+    if (e.code === 'Enter' && document.activeElement.classList.contains('number')) {
+      document.querySelector('#tooltip > section').focus()
+    }
+    else if (e.code === 'Escape') {
+      document.querySelector('#tooltip').close()
+    }
+  })
+</script>

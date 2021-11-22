@@ -10,7 +10,6 @@ const day_state = Days.day9;
   .nine {
     min-height: 150px;
     inline-size: 90%;
-    justify-self: flex-end;
     border-top-left-radius: 100% 200%;
     border-top-right-radius: 100% 200%;
     background: var(--_day-bg);
@@ -19,11 +18,6 @@ const day_state = Days.day9;
 
     @media (--md) {
       --_day-column: 2;
-    }
-
-    @media (--xl) {
-      --_day-column: 2;
-      --_day-height: 1;
     }
   }
 
@@ -72,12 +66,16 @@ const day_state = Days.day9;
 
 <div 
   id="9th" 
-  data-day-state={day_state} 
   class="day nine stacked" 
-  title=""
+  title="A student gets ready for her design lesson with a freshly brewed cup of tea... and lots of caffeine!"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Learn Design: New Content" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://web.dev/learn/design/"
 >
   <span class="plaque">
-    <Number num="9" link="#9th" />
+    <Number num="9" link="#9th" active={day_state} />
   </span>
   <div class="shadow">
     <Pic filename="day9/bg_shadow" role="presentation" />

@@ -8,18 +8,17 @@ const day_state = Days.day5;
 
 <style>
   .five {
-    inline-size: min(300px, 75%);
+    inline-size: min(400px, 80%);
     justify-self: flex-end;
-    margin-inline-end: 5%;
     margin-block-end: -20%;
     align-items: flex-start;
   }
 
   .plaque {
     z-index: var(--layer-1);
-    place-self: flex-start flex-end;
-    margin-block-start: 10px;
-    margin-inline-end: 10px;
+    place-self: flex-end;
+    margin-block-end: 25px;
+    margin-inline-end: 60px;
   }
 
   .frame {
@@ -41,12 +40,16 @@ const day_state = Days.day5;
 
 <div 
   id="5th" 
-  data-day-state={day_state} 
   class="day five stacked" 
-  title=""
+  title="A gardener with a green thumb waters her flowering orange and red plants."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="RenderingNG Video" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="5" link="#5th" />
+    <Number num="5" link="#5th" active={day_state} />
   </span>
   <div class="combo stacked">
     <div class="frame"></div>

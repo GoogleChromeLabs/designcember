@@ -8,10 +8,14 @@ const day_state = Days.day30;
 
 <style>
   .thirty {
-    margin-inline: var(--size-5);
+    width: 100%;
 
     @media (--md) {
       --_day-column: 2;
+    }
+
+    @media (--lg) {
+      --_day-column: 3;
     }
   }
 
@@ -25,17 +29,25 @@ const day_state = Days.day30;
     min-block-size: 100px;
     background: var(--_day-bg);
     border: var(--size-2) solid #d9773e;
+
+    @media (--md) {
+      min-block-size: 175px;
+    }
   }
 </style>
 
 <div 
   id="30th" 
-  data-day-state={day_state} 
   class="day thirty stacked" 
-  title=""
+  title="A colorful holiday feast to end the year with loved ones with."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Community Highlight?" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="30" link="#30th" />
+    <Number num="30" link="#30th" active={day_state} />
   </span>
   <div class="frame cq-interactive"></div>
 </div>

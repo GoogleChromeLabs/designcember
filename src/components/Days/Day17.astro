@@ -14,12 +14,18 @@ const day_state = Days.day17;
     align-self: center;
     margin: var(--size-4);
 
+    @media (--sm) {
+      margin-block-end: -20%;
+    }
+
     @media (--md) {
       --_day-column: 2;
+      max-inline-size: 25rem;
+      margin-block-end: -5%;
     }
 
     @media (--lg) {
-      --_day-column: 1;
+      margin-block-end: var(--size-4);
     }
   }
 
@@ -49,12 +55,16 @@ const day_state = Days.day17;
 
 <div 
   id="17th" 
-  data-day-state={day_state} 
   class="day seventeen stacked" 
-  title=""
+  title="A young gardener with fabulous burgundy hair carefully prunes her well-maintained bonsai tree."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Interop 2022" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="17" link="#17th" />
+    <Number num="17" link="#17th" active={day_state} />
   </span>
   <div class="frame stacked">
     <div class="bg"></div>

@@ -2,15 +2,46 @@
 ---
 
 <style>
+  .theme-toggle-container {
+    --sky-blue: #a8dbe2;
+    
+    position: sticky;
+    justify-self: flex-end;
+    top: var(--size-3);
+    contain: paint;
+    z-index: 2;
+    background-color: var(--sky-blue);
+    width: var(--size-9);
+    border-radius: var( --size-8) 0 0 var(--size-8);
+    transition: transform 0.25s cubic-bezier(0,1.5,.8,1.2);
+
+    &:hover,
+    &:focus {
+      transform: translateX(0.25rem);
+    }
+
+    @media (--md) {
+      width: 4rem;
+    }
+
+    @media print {
+      display: none; 
+    }
+  }
+
   .theme-toggle {
     background: white;
     border-radius: var(--radius-round);
     aspect-ratio: var(--ratio-box);
-    position: sticky;
-    top: var(--size-3);
-    justify-self: flex-end;
-    margin: var(--size-3);
-    contain: paint;
+    margin: var(--size-2);
+
+    @media (--md) {
+      margin: var(--size-2);
+    }
+
+    @media (--lg) {
+      margin: var(--size-3);
+    }
   }
 
   #moon, #sun {
@@ -120,23 +151,25 @@
   }
 </style>
 
-<button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-live="auto">
-  <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-    <mask id="moon">
-      <rect x="0" y="0" width="100%" height="100%" fill="white" />
-      <circle cx="40" cy="8" r="11" fill="black" />
-    </mask>
-    <!-- https://feathericons.com/?query=sun -->
-    <circle id="sun" cx="12" cy="12" r="11" mask="url(#moon)"/>
-    <g id="sun-beams">
-      <line x1="12" y1="1" x2="12" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="23" />
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-      <line x1="1" y1="12" x2="3" y2="12" />
-      <line x1="21" y1="12" x2="23" y2="12" />
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-     </g>
-  </svg>
-</button>
+<div class="theme-toggle-container">
+  <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-live="auto">
+    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+      <mask id="moon">
+        <rect x="0" y="0" width="100%" height="100%" fill="white" />
+        <circle cx="40" cy="8" r="11" fill="black" />
+      </mask>
+      <!-- https://feathericons.com/?query=sun -->
+      <circle id="sun" cx="12" cy="12" r="11" mask="url(#moon)"/>
+      <g id="sun-beams">
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </g>
+    </svg>
+  </button>
+</div>

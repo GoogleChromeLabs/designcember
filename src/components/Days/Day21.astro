@@ -8,16 +8,15 @@ const day_state = Days.day21;
 
 <style>
   .twentyone {
-    align-self: center;
-    margin: var(--size-3);
-    margin-inline: var(--size-12) 0;
+    width: 100%;
 
     @media (--md) {
       --_day-height: 2;
+      height: 90%;
     }
 
     @media (--lg) {
-      --_day-column: 2;
+      --_day-height: 1;
     }
   }
 
@@ -33,6 +32,10 @@ const day_state = Days.day21;
     border: var(--size-2) solid #d9773e;
     background: var(--_day-bg);
 
+    @media (--md) {
+      height: 100%;
+    }
+
     @media (--lg) {
       height: 50%;
     }
@@ -41,12 +44,16 @@ const day_state = Days.day21;
 
 <div 
   id="21st" 
-  data-day-state={day_state} 
   class="day twentyone stacked" 
-  title=""
+  title="A cheerful friend blows an impressive bubblegum bubble as she folds her laundry into neat piles."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Design in the Browser: Responsive Images" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="21" link="#21st" />
+    <Number num="21" link="#21st" active={day_state} />
   </span>
   <div class="frame cq-interactive"></div>
 </div>

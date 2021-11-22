@@ -8,13 +8,8 @@ const day_state = Days.day23;
 
 <style>
   .twentythree {
-    min-block-size: 300px;
-    margin: var(--size-5) 0 var(--size-5) var(--size-5);
-
-    @media (--xl) {
-      --_day-height: 1;
-      grid-row: span 1;
-    }
+    max-inline-size: 70%;
+    justify-self: flex-end;
   }
 
   .plaque {
@@ -34,12 +29,16 @@ const day_state = Days.day23;
 
 <div 
   id="23rd" 
-  data-day-state={day_state} 
   class="day twentythree stacked" 
-  title=""
+  title="Someone is playing a song on their rainbow xylophone."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Learn Design Drop ? " 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="23" link="#23rd" />
+    <Number num="23" link="#23rd" active={day_state} />
   </span>
   <div class="bg"></div>
   <Pic filename="day23/23" width="939" height="753" role="presentation" />
