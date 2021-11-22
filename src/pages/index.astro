@@ -1,5 +1,7 @@
 ---
+import Pic from '../components/Pic/Pic.astro';
 import Calendar from '../components/Calendar/Calendar.astro';
+import Tooltip from '../components/Tooltip/Tooltip.astro';
 import Logo from '../components/Logo/Logo.astro';
 import ThemeToggle from '../components/ThemeToggle/ThemeToggle.astro';
 import Footer from '../components/Footer/Footer.astro';
@@ -25,6 +27,19 @@ import Footer from '../components/Footer/Footer.astro';
       var(--_sky-gradient);
     background-size: 40% auto, 40% auto, 100% 100%;
     background-position: left top, right top, center center;
+
+    @media print {
+      background-color: transparent;
+      background-image: none;
+    }  
+  }
+
+  .printable {
+    display: none;
+
+    @media print {
+      display: block;
+    }
   }
 
   @media (--sm) {
@@ -53,6 +68,7 @@ import Footer from '../components/Footer/Footer.astro';
       opacity: 0.3;
     }
   }
+
 </style>
 
 <html lang="en">
@@ -81,10 +97,14 @@ import Footer from '../components/Footer/Footer.astro';
   </head>
 
   <body>
+    <Tooltip />
     <ThemeToggle />
     <Logo />
     <Calendar />
     <Footer />
+    <div class="printable">
+      <Pic filename="printsheet" role="presentation" />
+    </div>
   </body>
 
 </html>

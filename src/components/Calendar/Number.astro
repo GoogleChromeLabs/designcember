@@ -2,11 +2,12 @@
 export interface Props {
   num: string;
   link: string;
+  active: string;
 }
 
 import Pic from '../Pic/Pic.astro';
 
-const { num, link } = Astro.props;
+const { num, link, active = 'pending' } = Astro.props;
 ---
 
 <style>
@@ -25,6 +26,10 @@ const { num, link } = Astro.props;
     font-variant-numeric: tabular-nums;
     align-items: center;
     place-content: center;
+
+    &:not([number-active="active"]) {
+      pointer-events: none;
+    }
 
     &:hover {
       text-decoration: none;
@@ -49,7 +54,7 @@ const { num, link } = Astro.props;
   }
 </style>
 
-<a href={link} class="number stacked">
+<a href={link} class="number stacked" number-active={active}>
   <Pic filename="blank" role="presentation" /> 
-  <span>{num}</span>
+  <span aria-label={`Day ${num}`}>{num}</span>
 </a>

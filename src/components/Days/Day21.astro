@@ -44,12 +44,16 @@ const day_state = Days.day21;
 
 <div 
   id="21st" 
-  data-day-state={day_state} 
   class="day twentyone stacked" 
   title="A cheerful friend blows an impressive bubblegum bubble as she folds her laundry into neat piles."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="Design in the Browser: Responsive Images" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="21" link="#21st" />
+    <Number num="21" link="#21st" active={day_state} />
   </span>
   <div class="frame cq-interactive"></div>
 </div>

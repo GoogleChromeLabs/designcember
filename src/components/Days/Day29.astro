@@ -37,12 +37,16 @@ const day_state = Days.day29;
 
 <div 
   id="29th" 
-  data-day-state={day_state} 
   class="day twentynine stacked" 
   title="Snow swirls around a snowglobe with the NYC cityscape inside."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="CSS Podcast: Interaction DevTools" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="#"
 >
   <span class="plaque">
-    <Number num="29" link="#29th" />
+    <Number num="29" link="#29th" active={day_state} />
   </span>
   <div class="frame cq-interactive"></div>
 </div>

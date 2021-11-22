@@ -34,7 +34,7 @@ import Day29 from '../Days/Day29.astro';
 import Day30 from '../Days/Day30.astro';
 import Day31 from '../Days/Day31.astro';
 ---
-<div class="container">
+<main class="container">
   <div class="building-topper stacked">
     <div class="building-wreath">
       <Pic filename="building-top-with-wreath" width="3912" height="614" role="presentation" />
@@ -92,7 +92,7 @@ import Day31 from '../Days/Day31.astro';
       <Pic filename="footer/right" role="presentation" />
     </div>
   </div>
-</div>
+</main>
 
 <script hoist>
   const validhashes = [
@@ -101,8 +101,7 @@ import Day31 from '../Days/Day31.astro';
     '20th','21st','22nd','23rd','24th','25th','26th','27th','28th','29th',
     '30th','31st',
   ]
-  const hashtarget = window.location.hash
-
+  
   const onscroll = () => {
     // repeatedly clear the timer on scroll
     clearTimeout(window.scrollEndTimer)
@@ -112,17 +111,51 @@ import Day31 from '../Days/Day31.astro';
   }
 
   const onscrollended = () => {
-    console.info(`Show modal for the ${hashtarget}`)
+    const day = document.getElementById(hashtarget)
+    document.querySelector('#tooltip').open(day)
 
     // remove event as we only needed scrollend notice once
     window.removeEventListener('scroll', onscroll)
   }
 
-  // if there's a valid hashtarget
-  // watch scroll for scrollend
-  if (validhashes.includes(hashtarget.substring(1, hashtarget.length))) {
+  // if there's a valid hashtarget, watch scroll for scrollend to show modal
+  let hashtarget = window.location.hash.substring(1, window.location.hash.length)
+  if (validhashes.includes(hashtarget)) {
     window.addEventListener('scroll', onscroll)
   }
+
+  // on click/focus of active days 
+  document.querySelectorAll('.day[data-day-state="active"]').forEach(day => {
+    day.addEventListener('click', e => {
+      // prevent browser scrolling to element
+      e.preventDefault()
+      e.stopPropagation()
+
+      history.pushState(null, null, day.querySelector('a').getAttribute('href'))
+      document.querySelector('#tooltip').open(day)
+    })
+
+    // when a day is focused, move focus to the <Number/> link element
+    // and auto open the day
+    day.addEventListener('focusin', e => {
+      // only trigger focus when it's from a Number link
+      // focus() is called on days after the tooltip is closed
+      // `return` here prevents an infinite focus loop
+      if (!e.relatedTarget) return
+
+      history.pushState(null, null, day.querySelector('a').getAttribute('href'))
+      document.querySelector('#tooltip').open(day)
+    })
+
+    // when enter is pressed, forward focus to the tooltip section
+    day.addEventListener('keypress', e => {
+      if (e.keyCode === 32) {
+        e.preventDefault()
+        e.stopPropagation()
+        document.querySelector('#tooltip > section').focus()
+      }
+    })
+  })
 </script>
 
 <style>
@@ -138,6 +171,10 @@ import Day31 from '../Days/Day31.astro';
     background-color: #ffdbb8;
     display: grid;
     justify-items: flex-end;
+    
+    @media print {
+      display: none; 
+    }
   }
 
   .building-wreath {
@@ -195,6 +232,10 @@ import Day31 from '../Days/Day31.astro';
       --_card-size: calc(25% - 80px);
       --_windows: 4;
       padding-inline: 40px;
+    }
+
+    @media print {
+      display: none; 
     }
   }
 

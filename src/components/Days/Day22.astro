@@ -29,12 +29,16 @@ const day_state = Days.day22;
 
 <div 
   id="22nd" 
-  data-day-state={day_state} 
   class="day twentytwo stacked" 
   title="A green mitten sits on the counter, waiting to be put on for outdoor adventures!"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="CSS Podcast: A11y DevTools" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://pod.link/thecsspodcast"
 >
   <span class="plaque">
-    <Number num="22" link="#22nd" />
+    <Number num="22" link="#22nd" active={day_state} />
   </span>
   <div class="bg"></div>
   <Pic filename="day22/22" width="624" height="659" role="presentation" />

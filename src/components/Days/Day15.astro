@@ -92,9 +92,19 @@ const day_state = Days.day15;
 
   .steam {
     align-self: flex-start;
+    inline-size: 100%;
     position: absolute;
-    top: -160%;
+    top: -190%;
     left: 0;
+
+    aspect-ratio: 543/1315;
+    background: url("/day15/steam_sprites.png") 600% 0%;
+    background: url("/day15/steam_sprites.webp") 600% 0%;
+    background-size: 600% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: steam 1.5s steps(1) infinite;
+    }
   }
 
   .pot {
@@ -126,6 +136,15 @@ const day_state = Days.day15;
     border: var(--size-2) solid #d9773e;
     background: var(--_day-bg);
   }
+
+  @keyframes steam {
+    0%  { background-position-x: 600%; }
+    15% { background-position-x: 500%; }
+    30% { background-position-x: 400%; }
+    45% { background-position-x: 300%; }
+    60% { background-position-x: 200%; }
+    75% { background-position-x: 100%; }
+  }
 </style>
 
 <style global>
@@ -140,12 +159,16 @@ const day_state = Days.day15;
 
 <div 
   id="15th" 
-  data-day-state={day_state} 
   class="day fifteen stacked" 
   title="A young cook whips up a home-made batch of ramen while talking on the phone, pleasantly surprised at how delicious the meal is turning out! Her cat is perched on her shoulder and smiling because it smells delicious."
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="CSS Podcast: Layout DevTools" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://pod.link/thecsspodcast"
 >
   <span class="plaque">
-    <Number num="15" link="#15th" />
+    <Number num="15" link="#15th" active={day_state} />
   </span>
   <div class="pane stacked">
     <div class="bg"></div>
@@ -164,9 +187,7 @@ const day_state = Days.day15;
           <div class="pot">
             <Pic filename="day15/pot" role="presentation" />
           </div>
-          <div class="steam">
-            <Pic filename="day15/steam" role="presentation" />
-          </div>
+          <div class="steam"></div>
         </div>
         <div class="soy_sauce">
           <Pic filename="day15/soy_sauce" role="presentation" />

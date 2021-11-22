@@ -46,12 +46,16 @@ const day_state = Days.day11;
 
 <div 
   id="11th" 
-  data-day-state={day_state} 
   class="day eleven stacked" 
   title="A grandma who is a knitting aficionado begins to knit a scarf, with extra balls of yarn wound up and prepared by her side."
+  data-day-state={day_state} 
+  data-detail-position="top" 
+  data-detail-title="Material Theme Builder" 
+  data-detail-description="Explore the new Material Design 3 guidance through the Material Theme Builder. Here, you can customize a theme, see how it looks as a dark theme, and export design tokens to bring it to your own applications." 
+  data-detail-url="https://material-foundation.github.io/material-theme-builder/"
 >
   <span class="plaque">
-    <Number num="11" link="#11th" />
+    <Number num="11" link="#11th" active={day_state} />
   </span>
   <div class="frame cq-interactive"></div>
 </div>

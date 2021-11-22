@@ -49,12 +49,16 @@ const day_state = Days.day16;
 
 <div 
   id="16th" 
-  data-day-state={day_state} 
   class="day sixteen stacked" 
   title="A breakfast spread of toast, jam, peaches, and strawberry. Shall we have a picnic?"
+  data-day-state={day_state} 
+  data-detail-position="bottom" 
+  data-detail-title="GUI Challenges: Thinking on ways to solve toasts" 
+  data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
+  data-detail-url="https://web.dev/shows/gui-challenges/"
 >
   <span class="plaque">
-    <Number num="16" link="#16th" />
+    <Number num="16" link="#16th" active={day_state} />
   </span>
   <div class="frame stacked">
     <div class="bg_texture">
