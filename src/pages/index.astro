@@ -3,6 +3,7 @@ import Calendar from '../components/Calendar/Calendar.astro';
 import Logo from '../components/Logo/Logo.astro';
 import ThemeToggle from '../components/ThemeToggle/ThemeToggle.astro';
 import Footer from '../components/Footer/Footer.astro';
+import Pic from '../components/Pic/Pic.astro';
 ---
 
 <style>
@@ -28,14 +29,15 @@ import Footer from '../components/Footer/Footer.astro';
 
     @media print {
       background-color: transparent;
-      background-image: 
-        url('/printsheet.jpg');
-      background-image: 
-        url('/printsheet.webp');
-      background-image: 
-        url('/printsheet.avif');
-      background-size: contain;
+      background-image: none;
     }  
+  }
+
+  .printable {
+    display: none;
+    @media print {
+      display: block;
+    }
   }
 
   @media (--sm) {
@@ -97,6 +99,9 @@ import Footer from '../components/Footer/Footer.astro';
     <Logo />
     <Calendar />
     <Footer />
+    <div class="printable">
+      <Pic filename="printsheet" role="presentation" />
+    </div>
   </body>
 
 </html>
