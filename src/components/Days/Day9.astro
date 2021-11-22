@@ -8,17 +8,46 @@ const day_state = Days.day9;
 
 <style>
   .nine {
+
+    /* delete me */
+    z-index: 100;
+
+  }
+
+  .container {
+    max-height: 200px;
     min-height: 150px;
+    max-width: 500px;
+    min-width: 276px;
     inline-size: 90%;
     border-top-left-radius: 100% 200%;
     border-top-right-radius: 100% 200%;
     background: var(--_day-bg);
     background: #f9e0ae;
-    /*border: var(--size-2) solid #d9773e;*/
 
     @media (--md) {
       --_day-column: 2;
     }
+
+   /* @container (min-width: 220px) {
+      min-block-size: 300px;
+    }*/
+
+   /* @container (min-width: 260px) {
+      min-block-size: 310px;
+    }*/
+
+   /* @container (min-width: 270px) {
+      min-block-size: 350px;
+    }*/
+
+   /* @container (min-width: 320px) {
+      min-block-size: 400px;
+    }*/
+
+   /* @container (min-width: 360px) {
+      min-block-size: 450px;
+    }*/
   }
 
   .plaque {
@@ -28,28 +57,63 @@ const day_state = Days.day9;
   }
 
   .shadow {
-    height: 100%;
-
-    /*picture {
-      height: 100%;
-    }*/
+    align-self: end;
+    width: 200%;
   }
 
   .book {
-    margin-left: 30px;
+    margin-left: 15%;
     place-self: flex-end flex-start;
     width: 25%;
   }
 
   .character {
-    height: 100%;
+    align-self: end;
     justify-self: center;
-    width: 33%;
+    width: 50%;
 
-    & picture,
-    & img {
-      height: 100%;
-    }
+/*    @container (min-aspect-ratio: 2/1) {
+      width: 100%;
+    }*/
+  }
+
+
+  .coffee {
+    align-self: end;
+    margin-right: 10%;
+    place-self: flex-end flex-end;
+    width: 20%;
+  }
+
+  .frame {
+    align-self: end;
+    justify-self: center;
+    width: 100%;
+  }
+
+  .monstera_front {
+    align-self: end;
+    place-self: flex-end flex-start;
+    width: 20%;
+  }
+
+  .monstera_pot {
+    align-self: end;
+    place-self: flex-end flex-start;
+    width: 20%;
+  }
+
+  .pothos {
+    align-self: end;
+    place-self: flex-end flex-end;
+    width: 20%;
+  }
+
+  .steam {
+    align-self: end;
+    justify-self: center;
+    place-self: flex-end center;
+    width: 20%;
   }
 </style>
 
@@ -66,7 +130,7 @@ const day_state = Days.day9;
 
 <div 
   id="9th" 
-  class="day nine stacked" 
+  class="day nine"
   title="A student gets ready for her design lesson with a freshly brewed cup of tea... and lots of caffeine!"
   data-day-state={day_state} 
   data-detail-position="bottom" 
@@ -77,31 +141,34 @@ const day_state = Days.day9;
   <span class="plaque">
     <Number num="9" link="#9th" active={day_state} />
   </span>
-  <div class="shadow">
-    <Pic filename="day9/bg_shadow" role="presentation" />
+
+  <div class="container stacked cq-interactive">
+    <div class="shadow">
+      <Pic filename="day9/bg_shadow" role="presentation" />
+    </div>
+    <div class="character">
+      <Pic filename="day9/character" role="presentation" />
+    </div>
+    <div class="book">
+      <Pic filename="day9/book" role="presentation" />
+    </div>
+    <div class="coffee">
+      <Pic filename="day9/coffee" role="presentation" />
+    </div>
+    <div class="monstera_front">
+      <Pic filename="day9/monstera_front" role="presentation" />
+    </div>
+    <div class="monstera_pot">
+      <Pic filename="day9/monstera_pot" role="presentation" />
+    </div>
+    <div class="pothos">
+      <Pic filename="day9/pothos" role="presentation" />
+    </div>
+    <div class="steam">
+      <Pic filename="day9/steam" role="presentation" />
+    </div>
+    <div class="frame">
+      <Pic filename="day9/frame" role="presentation" />
+    </div>
   </div>
-  <div class="character">
-    <Pic filename="day9/character" role="presentation" />
-  </div>
-  <div class="book">
-    <Pic filename="day9/book" role="presentation" />
-  </div>
-  <!-- <div class="coffee">
-    <Pic filename="day9/coffee" role="presentation" />
-  </div> -->
-  <!-- <div class="frame">
-    <Pic filename="day9/frame" role="presentation" />
-  </div> -->
-  <!-- <div class="monstera_front">
-    <Pic filename="day9/monstera_front" role="presentation" />
-  </div> -->
-  <!-- <div class="monstera_pot">
-    <Pic filename="day9/monstera_pot" role="presentation" />
-  </div> -->
-  <!-- <div class="pothos">
-    <Pic filename="day9/pothos" role="presentation" />
-  </div> -->
-  <!-- <div class="steam">
-    <Pic filename="day9/steam" role="presentation" />
-  </div> -->
 </div>
