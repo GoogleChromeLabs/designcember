@@ -8,25 +8,29 @@ const day_state = Days.day9;
 
 <style>
   .nine {
-    max-height: 250px;
+    max-height: 200px;
     min-block-size: 150px;
     max-width: 500px;
-    min-width: 276px;
+    min-width: 275px;
   }
 
   .cq-interactive {
-    padding-bottom: 60px;
+    padding-bottom: 105px;
     padding-left: 30px;
   }
 
+  .plaque {
+    z-index: var(--layer-2);
+    place-self: flex-end center;
+    margin-block-end: -15px;
+  }
+
   .pane {
-    overflow: hidden;
-    max-height: 250px;
-    max-width: 500px;
     border-top-left-radius: 100% 200%;
     border-top-right-radius: 100% 200%;
-    background: var(--_day-bg);
-    background: #f9e0ae;
+    max-height: 250px;
+    max-width: 500px;
+    overflow: hidden;
 
     /*@container (min-width: 220px) {
       min-block-size: 300px;
@@ -50,17 +54,17 @@ const day_state = Days.day9;
   }
 
   .sill {
-    align-self: flex-end;
-    justify-self: center;
     align-items: flex-end;
-    z-index: 1;
+    align-self: flex-end;
     inline-size: 110%;
+    justify-self: center;
+    margin-bottom: 5px;
+    z-index: 1;
   }
 
-  .plaque {
-    z-index: var(--layer-2);
-    place-self: flex-end center;
-    margin-block-end: -15px;
+  .bg {
+    background: var(--_day-bg);
+    background: #f9e0ae;
   }
 
   .shadow {
@@ -72,13 +76,58 @@ const day_state = Days.day9;
     margin-left: 15%;
     place-self: flex-end flex-start;
     width: 30%;
+
+    @media (--md) {
+      margin-left: 30%;
+    }
+
+    @media (--sm) {
+      margin-left: 10%;
+      width: 60%;
+    }
   }
 
-  .character {
-    align-self: end;
-    justify-self: center;
+  .tea {
+    place-self: center flex-end;
     margin-bottom: -8px;
-    width: 75%;
+    width: 50%;
+
+    @media (--sm) {
+      place-self: flex-start flex-end;
+      width: 85%;
+    }
+  }
+
+  .character {}
+
+  .steam {
+    aspect-ratio: 23/26;
+    background: url("/day9/steam_sprite.png") 0% 0%;
+    background: url("/day9/steam_sprite.webp") 0% 0%;
+    background-size: 600% auto;
+    place-self: center flex-end;
+    width: 20%;
+    margin-right: 6%;
+
+    @nest .day & {
+    /*@nest .day:is(:hover, :focus-within) & {*/
+      animation: steamy 2.5s steps(1) infinite;
+
+      & .static {
+        display: none;
+      }
+    }
+  }
+
+  @keyframes steamy {
+    0%  { background-position-x: 0%; }
+    12% { background-position-x: 100%; }
+    27% { background-position-x: 200%; }
+    39% { background-position-x: 300%; }
+    51% { background-position-x: 400%; }
+    63% { background-position-x: 500%; }
+    75% { background-position-x: 600%; }
+    88% { background-position-x: 700%; }
   }
 
   .coffee {
@@ -87,6 +136,14 @@ const day_state = Days.day9;
     margin-right: 10%;
     place-self: flex-end flex-end;
     width: 20%;
+
+    @media (--md) {
+      margin-right: 85%;
+    }
+
+    @media (--sm) {
+      display: none;
+    }
   }
 
   .frame {
@@ -100,37 +157,48 @@ const day_state = Days.day9;
     margin-left: -5%;
     place-self: flex-end flex-start;
     width: 75%;
+
+    @media (--md) {
+      margin-left: -10%;
+    }
+
+    @media (--sm) {
+      display: none;
+    }
   }
 
   .monstera_pot {
     margin-left: 7%;
     place-self: flex-end flex-start;
     width: 20%;
+
+    @media (--md) {
+      margin-left: 0%;
+    }
+
+    @media (--sm) {
+      display: none;
+    }
   }
 
   .pothos {
     margin-bottom: -20%;
     place-self: flex-end flex-end;
     width: 20%;
-  }
 
-  .steam {
-    justify-self: center;
-    place-self: flex-end center;
-    width: 20%;
+    @media (--md) {
+      place-self: flex-end flex-start;
+    }
   }
 </style>
 
-<!-- <style global>
+<style global>
   [data-theme="dark"] {
-    & .nine {
-      --_light-filter: drop-shadow(0px 0px 10px #fff9);
-      --_bg-shadow-opacity: .25;
-      --_bg-gradient-color-1: hsl(55deg 3% 20%);
-      --_bg-gradient-color-2: hsl(65deg 59% 21%);
+    & .shadow {
+      opacity: 0.3;
     }
   }
-</style> -->
+</style>
 
 <div 
   id="9th" 
@@ -147,18 +215,23 @@ const day_state = Days.day9;
   </span>
 
   <div class="pane stacked">
-    <div class="bg"></div>
-    <div class="shadow">
-      <Pic filename="day9/bg_shadow" role="presentation" />
+    <div class="bg">
+      <div class="shadow">
+        <Pic filename="day9/bg_shadow" role="presentation" />
+      </div>
     </div>
-    <div class="character">
-      <Pic filename="day9/character" role="presentation" />
+    <div class="tea stacked">
+      <div class="character">
+        <Pic filename="day9/character" role="presentation" />
+      </div>
+      <div class="steam">
+        <div class="static">
+          <Pic filename="day9/steam" role="presentation" />
+        </div>
+      </div>
     </div>
     <div class="coffee">
       <Pic filename="day9/coffee" role="presentation" />
-    </div>
-    <div class="steam">
-      <Pic filename="day9/steam" role="presentation" />
     </div>
   </div>
   <div class="sill stacked">
