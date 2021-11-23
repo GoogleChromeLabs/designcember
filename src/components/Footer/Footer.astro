@@ -29,13 +29,18 @@ footer {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 40ch;
   margin: 0 auto;
   color: #00284a;
 
   & h2 {
     color: inherit;
   }
+}
+
+.callout {
+  margin-top: 1rem;
+  font-style: italic;
 }
 
 </style>
@@ -58,8 +63,20 @@ footer {
     </div>
     <div class="meta">
       <div class="container">
-        <h2>Brought to you by:</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum reprehenderit ipsum, commodi ipsa at expedita magni omnis ipsam magnam doloremque, quidem perferendis beatae fugit excepturi dolores repellat ducimus facere. Ut!</p>
+        <div class="acknowledgments">
+          <h4>Brought to you by:</h4>
+          <p><a href="https://www.byalicelee.com/">Alice Lee</a>: Illustration and animation</p>
+          <p><a href="#">Adam Argyle</a>: Architecture lead</p>
+          <p><a href="#">Una Kravets</a>: Project lead</p>
+          <p><a href="#">Ewa Gasperowicz</a>: Infrastructure lead</p>
+          <p><a href="#">Terry Ednacot</a>: Program manager</p>
+          <p><a href="#">Rachel Andrews</a>: Content lead</p>
+          <p><a href="#">Surma</a>: Container query polyfiller</p>
+          <p><a href="#">Emma Twersky</a>: Site contributor</p>
+          <p><a href="#">Kevin Lozandier</a>: Site contributor</p>
+          <p><a href="#">Cole Murphy</a>: Site contributor</p>
+        </div>
+        <p class="callout">Check out <a href="https://web.dev">web.dev</a> for more web development content, all year long.</p>
       </div>
     </div>
   </div>
