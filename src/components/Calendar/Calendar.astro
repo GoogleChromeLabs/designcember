@@ -39,7 +39,7 @@ import Day31 from '../Days/Day31.astro';
     <div class="building-wreath">
       <Pic filename="building-top-with-wreath" width="3912" height="614" role="presentation" />
     </div>
-    <div class="helpful-birb">
+    <div id="birb" class="helpful-birb">
       <Pic filename="helpful_birb" role="presentation" />
     </div>
   </div>
@@ -156,6 +156,20 @@ import Day31 from '../Days/Day31.astro';
       }
     })
   })
+
+  // Helpful birb
+  const birb = document.querySelector('#birb');
+  birb.addEventListener('click', e => {
+    e.preventDefault();
+
+    goToToday();
+  })
+
+  const goToToday = () => {
+    const today = [...document.querySelectorAll('[data-day-state="active"]')].pop();
+    history.pushState(null, null, today.querySelector('a').getAttribute('href'));
+    document.querySelector('#tooltip').open(today);
+  }
 </script>
 
 <style>
