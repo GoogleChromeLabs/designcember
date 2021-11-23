@@ -62,13 +62,10 @@ const day_state = Days.day9;
     z-index: 1;
   }
 
-  .bg {
-    background: var(--_day-bg);
-    background: #f9e0ae;
-  }
-
   .shadow {
     align-self: end;
+    background: var(--_day-bg);
+    background: #f9e0ae;
     width: 200%;
   }
 
@@ -192,14 +189,6 @@ const day_state = Days.day9;
   }
 </style>
 
-<style global>
-  [data-theme="dark"] {
-    & .shadow {
-      opacity: 0.3;
-    }
-  }
-</style>
-
 <div 
   id="9th" 
   class="day nine stacked cq-interactive"
@@ -215,10 +204,8 @@ const day_state = Days.day9;
   </span>
 
   <div class="pane stacked">
-    <div class="bg">
-      <div class="shadow">
-        <Pic filename="day9/bg_shadow" role="presentation" />
-      </div>
+    <div class="shadow">
+      <Pic filename="day9/bg_shadow" role="presentation" />
     </div>
     <div class="tea stacked">
       <div class="character">
