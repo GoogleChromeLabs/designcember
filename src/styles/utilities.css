@@ -15,6 +15,7 @@
   box-sizing: content-box;
 }
 
-.cq-interactive:active {
+.cq-interactive:active,
+.cq-interactive:focus {
   z-index: 3;
 }
