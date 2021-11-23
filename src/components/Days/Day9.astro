@@ -8,15 +8,27 @@ const day_state = Days.day9;
 
 <style>
   .nine {
-    max-height: 200px;
-    min-block-size: 150px;
-    max-width: 500px;
-    min-width: 275px;
+    --window-height: 200px;
+    max-height: var(--window-height);
+    min-height: var(--window-height);
+    max-width: 600px;
+    min-width: 175px;
+
+    /*delete me*/
+    z-index: 100;
   }
 
   .cq-interactive {
     padding-bottom: 105px;
-    padding-left: 30px;
+    padding-left: 95px;
+
+/*    @container (min-width: 280px) {
+      padding-bottom: 200px;
+    }
+
+    @container (min-width: 375px) {
+      padding-bottom: 275px;
+    }*/
   }
 
   .plaque {
@@ -28,83 +40,44 @@ const day_state = Days.day9;
   .pane {
     border-top-left-radius: 100% 200%;
     border-top-right-radius: 100% 200%;
-    max-height: 250px;
-    max-width: 500px;
+    height: var(--window-height);
     overflow: hidden;
-
-    /*@container (min-width: 220px) {
-      min-block-size: 300px;
-    }*/
-
-    /*@container (min-width: 260px) {
-      min-block-size: 310px;
-    }*/
-
-    /*@container (min-width: 270px) {
-      min-block-size: 350px;
-    }*/
-
-    /*@container (min-width: 320px) {
-      min-block-size: 400px;
-    }*/
-
-    /*@container (min-width: 360px) {
-      min-block-size: 450px;
-    }*/
-  }
-
-  .sill {
-    align-items: flex-end;
-    align-self: flex-end;
-    inline-size: 110%;
-    justify-self: center;
-    margin-bottom: 5px;
-    z-index: 1;
   }
 
   .shadow {
-    align-self: end;
     background: var(--_day-bg);
     background: #f9e0ae;
-    width: 200%;
-  }
-
-  .book {
-    margin-left: 15%;
-    place-self: flex-end flex-start;
-    width: 30%;
-
-    @media (--md) {
-      margin-left: 30%;
-    }
-
-    @media (--sm) {
-      margin-left: 10%;
-      width: 60%;
-    }
+    place-self: flex-start center;
+    width: 600px;
   }
 
   .tea {
-    place-self: center flex-end;
-    margin-bottom: -8px;
-    width: 50%;
+    container: inline-size;
+    margin-bottom: 10px;
+    place-self: flex-end center;
+    width: 60%;
 
-    @media (--sm) {
+    /*@container (max-width: 300px) {
       place-self: flex-start flex-end;
       width: 85%;
-    }
+    }*/
   }
 
-  .character {}
+  .character {
+    /*@container (max-height: 200px) {
+      width: 95%;
+    }*/
+  }
 
   .steam {
     aspect-ratio: 23/26;
     background: url("/day9/steam_sprite.png") 0% 0%;
     background: url("/day9/steam_sprite.webp") 0% 0%;
     background-size: 600% auto;
+    margin-right: 6%;
+    margin-top: 35%;
     place-self: center flex-end;
     width: 20%;
-    margin-right: 6%;
 
     @nest .day & {
     /*@nest .day:is(:hover, :focus-within) & {*/
@@ -127,64 +100,95 @@ const day_state = Days.day9;
     88% { background-position-x: 700%; }
   }
 
-  .coffee {
-    align-self: end;
-    margin-bottom: 0;
-    margin-right: 10%;
-    place-self: flex-end flex-end;
-    width: 20%;
 
-    @media (--md) {
-      margin-right: 85%;
-    }
-
-    @media (--sm) {
-      display: none;
-    }
+  .sill {
+    container: inline-size;
+    margin-bottom: 5px;
+    place-self: center center;
+    z-index: 1;
   }
 
-  .frame {
-    margin-bottom: -8px;
-    justify-self: center;
-    width: 100%;
+  .coffee {
+    display: none;
+
+    @container (max-width: 450px) {
+      margin-bottom: 0;
+      margin-right: 10%;
+      place-self: flex-end flex-end;
+      width: 20%;
+    }
+
+    @container (max-width: 300px) {
+      margin-right: 85%;
+    }
   }
 
   .monstera_front {
-    margin-bottom: 8%;
-    margin-left: -5%;
-    place-self: flex-end flex-start;
-    width: 75%;
+    display: none;
 
-    @media (--md) {
+    @container (min-width: 450px) {
       margin-left: -10%;
     }
 
-    @media (--sm) {
-      display: none;
+    @container (min-width: 300px) {
+      display: block;
+      margin-bottom: 8%;
+      margin-left: -5%;
+      place-self: flex-end flex-start;
+      width: 75%;
     }
   }
 
   .monstera_pot {
-    margin-left: 7%;
-    place-self: flex-end flex-start;
-    width: 20%;
+    display: none;
 
-    @media (--md) {
+    @container (min-width: 450px) {
       margin-left: 0%;
     }
 
-    @media (--sm) {
-      display: none;
+    @container (min-width: 300px) {
+      display: block;
+      margin-left: 7%;
+      place-self: flex-end flex-start;
+      width: 15%;
     }
   }
 
-  .pothos {
-    margin-bottom: -20%;
-    place-self: flex-end flex-end;
-    width: 20%;
+  .book {
+    margin-bottom: 10px;
+    margin-left: 10%;
+    place-self: flex-end flex-start;
+    width: 60%;
 
-    @media (--md) {
+    @container (max-width: 210px) {
+      margin-bottom: 0;
+    }
+
+    @container (min-width: 450px) {
+      margin-left: 15%;
+    }
+
+    @container (min-width: 300px) {
+      margin-left: 30%;
       place-self: flex-end flex-start;
+      width: 30%;
+    }
+  }
+
+  .frame {
+    margin-top: 197px;
+    place-self: flex-start center;
+    width: 103%;
+  }
+
+  .pothos {
+    margin-bottom: -70px;
+    margin-left: -10%;
+    place-self: flex-end flex-start;
+    width: 70px;
+
+    @container (min-width: 450px) {
+      justify-self: flex-end;
     }
   }
 </style>
@@ -199,29 +203,29 @@ const day_state = Days.day9;
   data-detail-description="Cookie gummies chupa chups lemon drops shortbread jelly sweet roll candy canes." 
   data-detail-url="https://web.dev/learn/design/"
 >
-  <span class="plaque">
+  <!-- <span class="plaque">
     <Number num="9" link="#9th" active={day_state} />
-  </span>
+  </span> -->
 
-  <div class="pane stacked">
+  <div class="pane">
     <div class="shadow">
       <Pic filename="day9/bg_shadow" role="presentation" />
     </div>
-    <div class="tea stacked">
-      <div class="character">
-        <Pic filename="day9/character" role="presentation" />
-      </div>
-      <div class="steam">
-        <div class="static">
-          <Pic filename="day9/steam" role="presentation" />
-        </div>
-      </div>
+  </div>
+  <div class="tea stacked">
+    <div class="character">
+      <Pic filename="day9/character" role="presentation" />
     </div>
-    <div class="coffee">
-      <Pic filename="day9/coffee" role="presentation" />
+    <div class="steam">
+      <div class="static">
+        <Pic filename="day9/steam" role="presentation" />
+      </div>
     </div>
   </div>
   <div class="sill stacked">
+    <div class="coffee">
+      <Pic filename="day9/coffee" role="presentation" />
+    </div>
     <div class="monstera_front">
       <Pic filename="day9/monstera_front" role="presentation" />
     </div>
