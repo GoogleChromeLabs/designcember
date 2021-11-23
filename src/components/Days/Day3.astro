@@ -24,12 +24,14 @@ const day_state = Days.day3;
     padding: 0;
     min-width: 160px;
     max-height: 700px;
+    max-width: 500px;
 
     @media (--md) {
       height: 100%;
       grid-row: 1 / span 2;
       grid-column-start: 3;
       --_day-height: 2;
+      width: 80%;
     }
 
     @media (--lg) {
@@ -40,7 +42,7 @@ const day_state = Days.day3;
   .plaque {
     z-index: var(--layer-2);
     place-self: flex-end center;
-    margin-block-end: -15px;
+    margin-block-end: 1.5rem;
   }
 
   .pane {
@@ -50,26 +52,26 @@ const day_state = Days.day3;
     overflow: hidden;
     isolation: isolate;
     container: size;
+    align-items: end;
+    margin-bottom: 2rem;
   }
 
   .person {
-    bottom: -20%;
-    width: 110%;
-    margin-left: -5%;
-    max-width: 320px;
+    bottom: 20%;
+    left: -25%;
+    width: 150%;
     position: relative;
 
-    @container (min-width: 400px) {
+    @container (min-width: 200px) {
+      left: -10%;
+      width: 120%;
+    }
+
+    @container (min-width: 300px) {
       width: 100%;
+      left: 0;
+      bottom: 10%;
       max-width: none;
-    }
-
-    @container (max-height: 400px) {
-      width: 75%;
-    }
-
-    @container (min-height: 600px) {
-      width: 150%;
     }
   }
 
@@ -82,20 +84,67 @@ const day_state = Days.day3;
   }
 
   .food {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    z-index: 2;
   }
 
   .bowl,
   .dimsum1,
   .dimsum2,
   .scallion {
-    width: 40%;
+    width: 60%;
+    min-width: 120px;
+    max-width: 180px;
+    position: absolute;
+  }
+
+  .scallion {
+    min-width: 70px;
+    width: 30%;
   }
 
   .dimsum2 {
-    position: absolute;
+    bottom: 20px;
+    left: -10px;
+
+    @container (min-width: 300px) {
+      bottom: -10px;
+    }
+  }
+
+  .dimsum1 {
+    right: -10%;
     bottom: 0;
+
+    @container (min-width: 300px) {
+      bottom: 200px;
+      right: unset;
+      left: -20%;
+    }
+  }
+
+  .bowl {
+    bottom: 110px;
+    right: -20px;
+    width: 25%;
+    min-width: 90px;
+
+    @container (min-width: 300px) {
+      right: 12%;
+      width: 35%;
+      bottom: 4vw;
+    }
+  }
+
+  .scallion {
+    bottom: 10%;
+    left: -5px;
+    max-width: 110px;
+
+    @container (min-width: 300px) {
+      left: unset;
+      right: 10px;
+    }
   }
 
   .right-arm {
@@ -103,8 +152,23 @@ const day_state = Days.day3;
     right: -10px;
     top: 34%;
     position: absolute;
-    animation: eat 1s infinite linear alternate;
     transform-origin: bottom right;
+  }
+
+  .pane:hover .right-arm {
+    animation: eat 1s infinite linear alternate;
+  }
+
+  .table {
+    background-color: #8c2c00;
+    width: 200%;
+    left: -50%;
+    height: 200px;
+    transform: rotate(-5deg);
+    position: absolute;
+    display: block;
+    bottom: -20px;
+    z-index: -1;
   }
 
   @keyframes eat {
@@ -161,8 +225,8 @@ const day_state = Days.day3;
       <div class="scallion">
         <Pic filename="day3/scallion" role="presentation" />
       </div>
+      <div class="table"></div>
     </div>
-    <div class="table"></div>
     <div class="bg">
       <Pic filename="day3/steam_big" role="presentation" />
     </div>
