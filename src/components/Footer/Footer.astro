@@ -24,17 +24,29 @@ footer {
 }
 
 .meta {
-  padding: var(--size-10);
+  display: grid;
+  text-align: center;
+  justify-content: center;
   background-color: white;
+  padding: 0 2rem 10rem;
+
+  @media (--md) {
+    text-align: left;
+    justify-content: flex-end;
+  }
 }
 
 .container {
-  max-width: 40ch;
-  margin: 0 auto;
   color: #00284a;
 
   & h2 {
     color: inherit;
+  }
+
+  @media (--md) {
+    max-width: 32ch;
+    margin-top: -14rem;
+    margin-right: 2vw;
   }
 }
 
