@@ -12,9 +12,6 @@ const day_state = Days.day9;
     /* delete me */
     z-index: 100;
 
-  }
-
-  .container {
     max-height: 200px;
     min-height: 150px;
     max-width: 500px;
@@ -48,6 +45,10 @@ const day_state = Days.day9;
    /* @container (min-width: 360px) {
       min-block-size: 450px;
     }*/
+  }
+
+  .cq-interactive {
+    /*add some padding, like in day 1*/
   }
 
   .plaque {
@@ -130,7 +131,7 @@ const day_state = Days.day9;
 
 <div 
   id="9th" 
-  class="day nine"
+  class="day nine stacked cq-interactive"
   title="A student gets ready for her design lesson with a freshly brewed cup of tea... and lots of caffeine!"
   data-day-state={day_state} 
   data-detail-position="bottom" 
@@ -142,33 +143,31 @@ const day_state = Days.day9;
     <Number num="9" link="#9th" active={day_state} />
   </span>
 
-  <div class="container stacked cq-interactive">
-    <div class="shadow">
-      <Pic filename="day9/bg_shadow" role="presentation" />
-    </div>
-    <div class="character">
-      <Pic filename="day9/character" role="presentation" />
-    </div>
-    <div class="book">
-      <Pic filename="day9/book" role="presentation" />
-    </div>
-    <div class="coffee">
-      <Pic filename="day9/coffee" role="presentation" />
-    </div>
-    <div class="monstera_front">
-      <Pic filename="day9/monstera_front" role="presentation" />
-    </div>
-    <div class="monstera_pot">
-      <Pic filename="day9/monstera_pot" role="presentation" />
-    </div>
-    <div class="pothos">
-      <Pic filename="day9/pothos" role="presentation" />
-    </div>
-    <div class="steam">
-      <Pic filename="day9/steam" role="presentation" />
-    </div>
-    <div class="frame">
-      <Pic filename="day9/frame" role="presentation" />
-    </div>
+  <div class="shadow">
+    <Pic filename="day9/bg_shadow" role="presentation" />
+  </div>
+  <div class="character">
+    <Pic filename="day9/character" role="presentation" />
+  </div>
+  <div class="book">
+    <Pic filename="day9/book" role="presentation" />
+  </div>
+  <div class="coffee">
+    <Pic filename="day9/coffee" role="presentation" />
+  </div>
+  <div class="monstera_front">
+    <Pic filename="day9/monstera_front" role="presentation" />
+  </div>
+  <div class="monstera_pot">
+    <Pic filename="day9/monstera_pot" role="presentation" />
+  </div>
+  <div class="pothos">
+    <Pic filename="day9/pothos" role="presentation" />
+  </div>
+  <div class="steam">
+    <Pic filename="day9/steam" role="presentation" />
+  </div>
+  <div class="frame">
+    <Pic filename="day9/frame" role="presentation" />
   </div>
 </div>
