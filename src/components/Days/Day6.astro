@@ -13,6 +13,10 @@ const day_state = Days.day6;
     align-self: center;
   }
 
+  .frame {
+    overflow: hidden;
+  }
+
   .plaque {
     z-index: var(--layer-1);
     place-self: flex-end center;
@@ -28,17 +32,32 @@ const day_state = Days.day6;
 
   .pig {
     max-inline-size: 60%;
-    padding-inline-start: 10%;
+    padding-inline-start: -10%;
     margin-block-end: 20%;
     margin-inline-end: 10%;
     place-self: flex-end center;
+    z-index: var(--layer-2);
   }
 
   .coin {
     max-inline-size: 10%;
-    margin-block-start: 10%;
+    margin-block-start: 6%;
     margin-inline-start: 15%;
     justify-self: center;
+  }
+
+  .six:hover .coin,
+  .six:focus .coin {
+    animation: coindrop 1s infinite ease-in forwards;
+  }
+
+  @keyframes coindrop {
+    50% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(50%);
+    }
   }
 </style>
 
