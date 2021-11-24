@@ -13,6 +13,8 @@ import Pic from '../Pic/Pic.astro';
   header {
     display: grid;
     place-items: center;
+    margin-block-start: -3.125rem;
+
 
     @media print {
       display: none; 
@@ -24,10 +26,11 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .intro {
-    padding: 1rem;
+    padding: 0.5rem 0 0;
+    margin-top: -0.3125rem;
     max-inline-size: var(--size-content-2);
     color: var(--text-2);
-    font-size: var(--font-size-fluid-1);
+    font-size: clamp(0.4375rem, 2.5vw, var(--font-size-fluid-1));
   }
 
   .intro a {
