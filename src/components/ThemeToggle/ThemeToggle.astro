@@ -4,7 +4,7 @@
 <style>
   .theme-toggle-container {
     --sky-blue: #a8dbe2;
-    
+
     position: sticky;
     justify-self: flex-end;
     top: var(--size-3);
@@ -25,7 +25,7 @@
     }
 
     @media print {
-      display: none; 
+      display: none;
     }
   }
 
@@ -63,7 +63,7 @@
     stroke: var(--nav-icon);
     stroke-width: 2px;
     transform-origin: center center;
-    transition: 
+    transition:
       transform .5s var(--ease-elastic-4),
       opacity var(--_opacity-dur) var(--ease-4);
 
@@ -98,7 +98,7 @@
       opacity: 0;
     }
   }
-  
+
   [data-theme="light"] {
     color-scheme: light;
 
@@ -152,7 +152,7 @@
 </style>
 
 <div class="theme-toggle-container">
-  <button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-live="auto">
+  <button class="theme-toggle ga-event" id="theme-toggle" title="Toggles light & dark" aria-live="auto" data-ga-label="theme-toggle">
     <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
       <mask id="moon">
         <rect x="0" y="0" width="100%" height="100%" fill="white" />
