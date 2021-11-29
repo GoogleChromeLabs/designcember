@@ -26,11 +26,15 @@ import Pic from '../Pic/Pic.astro';
   }
 
   .intro {
-    padding: 0.5rem 0 0;
+    padding: 2rem 2rem 0;
     margin-top: -0.3125rem;
     max-inline-size: var(--size-content-2);
     color: var(--text-2);
-    font-size: clamp(0.4375rem, 2.5vw, var(--font-size-fluid-1));
+    font-size: clamp(1rem, 2.5vw, var(--font-size-fluid-1));
+
+    @media (--md) {
+      padding: 0.5rem 0 0;
+    }
   }
 
   .intro a {
