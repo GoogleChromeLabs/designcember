@@ -8,17 +8,18 @@ const day_state = Days.day9;
 
 <style>
   .nine {
-    --window-height: 200px;
+    --window-height: 150px;
     container: inline-size;
+    width: 100%;
     max-height: var(--window-height);
-    max-width: 600px;
     min-height: var(--window-height);
+    max-width: 600px;
     min-width: 175px;
-  }
+    padding-block: 70px;
 
-  .cq-interactive {
-    padding-bottom: 105px;
-    padding-left: 95px;
+     @media (--md) {
+      --_day-column: 2;
+     }
   }
 
   .plaque {
@@ -121,8 +122,8 @@ const day_state = Days.day9;
     @container (min-width: 300px) {
       bottom: 8%;
       display: block;
-      left: -5%;
-      width: 60%;
+      left: -15px;
+      width: 55%;
     }
 
     @container (min-width: 450px) {
@@ -162,14 +163,14 @@ const day_state = Days.day9;
 
   .frame {
     left: -2.5%;
-    top: 198px;
+    top: 148px;
     width: 105%;
   }
 
   .pothos {
-    bottom: -70px;
-    left: -20px;
-    width: 70px;
+    bottom: -60px;
+    left: -10px;
+    width: 50px;
 
     @container (min-width: 300px) {
       width: 55px;
