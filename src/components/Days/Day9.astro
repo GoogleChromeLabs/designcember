@@ -8,28 +8,189 @@ const day_state = Days.day9;
 
 <style>
   .nine {
-    min-height: 150px;
-    inline-size: 90%;
-    border-top-left-radius: 100% 200%;
-    border-top-right-radius: 100% 200%;
-    background: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
+    --window-height: 150px;
+    container: inline-size;
+    max-height: var(--window-height);
+    min-height: var(--window-height);
+    max-width: 600px;
+    min-width: 150px;
+    padding-block: 15%;
+    aspect-ratio: auto;
 
-    @media (--md) {
+      @media (--sm) {
+        padding-block: 70px;
+      }
+
+     @media (--md) {
       --_day-column: 2;
-    }
+     }
   }
 
   .plaque {
-    z-index: var(--layer-1);
+    z-index: var(--layer-2);
     place-self: flex-end center;
-    margin-block-end: -25px;
+    margin-block-end: -15px;
+  }
+
+  .pane {
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    container: inline-size;
+    height: var(--window-height);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .shadow {
+    background: var(--_day-bg);
+    background: #f9e0ae;
+    place-self: flex-start center;
+    width: 600px;
+  }
+
+  .tea {
+    bottom: -4%;
+    left: 15%;
+    width: 80%;
+    position: absolute;
+
+    @container (min-width: 300px) {
+      left: 32%;
+      width: 60%;
+    }
+
+    @container (min-width: 450px) {
+      left: 15%;
+    }
+  }
+
+  .steam {
+    aspect-ratio: 23/26;
+    background: url("/day9/steam_sprite.png") 0% 0%;
+    background: url("/day9/steam_sprite.webp") 0% 0%;
+    background-size: 600% auto;
+    margin-right: 6%;
+    margin-top: 55%;
+    place-self: center flex-end;
+    width: 20%;
+  }
+
+  .nine:hover .steam,
+  .nine:focus-within .steam {
+    animation: steamy 2.5s steps(1) infinite;
+  }
+
+  @keyframes steamy {
+    0%  { background-position-x: 0%; }
+    12% { background-position-x: 100%; }
+    27% { background-position-x: 200%; }
+    39% { background-position-x: 300%; }
+    51% { background-position-x: 400%; }
+    63% { background-position-x: 500%; }
+    75% { background-position-x: 600%; }
+    88% { background-position-x: 700%; }
+  }
+
+
+  .sill {
+    container: inline-size;
+    bottom: 0;
+    height: var(--window-height);
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+    & * {
+      position: absolute;
+    }
+  }
+
+  .coffee {
+    display: none;
+
+    @container (min-width: 300px) {
+      bottom: 0;
+      display: block;
+      right: 65%;
+      width: 15%;
+    }
+
+    @container (min-width: 450px) {
+      right: 12%;
+    }
+  }
+
+  .monstera_front {
+    display: none;
+
+    @container (min-width: 300px) {
+      bottom: 8%;
+      display: block;
+      left: -15px;
+      width: 55%;
+    }
+
+    @container (min-width: 450px) {
+      left: -3%;
+    }
+  }
+
+  .monstera_pot {
+    display: none;
+
+    @container (min-width: 300px) {
+      bottom: 0;
+      display: block;
+      left: 5%;
+      width: 14%;
+    }
+
+    @container (min-width: 450px) {
+      left: 7%;
+    }
+  }
+
+  .book {
+    bottom: 0;
+    left: 10%;
+    width: 60%;
+
+    @container (min-width: 300px) {
+      left: 30%;
+      width: 30%;
+    }
+
+    @container (min-width: 450px) {
+      left: 13%;
+    }
+  }
+
+  .frame {
+    left: -2.5%;
+    top: 148px;
+    width: 105%;
+  }
+
+  .pothos {
+    bottom: -60px;
+    left: -10px;
+    width: 50px;
+
+    @container (min-width: 300px) {
+      width: 55px;
+    }
+
+    @container (min-width: 450px) {
+      left: unset;
+      right: 0;
+      width: 70px;
+    }
   }
 </style>
 
 <div 
   id="9th" 
-  class="day nine stacked" 
+  class="day nine stacked cq-interactive"
   title="A student gets ready for her design lesson with a freshly brewed cup of tea... and lots of caffeine!"
   data-day-state={day_state} 
   data-detail-position="bottom" 
@@ -37,7 +198,39 @@ const day_state = Days.day9;
   data-detail-description="Learn about responsive typography, images, the picture element, icons, and theming, in the latest additions to the web.dev Learn Design course." 
   data-detail-url="https://web.dev/learn/design/"
 >
-  <span class="plaque">
+  <!-- <span class="plaque">
     <Number num="9" link="#9th" active={day_state} />
-  </span>
+  </span> -->
+
+  <div class="pane">
+    <div class="shadow">
+      <Pic filename="day9/bg_shadow" role="presentation" />
+    </div>
+    <div class="tea stacked">
+      <div class="character">
+        <Pic filename="day9/character" role="presentation" />
+      </div>
+      <div class="steam"></div>
+    </div>
+  </div>
+  <div class="sill">
+    <div class="coffee">
+      <Pic filename="day9/coffee" role="presentation" />
+    </div>
+    <div class="monstera_front">
+      <Pic filename="day9/monstera_front" role="presentation" />
+    </div>
+    <div class="monstera_pot">
+      <Pic filename="day9/monstera_pot" role="presentation" />
+    </div>
+    <div class="book">
+      <Pic filename="day9/book" role="presentation" />
+    </div>
+    <div class="frame">
+      <Pic filename="day9/frame" role="presentation" />
+    </div>
+    <div class="pothos">
+      <Pic filename="day9/pothos" role="presentation" />
+    </div>
+  </div>
 </div>
