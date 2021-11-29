@@ -18,7 +18,7 @@ const day_state = Days.day9;
     aspect-ratio: auto;
 
       @media (--sm) {
-        padding-block: 70px;
+        padding-block: 60px;
       }
 
      @media (--md) {
@@ -188,6 +188,18 @@ const day_state = Days.day9;
   }
 </style>
 
+<style global>
+  [data-theme="dark"] {
+    & .pane {
+      background: #3c1919;
+    }
+
+    & .shadow {
+      opacity: 0.3;
+    }
+  }
+</style>
+
 <div 
   id="9th" 
   class="day nine stacked cq-interactive"
@@ -198,9 +210,9 @@ const day_state = Days.day9;
   data-detail-description="Learn about responsive typography, images, the picture element, icons, and theming, in the latest additions to the web.dev Learn Design course." 
   data-detail-url="https://web.dev/learn/design/"
 >
-  <!-- <span class="plaque">
+  <span class="plaque">
     <Number num="9" link="#9th" active={day_state} />
-  </span> -->
+  </span>
 
   <div class="pane">
     <div class="shadow">
