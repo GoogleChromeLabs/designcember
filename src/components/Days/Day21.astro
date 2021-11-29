@@ -9,10 +9,11 @@ const day_state = Days.day21;
 <style>
   .twentyone {
     width: 100%;
+    aspect-ratio: var(--ratio-landscape);
 
     @media (--md) {
       --_day-height: 2;
-      height: 90%;
+      aspect-ratio: auto;
     }
 
     @media (--lg) {
@@ -21,23 +22,150 @@ const day_state = Days.day21;
   }
 
   .plaque {
-    z-index: var(--layer-1);
+    z-index: var(--layer-2);
     place-self: flex-end center;
     margin-block-end: -15px;
   }
 
   .frame {
-    height: 75%;
-    min-block-size: 250px;
+    height: 100%;
+    width: 100%;
+    container: size;
+    justify-self: center;
     border: var(--size-2) solid #d9773e;
-    background: var(--_day-bg);
+    background: linear-gradient(to bottom, #f6d0cf, white);
 
-    @media (--md) {
-      height: 100%;
+    &.cq-interactive {
+      padding: 0;
     }
 
-    @media (--lg) {
-      height: 50%;
+    & > .stacked {
+      block-size: 100%;
+    }
+
+    @media (--sm) {
+      block-size: 525px;
+    }
+
+    @media (--md) {
+      block-size: 650px;
+    }
+  }
+
+  .lattice {
+    display: inherit;
+    margin-block-start: calc(var(--size-3) * -1);
+    margin-inline-start: calc(var(--size-3) * -1 * 2);
+    width: calc(100% + (var(--size-3) * 4));
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      display: none;
+    }
+  }
+
+  .laundry {
+    width: calc(100% + (var(--size-3) * 2));
+  }
+
+  .table {
+    block-size: 35%;
+    align-self: flex-end;
+    background-color: #f5c8c7;
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      block-size: 40%;
+    }
+  }
+
+  .person {
+    place-self: flex-end;
+    margin-block: 25% 50%;
+    margin-inline-start: -15%;
+    z-index: var(--layer-1);
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      inline-size: 50%;
+      margin-block-start: -2%;
+      margin-block-end: -25%;
+      inset-block-end: -15%;
+      place-self: center flex-end;
+      z-index: var(--layer-2);
+    }
+  }
+
+  .basket {
+    z-index: var(--layer-1);
+    place-self: flex-end;
+    position: relative;
+    inset-inline-end: -45%;
+    inset-block-end: 5%;
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      inline-size: 50%;
+      inset-inline-end: 10%;
+      inset-block-end: -15%;
+      place-self: flex-end center;
+      z-index: var(--layer-1);
+    }
+  }
+
+  .folded-clothes {
+    place-self: flex-end;
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      place-self: flex-end flex-start;
+      inline-size: 50%;
+    }
+  }
+
+  .shirt1 {
+    inline-size: 50%;
+    position: relative;
+    inset-inline-start: -5%;
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      inset-inline-start: -5%;
+      inset-block-end: -25%;
+      z-index: var(--layer-1);
+    }
+  }
+
+  .shirt2 {
+    inline-size: 50%;
+    position: relative;
+    inset-block-end: 50%;
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      inset-inline-start: 40%;
+    }
+  }
+
+  .jeans {
+    inline-size: 70%;
+    place-self: flex-end;
+    position: relative;
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      place-self: flex-end flex-start;
+      inset-block-end: 10%;
+    }
+  }
+
+  .hanging-socks {
+    display: flex;
+    inline-size: 35%;
+
+    @container (max-height: 350px) and (max-width: 425px) {
+      inline-size: 20%;
+      margin-inline-start: 10%;
+    }
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .twentyone .frame {
+      background: linear-gradient(to bottom, #f6d0cf, black);
     }
   }
 </style>
@@ -55,5 +183,34 @@ const day_state = Days.day21;
   <span class="plaque">
     <Number num="21" link="#21st" active={day_state} />
   </span>
-  <div class="frame cq-interactive"></div>
+  <div class="frame cq-interactive">
+    <div class="stacked">
+      <div class="laundry stacked">
+        <div class="table"></div>
+        <div class="folded-clothes stacked">
+          <div class="shirt2">
+            <Pic filename="day21/shirt_2" role="presentation" />
+          </div>
+          <div class="shirt1">
+            <Pic filename="day21/shirt_1" role="presentation" />
+          </div>
+          <div class="jeans">
+            <Pic filename="day21/jeans" role="presentation" />
+          </div>
+        </div>
+        <div class="person">
+          <Pic filename="day21/laundrygirl" role="presentation" />
+        </div>
+        <div class="basket">
+          <Pic filename="day21/basket" role="presentation" />
+        </div>
+      </div>
+      <div class="lattice">
+        <Pic filename="day21/frame_lattice" role="presentation" />
+      </div>
+      <div class="hanging-socks">
+        <Pic filename="day21/socks" role="presentation" />
+      </div>
+    </div>
+  </div>
 </div>
