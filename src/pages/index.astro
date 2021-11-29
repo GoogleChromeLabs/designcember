@@ -5,12 +5,13 @@ import Tooltip from '../components/Tooltip/Tooltip.astro';
 import Logo from '../components/Logo/Logo.astro';
 import ThemeToggle from '../components/ThemeToggle/ThemeToggle.astro';
 import Footer from '../components/Footer/Footer.astro';
+import Analytics from '../components/Analytics/Analytics.astro';
 ---
 
 <style>
   @import "@argyleink/open-props/normalize.min.css";
   @import "../styles/utilities.css";
-  
+
   body {
     --_sky-gradient: linear-gradient(to bottom, #d7ebed 15%, white 30%, white 70%, #d7ebed 85%, #d7ebed);
 
@@ -21,7 +22,7 @@ import Footer from '../components/Footer/Footer.astro';
     overflow-x: hidden;
 
     background-color: #d7ebed;
-    background-image: 
+    background-image:
       url('/header-left.png'),
       url('/header-right.png'),
       var(--_sky-gradient);
@@ -31,7 +32,7 @@ import Footer from '../components/Footer/Footer.astro';
     @media print {
       background-color: transparent;
       background-image: none;
-    }  
+    }
   }
 
   .printable {
@@ -54,7 +55,7 @@ import Footer from '../components/Footer/Footer.astro';
     & body {
       --_sky-gradient: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
       --_sky-gradient--alpha: linear-gradient(to bottom, rgb(0 40 74 / 90%), rgb(105 141 179 / 90%));
-      background-image: 
+      background-image:
       var(--_sky-gradient--alpha),
       url('/header-left.png'),
       url('/header-right.png'),
@@ -94,6 +95,7 @@ import Footer from '../components/Footer/Footer.astro';
 
     <script type="module" src="/cqfillwrapper.js"></script>
     <script src="/ThemeToggle.js"></script>
+    <Analytics />
   </head>
 
   <body>
