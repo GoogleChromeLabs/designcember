@@ -9,9 +9,11 @@ const day_state = Days.day11;
 <style>
   .eleven {
     height: 90%;
-    block-size: 300px;
-    inline-size: 100%;
     justify-items: center;
+
+    --_bg-gradient-color-1: white;
+    --_bg-gradient-color-2: #ffedd3;
+    --_bg-gradient-color-3: #0e0e0e;
 
     @media (--md) {
       --_day-height: 2;
@@ -31,22 +33,81 @@ const day_state = Days.day11;
   }
 
   .frame {
-    height: 100%;
-    width: 80%;
-    min-block-size: 80px;
-    background-color: var(--_day-bg);
+    background: linear-gradient(to bottom, var(--_bg-gradient-color-1) 30%, var(--_bg-gradient-color-2) 50%, var(--_bg-gradient-color-2));
     border: var(--size-2) solid #d9773e;
+    overflow: hidden;
 
     @media (--lg) {
       box-sizing: border-box;
       width: 100%;
+    }
+
+    container: size;
+  }
+
+  .bg_shadow {
+    max-inline-size: 120%;
+    margin-block: -10%;
+    margin-inline: -5%;
+  }
+
+  .light {
+    max-inline-size: 60%;
+    margin-block-start: -5%;
+    justify-self: flex-start;
+  }
+
+  .grandma {
+    inline-size: 90%;
+    margin-inline: -5%;
+    margin-block: 20%;
+    place-self: flex-end;
+
+    @container (min-width: 175px) and (min-height: 450px) {
+      inline-size: 120%;
+      margin-inline: -10%;
+    }
+
+    @container (min-width: 175px) and (min-height: 600px) {
+      inline-size: 150%;
+      margin-inline: -25%;
+    }
+  }
+
+  .table {
+    inline-size: 110%;
+    margin-inline: -5%;
+    margin-block-end: -10%;
+    place-self: flex-end center;
+  }
+
+  .yarn {
+    inline-size: 80%;
+    margin-inline-end: -10%;
+    margin-block-end: -10%;
+    place-self: flex-end;
+  }
+
+  .sill {
+    place-self: flex-end center;
+    z-index: 1;
+    inline-size: 110%;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .eleven {
+      --_bg-gradient-color-1: hsl(207deg, 41%, 58%);
+      --_bg-gradient-color-2: hsl(209deg, 44%, 33%);
+      --_bg-gradient-color-3: hsl(209deg, 80%, 29%);
     }
   }
 </style>
 
 <div 
   id="11th" 
-  class="day eleven stacked" 
+  class="eleven day stacked" 
   title="A grandma who is a knitting aficionado begins to knit a scarf, with extra balls of yarn wound up and prepared by her side."
   data-day-state={day_state} 
   data-detail-position="top" 
@@ -57,5 +118,29 @@ const day_state = Days.day11;
   <span class="plaque">
     <Number num="11" link="#11th" active={day_state} />
   </span>
-  <div class="frame cq-interactive"></div>
+  <div class="cq-interactive stacked">
+    <div class="frame stacked">
+      <div class="bg_shadow">
+        <Pic filename="day11/bg_shadow" role="presentation" />
+      </div>
+      <div class="light">
+        <Pic filename="day11/light" role="presentation" />
+      </div>
+      <div class="grandma">
+        <Pic filename="day11/grandma" role="presentation" />
+      </div>
+      <div class="table">
+        <Pic filename="day11/table" role="presentation" />
+      </div>
+      <div class="yarn">
+        <Pic filename="day11/yarn" role="presentation" />
+      </div>
+      <div class="frame_back">
+        <Pic filename="day11/frame_back" role="presentation" />
+      </div>
+    </div>
+    <div class="sill">
+      <Pic filename="day11/sill" role="presentation" />
+    </div>
+  </div>
 </div>
