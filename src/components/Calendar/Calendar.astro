@@ -39,10 +39,10 @@ import Day31 from '../Days/Day31.astro';
     <div class="building-wreath">
       <Pic filename="building-top-with-wreath" width="3912" height="614" role="presentation" />
     </div>
-    <div class="helpful-birb">
+    <button class="helpful-birb">
       <p class="birb-text">Jump to today!</p>
       <Pic filename="helpful_birb" role="presentation" />
-    </div>
+    </button>
   </div>
   <main class="calendar">
     <Day1 />
@@ -161,13 +161,14 @@ import Day31 from '../Days/Day31.astro';
   // Helpful birb
   const birb = document.querySelector('.helpful-birb');
   birb.addEventListener('click', e => {
-    e.preventDefault();
-
+    e.preventDefault()
+    e.stopPropagation()
     goToToday();
   })
 
   const goToToday = () => {
     const today = [...document.querySelectorAll('[data-day-state="active"]')].pop();
+    today.querySelector('a').focus()
     history.pushState(null, null, today.querySelector('a').getAttribute('href'));
     document.querySelector('#tooltip').open(today);
   }
@@ -211,6 +212,7 @@ import Day31 from '../Days/Day31.astro';
     max-width: 220px;
     opacity: 0;
     transition: opacity 0.25s;
+
   }
 
   .helpful-birb {
@@ -218,6 +220,11 @@ import Day31 from '../Days/Day31.astro';
     position: absolute;
     inset-block-end: 0;
     inset-inline-end: 5%;
+
+    /* Button reset */
+    background: none;
+    border: none;
+    outline: none;
   }
 
   .helpful-birb:hover .birb-text,
@@ -326,6 +333,10 @@ import Day31 from '../Days/Day31.astro';
     & .calendar {
       --_building: 
         linear-gradient(hsl(208deg 71% 14% / 80%), hsl(210deg 29% 34% / 80%)), url(/brick-pattern.png), linear-gradient(hsl(208deg 71% 14% / 100%), hsl(210deg 29% 34% / 100%));
+    }
+
+    & .birb-text {
+      color: var(--gray-7);
     }
 
     & .snow-left,
