@@ -29,18 +29,16 @@ const day_state = Days.day27;
     margin-block-end: -10px;
   }
 
-  .frame {
-    height: 80%;
-    min-block-size: 150px;
-    border: var(--size-2) solid #d9773e;
-    background: var(--_day-bg);
+  .bg {
+    background: #ffdbcb;
+    margin: 2% 17% 15% 9%;
+  }
+</style>
 
-    @media (--md) {
-      min-block-size: 500px;
-    }
-    
-    @media (--lg) {
-      min-block-size: 350px;
+<style global>
+  [data-theme="dark"] {
+    & .twentyseven .bg {
+      background: linear-gradient(to bottom, #ffdbcb, 60%, black);
     }
   }
 </style>
@@ -58,5 +56,8 @@ const day_state = Days.day27;
   <span class="plaque">
     <Number num="27" link="#27th" active={day_state} />
   </span>
-  <div class="frame cq-interactive"></div>
+  <div class="frame stacked">
+    <div class="bg"></div>
+    <Pic filename="day27/27" role="presentation" />
+  </div>
 </div>
