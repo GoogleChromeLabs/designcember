@@ -27,11 +27,22 @@ const day_state = Days.day30;
 
   .frame {
     min-block-size: 100px;
-    background: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
 
     @media (--md) {
       min-block-size: 175px;
+    }
+  }
+
+  .bg {
+    background: linear-gradient(to bottom, white, 25%, #ffebd9);
+    margin: 2% 5% 0 5%;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .thirty .bg {
+      background: linear-gradient(to bottom, hsl(0deg 0% 60%), 25%, hsl(28deg 20% 53%));
     }
   }
 </style>
@@ -49,5 +60,8 @@ const day_state = Days.day30;
   <span class="plaque">
     <Number num="30" link="#30th" active={day_state} />
   </span>
-  <div class="frame cq-interactive"></div>
+  <div class="frame stacked">
+    <div class="bg"></div>
+    <Pic filename="day30/30" role="presentation" />
+  </div>
 </div>
