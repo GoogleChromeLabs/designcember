@@ -39,7 +39,8 @@ import Day31 from '../Days/Day31.astro';
     <div class="building-wreath">
       <Pic filename="building-top-with-wreath" width="3912" height="614" role="presentation" />
     </div>
-    <div id="birb" class="helpful-birb">
+    <div class="helpful-birb">
+      <p class="birb-text">Jump to today!</p>
       <Pic filename="helpful_birb" role="presentation" />
     </div>
   </div>
@@ -158,7 +159,7 @@ import Day31 from '../Days/Day31.astro';
   })
 
   // Helpful birb
-  const birb = document.querySelector('#birb');
+  const birb = document.querySelector('.helpful-birb');
   birb.addEventListener('click', e => {
     e.preventDefault();
 
@@ -195,6 +196,20 @@ import Day31 from '../Days/Day31.astro';
     margin-block: -8% 3%;
     margin-inline-end: -3%;
     inline-size: 110%;
+  }
+
+  .birb-text {
+    font-size: var(--font-size-1);
+    background-image: url("/birb_speech_bubble.png");
+    background-image: url("/birb_speech_bubble.webp");
+    background-image: url("/birb_speech_bubble.avif");
+    background-position: center;
+    background-size: contain;
+    transform: translateX(30px) translateY(10px);
+    display: grid;
+    place-items: center;
+    padding: 1.5rem 2rem 2rem;
+    text-align: center;
   }
 
   .helpful-birb {
