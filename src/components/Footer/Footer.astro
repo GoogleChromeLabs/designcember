@@ -24,18 +24,35 @@ footer {
 }
 
 .meta {
-  padding: var(--size-10);
+  display: grid;
+  text-align: center;
+  justify-content: center;
   background-color: white;
+  padding: 0 2rem 10rem;
+
+  @media (--md) {
+    text-align: left;
+    justify-content: flex-end;
+  }
 }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
   color: #00284a;
 
   & h2 {
     color: inherit;
   }
+
+  @media (--md) {
+    max-width: 32ch;
+    margin-top: -14rem;
+    margin-right: 2vw;
+  }
+}
+
+.callout {
+  margin-top: 1rem;
+  font-style: italic;
 }
 
 </style>
@@ -58,8 +75,20 @@ footer {
     </div>
     <div class="meta">
       <div class="container">
-        <h2>Brought to you by:</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum reprehenderit ipsum, commodi ipsa at expedita magni omnis ipsam magnam doloremque, quidem perferendis beatae fugit excepturi dolores repellat ducimus facere. Ut!</p>
+        <div class="acknowledgments">
+          <h4>Brought to you by:</h4>
+          <p><a href="https://www.instagram.com/byalicelee">Alice Lee</a>: Illustration and animation</p>
+          <p><a href="https://web.dev/authors/adamargyle/">Adam Argyle</a>: Architecture lead</p>
+          <p><a href="https://web.dev/authors/una/">Una Kravets</a>: Project lead</p>
+          <p><a href="https://twitter.com/devnook">Ewa Gasperowicz</a>: Infrastructure lead</p>
+          <p><a href="https://twitter.com/TerryEdnacot">Terry Ednacot</a>: Program manager</p>
+          <p><a href="https://web.dev/authors/rachelandrew/">Rachel Andrew</a>: Content lead</p>
+          <p><a href="https://web.dev/authors/surma/">Surma</a>: <a href="https://github.com/GoogleChromeLabs/container-query-polyfill">Container query polyfill</a>er</p>
+          <p><a href="https://twitter.com/twerske">Emma Twersky</a>: Site contributor</p>
+          <p><a href="https://twitter.com/KevinLozandier">Kevin Lozandier</a>: Site contributor</p>
+          <p><a href="#">Cole Murphy</a>: Site contributor</p>
+        </div>
+        <p class="callout">Check out <a href="https://web.dev">web.dev</a> for more web development content, all year long.</p>
       </div>
     </div>
   </div>
