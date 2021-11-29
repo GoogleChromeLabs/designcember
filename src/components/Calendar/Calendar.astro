@@ -206,10 +206,11 @@ import Day31 from '../Days/Day31.astro';
     background-position: center;
     background-size: contain;
     transform: translateX(30px) translateY(10px);
-    display: grid;
-    place-items: center;
-    padding: 1.5rem 2rem 2rem;
+    padding: 1.5rem 25% 2rem;
     text-align: center;
+    max-width: 220px;
+    opacity: 0;
+    transition: opacity 0.25s;
   }
 
   .helpful-birb {
@@ -217,6 +218,11 @@ import Day31 from '../Days/Day31.astro';
     position: absolute;
     inset-block-end: 0;
     inset-inline-end: 5%;
+  }
+
+  .helpful-birb:hover .birb-text,
+  .helpful-birb:focus .birb-text {
+    opacity: 1;
   }
 
   .building-topper, .calendar {
