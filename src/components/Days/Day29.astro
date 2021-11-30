@@ -9,6 +9,10 @@ const day_state = Days.day29;
 <style>
   .twentynine {
     width: 100%;
+    aspect-ratio: auto;
+     --_bg-gradient-color-1: #fef7f1;
+    --_bg-gradient-color-2: #ffc5b6;
+    --_bg-color: hsl(183.2,32.2%,88.4%);
 
     @media (--md) {
       grid-column-start: 3;
@@ -28,10 +32,75 @@ const day_state = Days.day29;
   }
 
   .frame {
-    min-block-size: 200px;
-    background: var(--_day-bg);
+    background-color: var(--_bg-color);
+    border-bottom-left-radius: 1e3px;
+    overflow: hidden;
+  }
+
+  .frame-border {
     border: var(--size-2) solid #d9773e;
-    border-radius: 0% 0% 100% 200% / 100% 0% 0% 200%;
+    border-bottom-left-radius: 1e3px;
+  }
+
+  .bg {
+    inline-size: 50%;
+  }
+
+  .table {
+    place-self: flex-end;
+  }
+
+  .decor {
+    inline-size: 30%;
+  }
+
+  .wreath {
+    inline-size: 90%;
+    place-self: center;
+  }
+
+  .snowglobe {
+    inline-size: 45%;
+    place-self: flex-end center;
+    margin-inline-start: 30%;
+    margin-block-end: 10%;
+    margin-block-start: -2%;
+  }
+
+  .snow {
+    block-size: 80%;
+    justify-self: center;
+    margin-block-start: 6%;
+    background: url("/day29/snowflakes_sprite.png") 100% 0%;
+    aspect-ratio: 1/1;
+    background-size: 400% auto;
+    filter: opacity(0%);
+    transition: filter 450ms ease-in-out;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: snowfall 1s steps(1) infinite;
+      filter: opacity(100%);
+    }
+  }
+
+   @keyframes snowfall {
+    0%  { background-position-x: 100%; }
+    25% { background-position-x: 200%; }
+    50% { background-position-x: 400%; }
+    75% { background-position-x: 300%; }
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .twentynine .frame {
+     --_bg-color: hsl(183.2,32.2%,24.4%)
+    }
+
+    & .twentynine .snowglobe {
+      filter: drop-shadow(0 0 0.25rem hsla(0, 0%, 0%, 0.8));
+    }
+
   }
 </style>
 
@@ -48,5 +117,23 @@ const day_state = Days.day29;
   <span class="plaque">
     <Number num="29" link="#29th" active={day_state} />
   </span>
-  <div class="frame cq-interactive"></div>
+  <div class="frame stacked">
+    <div class="bg">
+      <Pic filename="day29/bg_shadow" role="presentation" />
+    </div>
+    <div class="decor">
+      <Pic filename="day29/picture_frame" role="presentation" />
+    </div>
+    <div class="table">
+      <Pic filename="day29/table" role="presentation" />
+    </div>
+    <div class="wreath">
+      <Pic filename="day29/swappables/wreath" role="presentation" />
+    </div>
+    <div class="frame-border"></div>
+  </div>
+  <div class="snowglobe stacked">
+    <Pic filename="day29/snowglobe" role="presentation" />
+    <div class="snow"></div>
+  </div>
 </div>
