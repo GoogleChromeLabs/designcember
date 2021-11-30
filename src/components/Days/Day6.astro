@@ -45,6 +45,10 @@ const day_state = Days.day6;
     margin-block-start: 6%;
     margin-inline-start: 15%;
     justify-self: center;
+
+    @supports not (aspect-ratio: 1) {
+      block-size: 15%;
+    }
   }
 
   .six:hover .coin,
