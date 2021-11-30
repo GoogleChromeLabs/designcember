@@ -1,7 +1,6 @@
 {
   "name": "chrome-designcember-2021",
   "version": "0.0.1",
-  "private": true,
   "type": "module",
   "scripts": {
     "dev": "astro dev",
@@ -20,7 +19,7 @@
     "postcss-nesting": "^9.0.0"
   },
   "dependencies": {
-    "@argyleink/open-props": "^0.4.x",
+    "open-props": "1.0.2",
     "container-query-polyfill": "^0.0.9"
   }
 }
