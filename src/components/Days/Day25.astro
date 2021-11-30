@@ -8,27 +8,146 @@ const day_state = Days.day25;
 
 <style>
   .twentyfive {
-    width: 70%;
     justify-self: flex-start;
-    border-radius: 0% 150% 100% 0% / 150% 0% 100% 0%;
-    background: var(--_day-bg);
-    border: var(--size-2) solid #d9773e;
-
-    @media (--md) {
-      width: 50%;
-      height: 90%;
-    }
   }
 
   .plaque {
     z-index: var(--layer-1);
-    place-self: flex-end flex-start;
-    margin-block-end: -20px;
+    place-self: flex-start;
+    margin-block-start: -10px;
     margin-inline-start: 20px;
   }
 
   .frame {
-    min-block-size: 150px;
+    --_bg-gradient-color-1: #fff8e6;
+    --_bg-gradient-color-2: #fffffe;
+
+    width: 70%;
+    height: 60%;
+    border-radius: 0% 150% 100% 0% / 150% 0% 100% 0%;
+    background: linear-gradient(to bottom, var(--_bg-gradient-color-1) 40%, var(--_bg-gradient-color-2));
+    border: var(--size-2) solid #d9773e;
+    overflow: hidden;
+
+    @media (--sm) {
+      height: 100%;
+    }
+
+    @media (--md) {
+      height: 130%;
+    }
+  }
+
+  .bg_shadow {
+    place-self: flex-start;
+    margin-block-start: -15%;
+    margin-inline-start: -10%;
+  }
+
+  .girl {
+    inline-size: 70%;
+    place-self: flex-end;
+  }
+
+  .butterfly_bg {
+    place-self: flex-end;
+  }
+
+  @keyframes wing_flap {
+    0%  { background-position-x: 100%; }
+    25% { background-position-x: 200%; }
+    50% { background-position-x: 400%; }
+    75% { background-position-x: 300%; }
+  }
+
+  .butterfly_1 {
+    place-self: flex-start;
+    inline-size: 25%;
+    margin-block-start: -5%;
+    margin-inline-start: 10%;
+
+    aspect-ratio: 573/549;
+    background: url("/day25/butterfly_1_sprite.png") 0% 0%;
+    background: url("/day25/butterfly_1_sprite.webp") 0% 0%;
+    background-size: 400% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: wing_flap 1s steps(1) infinite;
+    }
+
+    @media (--md) {
+      inline-size: 35%;
+    }
+  }
+
+  .butterfly_2 {
+    place-self: flex-end flex-start;
+    inline-size: 40%;
+    margin-block-end: 5%;
+
+    aspect-ratio: 573/469;
+    background: url("/day25/butterfly_2_sprite.png") 100% 0%;
+    background: url("/day25/butterfly_2_sprite.webp") 100% 0%;
+    background-size: 400% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: wing_flap 1s steps(1) infinite;
+    }
+
+    @media (--md) {
+      inline-size: 50%;
+      margin-block-end: 10%;
+    }
+  }
+
+  .butterfly_3 {
+    place-self: flex-start;
+    inline-size: 25%;
+    margin-block-start: 5%;
+    margin-inline-start: -5%;
+  }
+  
+  .butterfly_4 {
+    place-self: flex-end flex-start;
+    inline-size: 20%;
+  }
+  
+  .butterfly_6 {
+    place-self: flex-start flex-end;
+    inline-size: 15%;
+    margin-inline-end: 20%;
+  }
+  
+  .butterfly_7 {
+    place-self: flex-start flex-end;
+    inline-size: 18%;
+    margin-inline-end: 2%;
+    margin-block-start: 4%;
+
+    aspect-ratio: 573/549;
+    background: url("/day25/butterfly_7_sprite.png") 0% 0%;
+    background: url("/day25/butterfly_7_sprite.webp") 0% 0%;
+    background-size: 400% auto;
+
+    @nest .day:is(:hover, :focus-within) & {
+      animation: wing_flap 1s steps(1) infinite;
+    }
+  }
+  
+  .butterfly_8 {
+    place-self: flex-start flex-end;
+    inline-size: 20%;
+    margin-inline-end: -2%;
+    margin-block-start: 20%;
+  }
+</style>
+
+<style global>
+  [data-theme="dark"] {
+    & .twentyfive .frame {
+      --_bg-gradient-color-1: hsl(207deg, 41%, 58%);
+      --_bg-gradient-color-2: hsl(209deg, 80%, 29%);
+    }
   }
 </style>
 
@@ -45,5 +164,42 @@ const day_state = Days.day25;
   <span class="plaque">
     <Number num="25" link="#25th" active={day_state} />
   </span>
-  <div class="frame"></div>
+  <div class="frame stacked">
+    <div class="bg_shadow">
+      <Pic filename="day25/bg_shadow" role="presentation" />
+    </div>
+    <div class="flowy_dots_2">
+      <Pic filename="day25/flowy_dots_2" role="presentation" />
+    </div>
+    <div class="butterfly_bg">
+      <Pic filename="day25/butterfly_bg" role="presentation" />
+    </div>
+    <div class="butterfly_3">
+      <Pic filename="day25/butterfly_3" role="presentation" />
+    </div>
+    <div class="butterfly_4">
+      <Pic filename="day25/butterfly_4" role="presentation" />
+    </div>
+    <div class="flowy_dots_1">
+      <Pic filename="day25/flowy_dots_1" role="presentation" />
+    </div>
+    <div class="butterfly_6">
+      <Pic filename="day25/butterfly_6" role="presentation" />
+    </div>
+    <div class="butterfly_7">
+      <!-- <Pic filename="day25/butterfly_7" role="presentation" /> -->
+    </div>
+    <div class="butterfly_8">
+      <Pic filename="day25/butterfly_8" role="presentation" />
+    </div>
+    <div class="girl">
+      <Pic filename="day25/girl" role="presentation" />
+    </div>
+    <div class="butterfly_2">
+      <!-- <Pic filename="day25/butterfly_2" role="presentation" /> -->
+    </div>
+  </div>
+  <div class="butterfly_1">
+    <!-- <Pic filename="day25/butterfly_1" role="presentation" /> -->
+  </div>
 </div>
