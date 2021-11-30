@@ -8,20 +8,14 @@ const day_state = Days.day1;
 
 <style>
   .one {
-    --_frame-bottom: 15%;
-    --_frame-side: 7%;
-    --_frame-size: var(--size-2);
-
     --_light-filter: none;
     --_bg-shadow-opacity: 1;
     --_bg-gradient-color-1: #fdfcf2;
     --_bg-gradient-color-2: #f7fad4;
-
     --_border-radius: 1e3px 1e3px 0 0;
     
     align-self: flex-start;
-    max-height: 400px;
-    max-width: 400px;
+    aspect-ratio: auto;
 
     @media (--sm) {
       --_day-column: 1;
@@ -41,7 +35,7 @@ const day_state = Days.day1;
   .pane {
     min-block-size: 250px;
     border-radius: var(--_border-radius);
-    border: var(--_frame-size) solid #d9773e;
+    border: var(--size-2) solid #d9773e;
     overflow: hidden;
     isolation: isolate;
     container: inline-size;
