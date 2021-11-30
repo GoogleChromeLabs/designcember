@@ -13,11 +13,6 @@ import Analytics from '../components/Analytics/Analytics.astro';
   @import "https://unpkg.com/open-props/normalize.min.css";
   @import "../styles/utilities.css";
 
-  html {
-    /* Sue me */
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
-  }
   body {
     --_sky-gradient: linear-gradient(to bottom, #d7ebed 15%, white 30%, white 70%, #d7ebed 85%, #d7ebed);
 
@@ -111,7 +106,7 @@ import Analytics from '../components/Analytics/Analytics.astro';
     <Calendar />
     <Footer />
     <div class="printable">
-      <Pic filename="printsheet" role="presentation" />
+      <Pic filename="printsheet" role="presentation" loading="lazy" />
     </div>
   </body>
 
