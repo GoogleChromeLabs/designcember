@@ -29,6 +29,10 @@ const day_state = Days.day25;
     border: var(--size-2) solid #d9773e;
     overflow: hidden;
 
+    @supports not (aspect-ratio: 1) {
+      height: 100%;
+    }
+
     @media (--sm) {
       height: 100%;
     }
