@@ -23,6 +23,7 @@
   &:not([data-day-state='active']) {
     cursor: url(/cursor_dark.png), not-allowed;
     transition: filter 0.25s;
+    filter: brightness(0.5) grayscale(1);
 
     &:hover,
     &:focus {
