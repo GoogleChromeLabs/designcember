@@ -3,7 +3,7 @@ const postcssNesting = require('postcss-nesting')
 const postcssCustomMedia = require('postcss-custom-media')
 const postcssMediaRanges = require('postcss-media-minmax')
 const postcssImport = require('postcss-import')
-// const OpenProps = require('open-props')
+const OpenProps = require('open-props')
 
 module.exports = {
   plugins: [
@@ -23,7 +23,7 @@ module.exports = {
       ]
     }),
     postcssMediaRanges(),
-    // postcssJitProps(OpenProps),
+    postcssJitProps(OpenProps),
     postcssNesting(),
   ],
 }
