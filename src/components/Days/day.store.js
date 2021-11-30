@@ -16,17 +16,19 @@
 
 // this runs at build time
 // this is not shipped to the client
-// spoof a day of the month by setting todaysDate to a number
+// spoof a day of the month by setting todaysDate to a particular date
 
-const Today = new Date()
-const daysInMonth = 31
-const todaysDate = Today.getDate()
-const Days = {}
+const calendarStart = new Date("2021-12-01");
+const day = 1000 * 60 * 60 * 24;
+const todaysDate = new Date();
+const currentDaySinceStart = Math.floor((todaysDate - calendarStart) / day) + 1;
+const daysInMonth = 31;
+const daysToShow = Math.max(1, Math.min(daysInMonth, currentDaySinceStart));
+const days = Object.fromEntries(
+  Array.from({ length: daysInMonth }, (_, i) => [
+    `day${i + 1}`,
+    i + 1 > daysToShow ? "pending" : "active",
+  ])
+);
 
-for (var i = 1; i <= daysInMonth; i++) {
-  Days[`day${i}`] = i <= todaysDate
-    ? 'active'
-    : 'pending'
-}
-
-export default Days
+export default days;
