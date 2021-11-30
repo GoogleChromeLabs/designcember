@@ -41,6 +41,10 @@ const day_state = Days.day18;
     @nest .day:is(:hover, :focus-within) & {
       animation: steam 1.5s steps(1) infinite;
     }
+
+    @supports not (aspect-ratio: 1) {
+      block-size: 45%;
+    }
   }
 
   @keyframes steam {

@@ -82,6 +82,11 @@ const day_state = Days.day25;
     @media (--md) {
       inline-size: 35%;
     }
+
+    @supports not (aspect-ratio: 1) {
+      inline-size: 25%;
+      block-size: 50%;
+    }
   }
 
   .butterfly_2 {
@@ -101,6 +106,10 @@ const day_state = Days.day25;
     @media (--md) {
       inline-size: 50%;
       margin-block-end: 10%;
+    }
+
+    @supports not (aspect-ratio: 1) {
+      block-size: 50%;
     }
   }
 
@@ -135,6 +144,10 @@ const day_state = Days.day25;
 
     @nest .day:is(:hover, :focus-within) & {
       animation: wing_flap 1s steps(1) infinite;
+    }
+
+    @supports not (aspect-ratio: 1) {
+      block-size: 25%;
     }
   }
 

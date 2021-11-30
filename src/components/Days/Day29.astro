@@ -82,6 +82,11 @@ const day_state = Days.day29;
       animation: snowfall 1s steps(1) infinite;
       filter: opacity(100%);
     }
+
+    @supports not (aspect-ratio: 1) {
+      inline-size: 80%;
+      block-size: 75%;
+    }
   }
 
    @keyframes snowfall {

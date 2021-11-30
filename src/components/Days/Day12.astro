@@ -42,6 +42,10 @@ const day_state = Days.day12;
     @nest .day:is(:hover, :focus-within) & {
       animation: twinkle 1s steps(1) infinite;
     }
+
+    @supports not (aspect-ratio: 1) {
+      block-size: 25%;
+    }
   }
 
   @keyframes twinkle {

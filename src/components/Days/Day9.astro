@@ -74,6 +74,10 @@ const day_state = Days.day9;
     margin-top: 55%;
     place-self: center flex-end;
     width: 20%;
+
+    @supports not (aspect-ratio: 1) {
+      block-size: 25%;
+    }
   }
 
   .nine:hover .steam,

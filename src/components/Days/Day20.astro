@@ -48,6 +48,10 @@ const day_state = Days.day20;
     @nest .day:is(:hover, :focus-within) & {
       animation: candles 1s steps(1) infinite;
     }
+
+    @supports not (aspect-ratio: 1) {
+      block-size: 37%;
+    }
   }
 
   @keyframes candles {
