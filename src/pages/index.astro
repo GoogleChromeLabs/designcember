@@ -49,9 +49,15 @@ import Analytics from '../components/Analytics/Analytics.astro';
       gap: var(--size-10);
     }
   }
+
 </style>
 
 <style global>
+  ::selection {
+    background-color: var(--indigo-5);
+    color: white;
+  }
+
   [data-theme="dark"] {
     & body {
       --_sky-gradient: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
