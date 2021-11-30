@@ -50,14 +50,14 @@ import Analytics from '../components/Analytics/Analytics.astro';
     }
   }
 
-  /* Why no work? */
+</style>
+
+<style global>
   ::selection {
     background-color: var(--indigo-5);
     color: white;
   }
-</style>
 
-<style global>
   [data-theme="dark"] {
     & body {
       --_sky-gradient: linear-gradient(to bottom, rgb(0 40 74), rgb(105 141 179));
@@ -74,19 +74,6 @@ import Analytics from '../components/Analytics/Analytics.astro';
     & .snow-left,
     & .snow-right {
       opacity: 0.3;
-    }
-
-    body::-webkit-scrollbar {
-      width: 1rem;
-    }
-
-    body::-webkit-scrollbar-track {
-      background-color: transparent;
-      border: 1px solid var(--indigo-7);
-    }
-
-    body::-webkit-scrollbar-thumb {
-      background-color: var(--indigo-7);
     }
   }
 
