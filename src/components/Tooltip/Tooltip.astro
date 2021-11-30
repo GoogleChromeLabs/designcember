@@ -8,7 +8,7 @@
     left: var(--_x);
     z-index: var(--layer-3);
     max-inline-size: 96vw;
-    
+
     @media (--motionOK) {
       transition: top .6s var(--ease-squish-3), left .6s var(--ease-squish-3) .05s;
     }
@@ -120,7 +120,7 @@
       activeDay = null
     }
   }
-  
+
   const openTooltip = element => {
     if (activeDay === element) return
 
@@ -164,6 +164,12 @@
       case "bottom":
         centeredY = Math.round(y) + signHeight + window.scrollY + 10
         break
+    }
+
+    if (centeredY + tooltipHeight > window.scrollY + window.innerHeight) {
+      centeredY = (window.innerHeight + window.scrollY) - tooltipHeight
+    } else if (centeredY < window.scrollY) {
+      centeredY = window.scrollY
     }
 
     // update custom properties which position the tip
