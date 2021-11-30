@@ -14,11 +14,17 @@
     width: var(--size-9);
     border-radius: var( --size-8) 0 0 var(--size-8);
     transition: transform 0.25s cubic-bezier(0,1.5,.8,1.2);
-    margin-right: -1rem;
 
-    &:hover,
-    &:focus {
-      transform: translateX(0.25rem);
+    @media (pointer: coarse) {
+      width: var(--size-8);
+      transform: translateY(-0.5rem);
+    }
+
+    @media (pointer: fine) {
+      &:hover,
+      &:focus {
+        transform: translateX(0.25rem);
+      }
     }
 
     @media (--md) {
