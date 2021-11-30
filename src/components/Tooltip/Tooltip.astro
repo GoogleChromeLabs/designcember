@@ -134,7 +134,7 @@
     if (detailUrl) {
       tooltip.querySelector('.detail-url').setAttribute('href', detailUrl);
     } else {
-      tooltip.querySelector('.detail-url').remove();
+      tooltip.querySelector('.detail-url')?.remove();
     }
 
     tooltip.style.display = null // will render the element
