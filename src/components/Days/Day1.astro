@@ -156,7 +156,9 @@ const day_state = Days.day1;
     aspect-ratio: 704/852;
     background: url("/day1/adam_sprite.png") 0% 0%;
     background: url("/day1/adam_sprite.webp") 0% 0%;
-    background-size: 400% auto;
+    /* 401% to avoid rounding errors that let the next
+    frame bleed into view */
+    background-size: 401% auto;
 
     @nest .day:is(:hover, :focus-within) & {
       animation: adam-wave .5s steps(1) alternate infinite;
@@ -165,8 +167,8 @@ const day_state = Days.day1;
 
   @keyframes adam-wave {
     0%  { background-position-x: 0%; }
-    25% { background-position-x: 300%; }
-    50% { background-position-x: 200%; }
+    25% { background-position-x: calc(100% / 3); }
+    50% { background-position-x: calc(100%  * 2/ 3); }
     75% { background-position-x: 100%; }
   }
 
