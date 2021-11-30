@@ -299,6 +299,16 @@ import Day31 from '../Days/Day31.astro';
     }
   }
 
+  @supports not (aspect-ratio: 1) {
+    .calendar {
+      padding: 0 var(--size-6);
+    }
+
+    .twentytwo-twentythree {
+      min-height: 280px;
+    }
+  }
+
   .pair {
     display: grid;
     justify-items: center;
