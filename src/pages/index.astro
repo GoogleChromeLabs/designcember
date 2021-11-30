@@ -49,6 +49,12 @@ import Analytics from '../components/Analytics/Analytics.astro';
       gap: var(--size-10);
     }
   }
+
+  /* Why no work? */
+  ::selection {
+    background-color: var(--indigo-5);
+    color: white;
+  }
 </style>
 
 <style global>
@@ -68,6 +74,19 @@ import Analytics from '../components/Analytics/Analytics.astro';
     & .snow-left,
     & .snow-right {
       opacity: 0.3;
+    }
+
+    body::-webkit-scrollbar {
+      width: 1rem;
+    }
+
+    body::-webkit-scrollbar-track {
+      background-color: transparent;
+      border: 1px solid var(--indigo-7);
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: var(--indigo-7);
     }
   }
 
