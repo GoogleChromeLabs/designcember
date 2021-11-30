@@ -54,6 +54,7 @@ const day_state = Days.day3;
     container: size;
     align-items: end;
     margin-bottom: 2rem;
+    position: relative;
   }
 
   .person {
@@ -63,15 +64,14 @@ const day_state = Days.day3;
     position: relative;
 
     @container (min-width: 200px) {
-      left: -10%;
-      width: 120%;
+      left: 0;
+      width: 100%;
     }
 
     @container (min-width: 300px) {
-      width: 100%;
-      left: 0;
       bottom: 10%;
-      max-width: none;
+      max-width: 400px;
+      justify-self: center;
     }
   }
 
@@ -185,6 +185,10 @@ const day_state = Days.day3;
       --_bg-shadow-opacity: .25;
       --_bg-gradient-color-1: hsl(94deg 31% 13%);
       --_bg-gradient-color-2: hsl(49deg 35% 24%);
+    }
+
+    & .bg {
+      opacity: 0.3;
     }
   }
 </style>
