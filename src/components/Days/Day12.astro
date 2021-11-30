@@ -9,10 +9,14 @@ const day_state = Days.day12;
 <style>
   .twelve {
     aspect-ratio: auto;
-    margin: 6.25rem var(--size-7) var(--size-4);
+    margin: var(--size-3) var(--size-7) var(--size-4);
     border-radius: 1e3px 1e3px 0 0;
     padding: 0;
     overflow: visible;
+
+    @media (--md) {
+      margin-block-start: 6.25rem;
+    }
   }
 
   .plaque {
