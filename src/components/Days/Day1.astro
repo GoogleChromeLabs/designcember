@@ -110,6 +110,10 @@ const day_state = Days.day1;
     @nest .day:is(:hover, :focus-within) & {
       animation: una-wave .5s steps(1) alternate infinite;
     }
+
+    @supports not (aspect-ratio: 1) {
+      height: 46%;
+    }
   }
 
   @keyframes una-wave {
@@ -158,6 +162,10 @@ const day_state = Days.day1;
 
     @nest .day:is(:hover, :focus-within) & {
       animation: adam-wave .5s steps(1) alternate infinite;
+    }
+
+    @supports not (aspect-ratio: 1) {
+      height: 75%;
     }
   }
 
