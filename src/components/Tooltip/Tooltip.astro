@@ -145,11 +145,12 @@
 
   const positionTip = () => {
     // grab data from active day node
-    const { detailPosition } = activeDay.dataset
+    let { detailPosition } = activeDay.dataset
 
     // grab bounds for the day and the content updated tooltip
-    const {x,y,width:signWidth,height:signHeight} = activeDay.querySelector('a').getBoundingClientRect()
-    const {width:tooltipWidth,height:tooltipHeight} = tooltip.getBoundingClientRect()
+    let {height:activeDayHeight,bottom:dayBottom} = activeDay.getBoundingClientRect()
+    let {x,y,width:signWidth,height:signHeight} = activeDay.querySelector('a').getBoundingClientRect()
+    let {width:tooltipWidth,height:tooltipHeight} = tooltip.getBoundingClientRect()
 
     // figure out x and y that stay within window
     let centeredX = Math.round(x) - (tooltipWidth/2) + (signWidth/2)
@@ -158,6 +159,15 @@
       centeredX = window.innerWidth - tooltipWidth
 
     let centeredY
+
+    // force top alignment is would otherwise be out of the viewport
+    if (y + tooltipHeight > window.innerHeight) {
+      let offsetDayHeight = activeDayHeight - (dayBottom - window.innerHeight)
+      let delta = (y + offsetDayHeight) - window.innerHeight + 10
+
+      detailPosition = 'top'
+      y -= delta
+    }
 
     switch (detailPosition) {
       case "top":
