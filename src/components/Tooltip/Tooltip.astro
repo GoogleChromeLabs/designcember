@@ -132,7 +132,7 @@
     tooltip.querySelector('.detail-description').textContent = detailDescription
 
     if (detailUrl) {
-      tooltip.querySelector('.detail-url').setAttribute('href', detailUrl);
+      tooltip.querySelector('.detail-url')?.setAttribute('href', detailUrl);
     } else {
       tooltip.querySelector('.detail-url')?.remove();
     }
