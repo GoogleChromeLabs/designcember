@@ -133,9 +133,12 @@
     tooltip.querySelector('.detail-description').textContent = detailDescription
 
     if (detailUrl) {
-      tooltip.querySelector('.detail-url')?.setAttribute('href', detailUrl);
+      if (tooltip.querySelector('.detail-url').style.display = 'none') { 
+        tooltip.querySelector('.detail-url').style.display = 'block'
+      }
+      tooltip.querySelector('.detail-url').setAttribute('href', detailUrl);
     } else {
-      tooltip.querySelector('.detail-url')?.remove();
+      tooltip.querySelector('.detail-url').style.display = 'none'
     }
 
     tooltip.style.display = null // will render the element
