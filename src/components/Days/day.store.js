@@ -18,7 +18,7 @@
 // this is not shipped to the client
 // spoof a day of the month by setting todaysDate to a particular date
 
-const calendarStart = new Date("2021-12-01");
+const calendarStart = new Date("Wed Dec 01 2021 00:00:00 GMT-0800");
 const day = 1000 * 60 * 60 * 24;
 const todaysDate = new Date();
 const currentDaySinceStart = Math.floor((todaysDate - calendarStart) / day) + 1;
