@@ -41,7 +41,7 @@ import Pic from '../Pic/Pic.astro';
     }
   }
 
-  .intro a {
+  a {
     color: var(--indigo-6);
     text-decoration-color: var(--indigo-6);
   }
@@ -66,6 +66,11 @@ import Pic from '../Pic/Pic.astro';
 
     & .logo {
       filter: hue-rotate(205deg) grayscale(0.85) brightness(2)
+    }
+
+    & .intro > a {
+      color: var(--indigo-3);
+      text-decoration-color: var(--indigo-3);
     }
   }
 </style>
