@@ -142,7 +142,7 @@ import Day31 from '../Days/Day31.astro';
       // only trigger focus when it's from a Number link
       // focus() is called on days after the tooltip is closed
       // `return` here prevents an infinite focus loop
-      if (!e.relatedTarget) return
+      if (!e.relatedTarget || e.relatedTarget.classList.contains('helpful-birb')) return
 
       history.pushState(null, null, day.querySelector('a').getAttribute('href'))
 
@@ -182,7 +182,7 @@ import Day31 from '../Days/Day31.astro';
     const today = [...document.querySelectorAll('[data-day-state="active"]')].pop();
     today.querySelector('a').focus()
     history.pushState(null, null, today.querySelector('a').getAttribute('href'));
-    document.querySelector('#tooltip').open(today);
+    window.addEventListener('scroll', onscroll)
   }
 </script>
 
