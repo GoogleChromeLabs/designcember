@@ -66,34 +66,40 @@ const day_state = Days.day9;
   }
 
   .steam {
-    aspect-ratio: 23/26;
+    aspect-ratio: 3/5;
     background: url("/day9/steam_sprite.png") 0% 0%;
     background: url("/day9/steam_sprite.webp") 0% 0%;
-    background-size: 600% auto;
+    background-size: 800% auto;
+    background-position-x: 800%;
     margin-right: 6%;
-    margin-top: 55%;
+    margin-top: 43%;
     place-self: center flex-end;
-    width: 20%;
+    inline-size: 20%;
 
     @supports not (aspect-ratio: 1) {
-      block-size: 15%;
+      block-size: 29%;
+    }
+
+    @container (max-width: 300px) {
+      margin-top: 39%;
     }
   }
 
   .nine:hover .steam,
   .nine:focus-within .steam {
-    animation: steamy 2.5s steps(1) infinite;
+    animation: steamy 2s steps(1) reverse infinite;
   }
 
   @keyframes steamy {
     0%  { background-position-x: 0%; }
     12% { background-position-x: 100%; }
-    27% { background-position-x: 200%; }
-    39% { background-position-x: 300%; }
-    51% { background-position-x: 400%; }
-    63% { background-position-x: 500%; }
-    75% { background-position-x: 600%; }
-    88% { background-position-x: 700%; }
+    24% { background-position-x: 200%; }
+    36% { background-position-x: 300%; }
+    48% { background-position-x: 400%; }
+    60% { background-position-x: 500%; }
+    72% { background-position-x: 600%; }
+    84% { background-position-x: 700%; }
+    96% { background-position-x: 800%; }
   }
 
 
