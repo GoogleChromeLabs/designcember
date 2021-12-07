@@ -31,4 +31,9 @@
       filter: none;
     }
   }
+
+  &:focus-within {
+    outline: 1px solid var(--brand);
+    outline-offset: 5px;
+  }
 }
