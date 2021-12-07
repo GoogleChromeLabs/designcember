@@ -10,6 +10,8 @@ const day_state = Days.day27;
   .twentyseven {
     width: 100%;
     aspect-ratio: auto;
+    container: size;
+    margin-inline-end: calc(var(--size-6) * -1);
 
     @media (--md) {
       --_day-height: 2;
@@ -24,15 +26,115 @@ const day_state = Days.day27;
     }
   }
 
+  .frame {
+    padding-inline-end: var(--size-9);
+    padding-block-end: var(--size-10);
+  }
+
   .plaque {
-    z-index: var(--layer-1);
-    place-self: flex-end center;
-    margin-block-end: -10px;
+    z-index: var(--layer-2);
+    place-self: flex-end flex-start;
+    margin-block: var(--size-8);
+    margin-inline-start: var(--size-8);
+  }
+
+  .pane {
+    border: var(--size-2) solid #d9773e;
+    overflow: hidden;
   }
 
   .bg {
     background: linear-gradient(to bottom, #ffdbcb 43%, #cee4e6 0%);
-    margin: 2% 17% 15% 9%;
+  }
+
+  .bg_shadow {
+    place-self: flex-start flex-end;
+    margin-block-start: -20%;
+    margin-inline-end: -15%;
+    inline-size: 140%;
+  }
+
+  .sill {
+    inline-size: 110%;
+    margin-block-end: -18%;
+    place-self: flex-end center;
+  }
+
+  .sill_drip {
+    place-self: flex-end;
+    max-inline-size: 30%;
+    margin-inline-end: 5%;
+    margin-block-start: -1%;
+  }
+
+  .sill_top {
+    place-self: flex-start center;
+    inline-size: 110%;
+    margin-block-start: -2%;
+    z-index: var(--layer-1);
+  }
+
+  .boy {
+    max-inline-size: 50%;
+    place-self: flex-end flex-start;
+    margin-block-end: -10%;
+    margin-block-start: 60%;
+    margin-inline-start: 5%;
+  }
+
+  .door {
+    max-inline-size: 25%;
+    place-self: start;
+    inset-block-start: 43%;
+    inset-inline-start: 5%;
+    position: relative;
+    transform: translateY(-100%);
+  }
+
+  .doorframebg {
+    background: white;
+    margin: 3%;
+  }
+
+  .character {
+    place-self: center;
+    max-inline-size: 80%;
+    place-self: flex-end flex-start;
+  }
+
+  .exclamation {
+    max-inline-size: 50%;
+    place-self: flex-start flex-end;
+    margin-inline-end: -30%;
+  }
+
+  .snowman {
+    max-inline-size: 90%;
+    place-self: flex-end;
+    margin-block: 5% -2%;
+    margin-inline-end: -5%;
+  }
+
+  .snowman_body {
+    clip-path: inset(0% 9% 5% 0%);
+  }
+
+  .scarf {
+    max-inline-size: 65%;
+    place-self: flex-end;
+    margin-inline-end: -9%;
+    margin-block-end: 49%;
+  }
+
+  .arm {
+    max-inline-size: 50%;
+    place-self: flex-end;
+    margin-block-end: 78%;
+    margin-inline-end: -19%;
+  }
+
+  .sill, .scarf, .arm, .boy { 
+    z-index: var(--layer-1); 
   }
 </style>
 
@@ -57,8 +159,47 @@ const day_state = Days.day27;
   <span class="plaque">
     <Number num="27" link="#27th" active={day_state} />
   </span>
-  <div class="frame stacked">
+  <div class="frame stacked cq-interactive">
     <div class="bg"></div>
-    <Pic filename="day27/27" role="presentation" />
+    <div class="pane stacked">
+      <div class="bg_shadow">
+        <Pic filename="day27/bg_shadow" role="presentation" />
+      </div>
+      <div class="door stacked">
+        <div class="doorframe stacked">
+          <div class="doorframebg"></div>
+          <Pic filename="day27/bg_doorframe" role="presentation" />
+        </div>
+        <div class="character">
+          <Pic filename="day27/bg_character" role="presentation" />
+        </div>
+        <div class="exclamation">
+          <Pic filename="day27/bg_exclamation" role="presentation" />
+        </div>
+      </div>
+      <div class="boy">
+        <Pic filename="day27/boy" role="presentation" />
+      </div>
+    </div>
+    <div class="sill stacked">
+      <Pic filename="day27/sill" role="presentation" />
+      <div class="sill_drip">
+        <Pic filename="day27/sill_drip" role="presentation" />
+      </div>
+    </div>
+    <div class="snowman stacked">
+      <div class="snowman_body">
+        <Pic filename="day27/snowman" role="presentation" />
+      </div>
+      <div class="scarf">
+        <Pic filename="day27/snowman_scarf" role="presentation" />
+      </div>
+      <div class="arm">
+        <Pic filename="day27/snowman_arm" role="presentation" />
+      </div>
+    </div>
+    <div class="sill_top">
+      <Pic filename="day27/sill_top" role="presentation" />
+    </div>
   </div>
 </div>
