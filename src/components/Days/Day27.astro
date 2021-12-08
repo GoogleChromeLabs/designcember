@@ -170,10 +170,6 @@ const day_state = Days.day27;
       margin-inline-end: 2%;
       margin-block-end: -10%;
     }
-
-    /* @container (max-height: 200px) and (max-width: 399px) {
-      max-inline-size: 40%;
-    } */
   }
 
   .snowman_body {
@@ -206,7 +202,11 @@ const day_state = Days.day27;
 <style global>
   [data-theme="dark"] {
     & .twentyseven .bg {
-      background: linear-gradient(to bottom, hsl(18deg 30% 60%) 43%, hsl(185deg 12% 15%) 0%);
+      background: linear-gradient(to bottom, hsl(18deg 30% 60%) 43%, hsl(185deg 2% 55%) 0%);
+    }
+
+    & .twentyseven .pane {
+      background: none;
     }
   }
 </style>
