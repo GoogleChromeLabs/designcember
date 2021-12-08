@@ -8,11 +8,11 @@ const day_state = Days.day27;
 
 <style>
   .twentyseven {
-    width: 100%;
+    inline-size: 100%;
+    min-block-size: 80%;
+
     aspect-ratio: auto;
     margin-inline-end: calc(var(--size-6) * -1);
-
-    min-block-size: 80%;
     place-self: center;
 
     @media (--md) {
@@ -52,6 +52,9 @@ const day_state = Days.day27;
     container: size;
     padding-inline-end: var(--size-9);
     padding-block-end: var(--size-10);
+    max-inline-size: 500px;
+    min-inline-size: 100px;
+    max-block-size: 500px;
   }
 
   .plaque {
