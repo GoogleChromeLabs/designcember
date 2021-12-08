@@ -8,12 +8,16 @@ const day_state = Days.day27;
 
 <style>
   .twentyseven {
-    width: 100%;
+    inline-size: 100%;
+    min-block-size: 80%;
+
     aspect-ratio: auto;
+    margin-inline-end: calc(var(--size-6) * -1);
+    place-self: center;
 
     @media (--md) {
       --_day-height: 2;
-      grid-row: 11 / 13;
+      grid-row: 11 / 12;
       grid-column: 3 / 3;
     }
 
@@ -22,24 +26,190 @@ const day_state = Days.day27;
       grid-row: 8 / 10;
       grid-column: 1 / 3;
     }
+
+    @container (min-width: 200px) {
+      block-size: 300px;
+    }
+
+    @container (min-width: 250px) {
+      block-size: 350px;
+    }
+
+    @container (min-width: 300px) {
+      block-size: 400px;
+    }
+
+    @container (min-width: 350px) {
+      block-size: 475px;
+    }
+
+    @container (min-width: 400px) {
+      block-size: 400px;
+    }
+  }
+
+  .frame {
+    container: size;
+    padding-inline-end: var(--size-9);
+    padding-block-end: var(--size-10);
+    max-inline-size: 500px;
+    min-inline-size: 100px;
+    max-block-size: 500px;
   }
 
   .plaque {
-    z-index: var(--layer-1);
-    place-self: flex-end center;
-    margin-block-end: -10px;
+    z-index: var(--layer-2);
+    place-self: flex-end flex-start;
+    margin-block: var(--size-8);
+    margin-inline-start: var(--size-8);
+
+    @container (min-width: 400px) {
+      place-self: flex-start;
+      margin: 1%;
+    }
+  }
+
+  .pane {
+    border: var(--size-2) solid #d9773e;
+    overflow: hidden;
   }
 
   .bg {
     background: linear-gradient(to bottom, #ffdbcb 43%, #cee4e6 0%);
-    margin: 2% 17% 15% 9%;
+  }
+
+  .bg_shadow {
+    place-self: flex-start flex-end;
+    margin-block-start: -20%;
+    margin-inline-end: -15%;
+    inline-size: 140%;
+  }
+
+  .sill {
+    inline-size: 110%;
+    margin-block-end: -18%;
+    place-self: flex-end center;
+
+    @container (min-width: 400px) {
+      margin-block-end: -9%;
+    }
+  }
+
+  .sill_drip {
+    place-self: flex-end;
+    max-inline-size: 30%;
+    margin-inline-end: 5%;
+    margin-block-start: -1%;
+
+    @container (min-width: 400px) {
+      max-inline-size: 20%;
+    }
+  }
+
+  .sill_top {
+    place-self: flex-start center;
+    inline-size: 110%;
+    margin-block-start: -2%;
+    z-index: var(--layer-1);
+
+    @container (min-width: 400px) {
+      display: none;
+    }
+  }
+
+  .boy {
+    max-inline-size: 50%;
+    place-self: flex-end flex-start;
+    margin-block-end: -10%;
+    margin-block-start: 60%;
+    margin-inline-start: 5%;
+
+    @container (min-width: 400px) {
+      max-inline-size: 30%;
+      margin-block-start: 0%;
+      margin-block-end: -1%;
+    }
+  }
+
+  .door {
+    max-inline-size: 25%;
+    place-self: start;
+    inset-block-start: 43%;
+    inset-inline-start: 5%;
+    position: relative;
+    transform: translateY(-100%);
+
+    @container (min-width: 400px) {
+      max-inline-size: 10%;
+      inset-inline-start: 20%;
+    }
+  }
+
+  .doorframebg {
+    background: white;
+    margin: 3%;
+  }
+
+  .character {
+    place-self: center;
+    max-inline-size: 80%;
+    place-self: flex-end flex-start;
+  }
+
+  .exclamation {
+    max-inline-size: 50%;
+    place-self: flex-start flex-end;
+    margin-inline-end: -30%;
+  }
+
+  .snowman {
+    max-inline-size: 90%;
+    place-self: flex-end;
+    margin-block: 5% -2%;
+    margin-inline-end: -5%;
+
+    @container (min-width: 400px) {
+      max-inline-size: 50%;
+      margin-inline-end: 2%;
+      margin-block-end: -10%;
+    }
+  }
+
+  .snowman_body {
+    clip-path: inset(0% 9% 5% 0%);
+
+    @container (min-width: 400px) {
+      clip-path: inset(0% 0% 15% 0%);
+    }
+  }
+
+  .scarf {
+    max-inline-size: 65%;
+    place-self: flex-end;
+    margin-inline-end: -9%;
+    margin-block-end: 49%;
+  }
+
+  .arm {
+    max-inline-size: 50%;
+    place-self: flex-end;
+    margin-block-end: 78%;
+    margin-inline-end: -19%;
+  }
+
+  .sill, .scarf, .arm, .boy { 
+    z-index: var(--layer-1); 
   }
 </style>
 
 <style global>
   [data-theme="dark"] {
     & .twentyseven .bg {
-      background: linear-gradient(to bottom, hsl(18deg 30% 60%) 43%, hsl(185deg 12% 15%) 0%);
+      background: linear-gradient(to bottom, hsl(18deg 30% 60%) 43%, hsl(185deg 2% 55%) 0%);
+    }
+
+    & .twentyseven .pane {
+      background: none;
     }
   }
 </style>
@@ -57,8 +227,47 @@ const day_state = Days.day27;
   <span class="plaque">
     <Number num="27" link="#27th" active={day_state} />
   </span>
-  <div class="frame stacked">
+  <div class="frame stacked cq-interactive">
     <div class="bg"></div>
-    <Pic filename="day27/27" role="presentation" />
+    <div class="pane stacked">
+      <div class="bg_shadow">
+        <Pic filename="day27/bg_shadow" role="presentation" />
+      </div>
+      <div class="door stacked">
+        <div class="doorframe stacked">
+          <div class="doorframebg"></div>
+          <Pic filename="day27/bg_doorframe" role="presentation" />
+        </div>
+        <div class="character">
+          <Pic filename="day27/bg_character" role="presentation" />
+        </div>
+        <div class="exclamation">
+          <Pic filename="day27/bg_exclamation" role="presentation" />
+        </div>
+      </div>
+      <div class="boy">
+        <Pic filename="day27/boy" role="presentation" />
+      </div>
+    </div>
+    <div class="sill stacked">
+      <Pic filename="day27/sill" role="presentation" />
+      <div class="sill_drip">
+        <Pic filename="day27/sill_drip" role="presentation" />
+      </div>
+    </div>
+    <div class="snowman stacked">
+      <div class="snowman_body">
+        <Pic filename="day27/snowman" role="presentation" />
+      </div>
+      <div class="scarf">
+        <Pic filename="day27/snowman_scarf" role="presentation" />
+      </div>
+      <div class="arm">
+        <Pic filename="day27/snowman_arm" role="presentation" />
+      </div>
+    </div>
+    <div class="sill_top">
+      <Pic filename="day27/sill_top" role="presentation" />
+    </div>
   </div>
 </div>
