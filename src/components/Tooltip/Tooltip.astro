@@ -144,7 +144,14 @@
     tooltip.style.display = null // will render the element
 
     positionTip()
-    tooltip.querySelector(':scope > section').focus()
+
+    let contentarea = tooltip.querySelector(':scope > section')
+
+    contentarea.focus()
+    contentarea.addEventListener('focusout', e => {
+      if (!contentarea.contains(e.relatedTarget))
+        closeTooltip()
+    })
   }
 
   const positionTip = () => {
