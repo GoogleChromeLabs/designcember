@@ -134,6 +134,7 @@ import Day31 from '../Days/Day31.astro';
 
       history.pushState(null, null, day.querySelector('a').getAttribute('href'))
       document.querySelector('#tooltip').open(day)
+      day.setAttribute('aria-expanded', 'true')
     })
 
     // when enter/spacebar are pressed, forward focus to the tooltip section
@@ -145,6 +146,7 @@ import Day31 from '../Days/Day31.astro';
         history.pushState(null, null, day.querySelector('a').getAttribute('href'))
         document.querySelector('#tooltip').open(day)
         document.querySelector('#tooltip > section').focus()
+        day.setAttribute('aria-expanded', 'true')
       }
     })
   })

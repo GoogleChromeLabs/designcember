@@ -119,6 +119,7 @@
     if (activeDay) {
       resizeObserver.unobserve(activeDay)
       activeDay.querySelector('a').focus()
+      activeDay.setAttribute('aria-expanded', 'false')
       activeDay = null
     }
   }
