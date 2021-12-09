@@ -144,6 +144,7 @@
     tooltip.style.display = null // will render the element
 
     positionTip()
+    tooltip.querySelector(':scope > section').focus()
   }
 
   const positionTip = () => {
