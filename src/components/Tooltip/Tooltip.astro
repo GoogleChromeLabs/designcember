@@ -119,6 +119,7 @@
     if (activeDay) {
       resizeObserver.unobserve(activeDay)
       activeDay.querySelector('a').focus()
+      activeDay.setAttribute('aria-expanded', 'false')
       activeDay = null
     }
   }
@@ -144,6 +145,14 @@
     tooltip.style.display = null // will render the element
 
     positionTip()
+
+    let contentarea = tooltip.querySelector(':scope > section')
+
+    contentarea.focus()
+    contentarea.addEventListener('focusout', e => {
+      if (!contentarea.contains(e.relatedTarget))
+        closeTooltip()
+    })
   }
 
   const positionTip = () => {

@@ -7,7 +7,9 @@ export interface Props {
 
 import Pic from '../Pic/Pic.astro';
 
-const { num, link, active = 'pending' } = Astro.props;
+let { num, link, active = 'pending' } = Astro.props;
+
+if (active == 'pending') link = null
 ---
 
 <style>
