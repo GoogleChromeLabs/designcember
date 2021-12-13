@@ -30,13 +30,15 @@ const day_state = Days.day30;
     min-block-size: 100px;
 
     @media (--md) {
-      min-block-size: 175px;
+      min-block-size: 150px;
+      min-inline-size: 325px;
     }
   }
 
   .pane {
     border: var(--size-2) solid #d9773e;
     overflow: hidden;
+    position: relative;
   }
 
   .bg {
@@ -83,7 +85,7 @@ const day_state = Days.day30;
 
   .salmon {
     place-self: flex-end flex-start;
-    max-inline-size: 35%;
+    max-inline-size: 30%;
     margin-block-end: -3%;
     margin-inline-start: -2%;
   }
@@ -96,23 +98,32 @@ const day_state = Days.day30;
   }
 
   .wreath {
-    place-self: center center;
-    max-inline-size: 60%;
-    margin-block: -4% -2%;
-    block-size: 115%;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    place-items: center;
   }
 
-  .fit-frame-height {
+  .stretch-to-frame-height {
     block-size: 100%;
-    inline-size: auto;
-    object-fit: cover;
+  }
+
+  .centered-wreath {
+    block-size: 100%;
+    max-inline-size: 50%;
+    margin-inline: auto;
+    object-fit: contain;
+  }
+
+  .charcuterie, .drink_1, .drink_2 {
+    z-index: 1;
   }
 </style>
 
 <style global>
   [data-theme="dark"] {
     & .thirty .bg {
-      background: linear-gradient(to bottom, hsl(0deg 0% 60%), 25%, hsl(28deg 20% 53%));
+      background: radial-gradient(circle at top center, hsl(36deg 50% 95%), 25%, hsl(28deg 60% 63%));
     }
   }
 </style>
@@ -140,17 +151,11 @@ const day_state = Days.day30;
         <picture>
           <source srcset="/day30/table_runner.avif" type="image/avif">
           <source srcset="/day30/table_runner.webp" type="image/webp">
-          <img class="fit-frame-height" alt="" loading="lazy" decoding="async" role="presentation" src="/day30/table_runner.png" height="725" width="1901">
+          <img class="stretch-to-frame-height" alt="" loading="lazy" decoding="async" role="presentation" src="/day30/table_runner.png" height="725" width="1901">
         </picture>
       </div>
       <div class="orange">
         <Pic filename="day30/orange" role="presentation" />
-      </div>
-      <div class="drink_1">
-        <Pic filename="day30/drink_1" role="presentation" />
-      </div>  
-      <div class="drink_2">
-        <Pic filename="day30/drink_2" role="presentation" />
       </div>
       <div class="asparagus">
         <Pic filename="day30/asparagus" role="presentation" />
@@ -158,15 +163,21 @@ const day_state = Days.day30;
       <div class="salmon">
         <Pic filename="day30/salmon" role="presentation" />
       </div>
-      <div class="charcuterie">
-        <Pic filename="day30/charcuterie" role="presentation" />
-      </div>
       <div class="wreath">
         <picture>
           <source srcset="/day30/wreath.avif" type="image/avif">
           <source srcset="/day30/wreath.webp" type="image/webp">
-          <img class="fit-frame-height" alt="" loading="lazy" decoding="async" role="presentation" src="/day30/wreath.png">
+          <img class="centered-wreath" alt="" loading="lazy" decoding="async" role="presentation" src="/day30/wreath.png">
         </picture>
+      </div>
+      <div class="drink_1">
+        <Pic filename="day30/drink_1" role="presentation" />
+      </div>  
+      <div class="drink_2">
+        <Pic filename="day30/drink_2" role="presentation" />
+      </div>
+      <div class="charcuterie">
+        <Pic filename="day30/charcuterie" role="presentation" />
       </div>
     </div>
   </div>
