@@ -150,7 +150,7 @@
 
     contentarea.focus()
     contentarea.addEventListener('focusout', e => {
-      if (!contentarea.contains(e.relatedTarget))
+      if (e.relatedTarget && !contentarea.contains(e.relatedTarget))
         closeTooltip()
     })
   }
