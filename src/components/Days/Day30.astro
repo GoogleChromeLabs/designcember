@@ -34,9 +34,78 @@ const day_state = Days.day30;
     }
   }
 
+  .pane {
+    border: var(--size-2) solid #d9773e;
+    overflow: hidden;
+  }
+
   .bg {
-    background: linear-gradient(to bottom, white, 25%, #ffebd9);
-    margin: 2% 5% 0 5%;
+    background: radial-gradient(circle at top center, #fffdfa, 25%, #ffebd9);
+  }
+
+  .table {
+    max-inline-size: 25%;
+    margin-block-start: -2%;
+  }
+
+  .table_runner {
+    margin-block-end: -5%;
+    block-size: 105%;
+    inline-size: 100%;
+  }
+
+  .orange {
+    place-self: center flex-start;
+    max-inline-size: 8%;
+    margin-inline-start: -2%;
+    margin-block-start: -10%;
+  }
+
+  .drink_1 {
+    place-self: flex-start flex-end;
+    max-inline-size: 7%;
+    margin-inline-end: 1%;
+    margin-block-start: -5%;
+  }
+
+  .drink_2 {
+    place-self: flex-start flex-end;
+    max-inline-size: 11%;
+    margin-inline-end: 5%;
+    margin-block-start: -5%;
+  }
+
+  .asparagus {
+    max-inline-size: 40%;
+    margin-block-start: -8%;
+    margin-inline-start: 10%;
+  }
+
+  .salmon {
+    place-self: flex-end flex-start;
+    max-inline-size: 35%;
+    margin-block-end: -3%;
+    margin-inline-start: -2%;
+  }
+
+  .charcuterie {
+    place-self: flex-end flex-end;
+    max-inline-size: 55%;
+    margin-block-end: -2%;
+    margin-inline-end: -5%;
+  }
+
+  .wreath {
+    place-self: center center;
+    max-inline-size: 60%;
+    margin-block: -4% -2%;
+    block-size: 115%;
+  }
+
+  .fit-frame-height {
+    block-size: 100%;
+    inline-size: auto;
+    object-fit: cover;
   }
 </style>
 
@@ -61,8 +130,44 @@ const day_state = Days.day30;
   <span class="plaque">
     <Number num="30" link="#30th" active={day_state} />
   </span>
-  <div class="frame stacked">
-    <div class="bg"></div>
-    <Pic filename="day30/30" role="presentation" />
+  <div class="frame stacked cq-interactive">
+    <div class="pane stacked">
+      <div class="bg"></div>
+      <div class="table">
+        <Pic filename="day30/table" role="presentation" />
+      </div>  
+      <div class="table_runner">
+        <picture>
+          <source srcset="/day30/table_runner.avif" type="image/avif">
+          <source srcset="/day30/table_runner.webp" type="image/webp">
+          <img class="fit-frame-height" alt="" loading="lazy" decoding="async" role="presentation" src="/day30/table_runner.png" height="725" width="1901">
+        </picture>
+      </div>
+      <div class="orange">
+        <Pic filename="day30/orange" role="presentation" />
+      </div>
+      <div class="drink_1">
+        <Pic filename="day30/drink_1" role="presentation" />
+      </div>  
+      <div class="drink_2">
+        <Pic filename="day30/drink_2" role="presentation" />
+      </div>
+      <div class="asparagus">
+        <Pic filename="day30/asparagus" role="presentation" />
+      </div>
+      <div class="salmon">
+        <Pic filename="day30/salmon" role="presentation" />
+      </div>
+      <div class="charcuterie">
+        <Pic filename="day30/charcuterie" role="presentation" />
+      </div>
+      <div class="wreath">
+        <picture>
+          <source srcset="/day30/wreath.avif" type="image/avif">
+          <source srcset="/day30/wreath.webp" type="image/webp">
+          <img class="fit-frame-height" alt="" loading="lazy" decoding="async" role="presentation" src="/day30/wreath.png">
+        </picture>
+      </div>
+    </div>
   </div>
 </div>
