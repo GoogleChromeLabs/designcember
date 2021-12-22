@@ -146,13 +146,15 @@
 
     positionTip()
 
-    let contentarea = tooltip.querySelector(':scope > section')
+    // Removing this section below because it makes the site unusable (focus stays on the initial day and users are unable to click open any other days). Need an a11y fix that doesnt move the user back to the top if they hit tab after the link out
 
-    contentarea.focus()
-    contentarea.addEventListener('focusout', e => {
-      if (e.relatedTarget && !contentarea.contains(e.relatedTarget))
-        closeTooltip()
-    })
+    // let contentarea = tooltip.querySelector(':scope > section')
+
+    // contentarea.focus()
+    // contentarea.addEventListener('focusout', e => {
+    //   if (e.relatedTarget && !contentarea.contains(e.relatedTarget))
+    //     closeTooltip()
+    // })
   }
 
   const positionTip = () => {
